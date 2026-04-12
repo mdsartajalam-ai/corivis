@@ -889,3 +889,415 @@ Enable hover only on non-touch devices
   }
 }
 
+
+/* section 6  */
+/* SECTION */
+.projects {
+  padding: 100px 20px;
+  background: #f8fafc;
+}
+
+/* CONTAINER (IMPORTANT FIX) */
+.projects_container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.projects_header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.heading {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.heading span {
+  color: #2563eb;
+}
+
+.sub {
+  margin-top: 12px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* FILTER */
+.filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter_btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.filter_btn:hover {
+  border-color: #2563eb;
+}
+
+.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* GRID */
+.projects_grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* CARD */
+.project_card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+
+  transition: all 0.3s ease;
+}
+
+.project_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* IMAGE */
+.project_img {
+  position: relative;
+  height: 200px;
+}
+
+/* CONTENT */
+.project_content {
+  padding: 16px;
+}
+
+.project_content span {
+  font-size: 12px;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.project_content h3 {
+  font-size: 17px;
+  margin-top: 6px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 768px) {
+  .projects_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heading {
+    font-size: 44px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projects_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .heading {
+    font-size: 48px;
+  }
+}
+
+/* section 7 */
+
+/* ================= SECTION ================= */
+
+.hc_section {
+  padding: 120px 0 80px;
+  background: #f8fafc;
+}
+
+/* ================= CONTAINER ================= */
+
+.hc_container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ================= TEXT ================= */
+
+.hc_top {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hc_badge {
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+}
+
+.hc_heading {
+  font-size: 34px;
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+.hc_heading span {
+  color: #f59e0b;
+}
+
+.hc_sub {
+  color: #6b7280;
+}
+
+/* ================= SLIDER ================= */
+
+.hc_slider {
+  width: 100%;
+  overflow: hidden; /* required for scroll */
+  padding-top: 50px; /* 🔥 space for upward scale */
+  padding-bottom: 10px; /* 🔥 tiny safety */
+}
+
+/* ================= TRACK ================= */
+
+.hc_track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.hc_slider:hover .hc_track {
+  animation-play-state: paused;
+}
+
+/* ================= CARD ================= */
+
+.hc_card {
+  position: relative;
+  min-width: 300px;
+  height: 360px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* 🔥 KEY FIX */
+  transform-origin: bottom center;
+  transition: transform 0.35s ease;
+}
+
+/* 🔥 FINAL HOVER (NO CLIPPING ANYWHERE) */
+
+.hc_card:hover {
+  transform: scale(1.08);
+}
+
+/* ================= IMAGE ================= */
+
+.hc_img_wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.hc_img_wrap img {
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.hc_card:hover img {
+  transform: scale(1.1);
+}
+
+/* ================= OVERLAY ================= */
+
+.hc_overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.2),
+    transparent
+  );
+}
+
+/* ================= CONTENT ================= */
+
+.hc_content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media screen and (min-width: 768px) {
+  .hc_heading {
+    font-size: 44px;
+  }
+
+  .hc_card {
+    min-width: 320px;
+    height: 380px;
+  }
+}
+
+/* section 8 */
+
+/* ================= SECTION ================= */
+
+.cta_section {
+  position: relative;
+  padding: 150px 20px;
+  background: linear-gradient(180deg, #f9fafb, #eef2ff);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= BACKGROUND GLOW ================= */
+
+.cta_bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #6366f1, transparent 70%);
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.25;
+  filter: blur(80px);
+}
+
+/* ================= CONTAINER ================= */
+
+.cta_container {
+  position: relative;
+  text-align: center;
+  max-width: 820px;
+  z-index: 2;
+}
+
+/* ================= BADGE ================= */
+
+.cta_badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* ================= HEADING ================= */
+
+.cta_heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+}
+
+.cta_heading span {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ================= SUBTEXT ================= */
+
+.cta_sub {
+  margin-top: 18px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ================= BUTTONS ================= */
+
+.cta_actions {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* primary */
+
+.cta_primary {
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #111827, #1f2937);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta_primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* secondary */
+
+.cta_secondary {
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta_secondary:hover {
+  background: #111827;
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media screen and (min-width: 768px) {
+  .cta_heading {
+    font-size: 56px;
+  }
+
+  .cta_sub {
+    font-size: 18px;
+  }
+}

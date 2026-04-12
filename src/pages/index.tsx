@@ -5,6 +5,9 @@ import AboutSection from "@/components/home/AboutSection";
 import ClientCarousel from "@/components/home/ClientCarousel";
 import RunningTestimonials from "@/components/home/RunningTestimonials";
 import Expertise from "@/components/home/Experties";
+import OurWork from "@/components/home/OurWork";
+import HappyCustomer from "@/components/home/HappyCustomer";
+import FutureCTA from "@/components/home/FutureCTA";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -32,6 +35,9 @@ export default function Home() {
           <ClientCarousel/>
           <RunningTestimonials/>
           <Expertise/>
+          <OurWork/>
+          <HappyCustomer/>
+          <FutureCTA/>
         </section>
       </main>
     </>

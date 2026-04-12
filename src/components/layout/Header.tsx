@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { Drawer, IconButton } from "@mui/material";
-import logo from "@/assets/logo/image (1).webp"
+import logo from "@/assets/logo/logo2.png"
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -27,7 +27,7 @@ const Navbar = () => {
         
         {/* LOGO */}
         <div className={styles.logo}>
-          <Image src={logo} alt="logo" width={80} height={50} />
+          <Image src={logo} alt="logo" width={100} height={60} />
         </div>
 
         {/* NAV LINKS */}
