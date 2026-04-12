@@ -1,6 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,5 +40,94 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+.app-button {
+  height: 50px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  transition: 0.5s;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  gap: 4px;
+}
+.app-button:hover {
+  background: var(--primary-hover);
+}
+.btn-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main-heading {
+  font-weight: 700;
+  color: #111827;
+  font-size: 26px;
+  line-height: 34px;
+  margin-bottom: 16px;
+}
+.sub-heading {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .main-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .sub-heading {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 900px) {
+  .main-heading {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .main-heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+
+  .sub-heading {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+    .main-heading {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .sub-heading {
+    font-size: 24px;
+    line-height: 34px;
   }
 }

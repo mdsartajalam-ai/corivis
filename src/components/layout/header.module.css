@@ -1,0 +1,125 @@
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ================= WRAPPER ================= */
+.wrapper {
+  max-width: 1280px;
+  margin: auto;
+  padding: 14px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= NAV LINKS ================= */
+.navCenter {
+  display: none;
+  
+}
+
+.link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.25s;
+  
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+/* underline */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var( --primary-hover);
+  transition: 0.25s;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* ================= RIGHT ================= */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ================= CTA ================= */
+.desktopCta {
+  display: none;
+}
+
+/* ================= MENU ICON ================= */
+.menuBtn {
+  color: #ffffff !important;
+  display: block !important;
+}
+
+/* ================= DRAWER ================= */
+.drawer {
+  width: 260px;
+  background: #111827;
+  height: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.drawerTop {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-weight: 600;
+}
+
+.drawerLink {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* ================= TABLET ================= */
+@media screen and (min-width: 768px) {
+  .navCenter {
+    display: flex;
+    gap: 40px;
+  }
+
+  .menuBtn {
+    display: none !important;
+  }
+}
+
+/* ================= DESKTOP ================= */
+@media screen and (min-width: 1024px) {
+  .desktopCta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    color: white;
+  }
+}
