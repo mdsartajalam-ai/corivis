@@ -8,6 +8,7 @@ import Expertise from "@/components/home/Experties";
 import OurWork from "@/components/home/OurWork";
 import HappyCustomer from "@/components/home/HappyCustomer";
 import FutureCTA from "@/components/home/FutureCTA";
+import ContactForm from "@/components/home/ContactForm";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function Home() {
           <OurWork/>
           <HappyCustomer/>
           <FutureCTA/>
+          <ContactForm/>
         </section>
       </main>
     </>

@@ -85,6 +85,121 @@ a {
   margin-bottom: 24px;
 }
 
+/* .app-label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+} */
+ .app-label {
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #94a3b8; /* soft gray (premium look) */
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== INPUT FIELD ===== */
+.app-input .MuiOutlinedInput-root {
+  border-radius: 10px;
+  background: #020617;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* placeholder */
+.app-input input::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+/* border default */
+.app-input .MuiOutlinedInput-notchedOutline {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* hover */
+.app-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #6366f1;
+}
+
+/* focus */
+.app-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #6366f1;
+  border-width: 1.5px;
+}
+
+/* input text */
+.app-input input {
+  color: #fff;
+}
+
+/* multiline text */
+.app-input textarea {
+  color: #fff;
+}
+
+/* label spacing fix (if needed) */
+.MuiFormControl-root {
+  margin-top: 4px;
+}
+
+/* ===== SELECT FIELD ===== */
+.app-select .MuiOutlinedInput-root {
+  border-radius: 10px;
+  background: #020617;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* select text */
+.app-select .MuiSelect-select {
+  padding: 10px 12px !important;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+/* border default */
+.app-select .MuiOutlinedInput-notchedOutline {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* hover */
+.app-select:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #6366f1;
+}
+
+/* focus */
+.app-select.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #6366f1;
+  border-width: 1.5px;
+}
+
+/* ===== DROPDOWN MENU ===== */
+.app-select-dropdown {
+  background: #020617 !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* menu item */
+.app-select-dropdown .MuiMenuItem-root {
+  font-size: 14px;
+}
+
+/* hover item */
+.app-select-dropdown .MuiMenuItem-root:hover {
+  background: rgba(99,102,241,0.2);
+}
+
+/* selected item */
+.app-select-dropdown .Mui-selected {
+  background: rgba(99,102,241,0.3) !important;
+}
+
 @media screen and (min-width: 768px) {
   .main-heading {
     font-size: 32px;
@@ -131,3 +246,6 @@ a {
     line-height: 34px;
   }
 }
+
+
+
