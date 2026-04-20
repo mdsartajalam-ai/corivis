@@ -1,4 +1,3 @@
-"use client";
 
 import { Select, MenuItem, SelectChangeEvent } from "@mui/material";
 
@@ -35,8 +34,10 @@ const SelectField = ({
       displayEmpty
       className="app-select"
       MenuProps={{
-        PaperProps: {
-          className: "app-select-dropdown",
+        slotProps: {
+          paper: {
+            className: "app-select-dropdown",
+          },
         },
       }}
     >
