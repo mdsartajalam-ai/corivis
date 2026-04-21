@@ -3,6 +3,27 @@
   --foreground: #171717;
   --primary: #6366f1;
   --primary-hover: #4f46e5;
+  --primary-indigo: #6366f1;
+  --primary-violet: #8b5cf6;
+  --white: #ffffff;
+  --indigo-35: #cbd5f5;
+  --gray-30: #d1d5db;
+  --indigo-20: #6366f133;
+  --indigo-40: #a5b4fc;
+  --white-5: #ffffff0d;
+  --white-10: #ffffff14;
+  --indigo-100: #0b1220;
+  --slate-40: #94a3b8;
+  --slate-50: #64748b;
+  --slate-100: #020617;
+  --indigo-30: #6366f14d;
+  --white-7: #ffffff12;
+  --slate-90: #111827;
+  --white-3: #ffffff08;
+  --navy-80: #020617cc;
+  --slate-60: #475569;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,38 +65,53 @@ a {
 }
 
 .app-button {
-  height: 50px;
+  gap: 4px;
+  height: 48px;
   display: flex;
   font-size: 14px;
+  cursor: pointer;
+  transition: 0.5s;
   font-weight: 600;
-  padding: 10px 16px;
+  padding: 10px 24px;
   border-radius: 8px;
   color: var(--white);
   align-items: center;
   justify-content: center;
-  background: var(--primary);
-  transition: 0.5s;
-  cursor: pointer;
-  border: 1px solid var(--primary);
-  gap: 4px;
+  border: 1px solid var(--primary-indigo);
+  background: linear-gradient(
+    135deg,
+    var(--primary-indigo),
+    var(--primary-violet)
+  );
+  border-radius: 50px;
 }
 .app-button:hover {
-  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
 }
 .btn-content {
+  gap: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 }
 
 .main-heading {
+  font-size: 30px;
   font-weight: 700;
-  color: #111827;
-  font-size: 26px;
-  line-height: 34px;
+  color: var(--white);
+  line-height: 36px;
   margin-bottom: 16px;
+}
+.main-heading .highlight {
+  background: linear-gradient(
+    90deg,
+    var(--primary-indigo),
+    var(--primary-violet)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .sub-heading {
   color: #6b7280;
@@ -84,168 +120,113 @@ a {
   line-height: 26px;
   margin-bottom: 24px;
 }
-
-/* .app-label {
-  font-size: 12px;
-  margin-bottom: 4px;
-  color: black;
-  text-transform: uppercase;
-  font-weight: 600;
-} */
- .app-label {
+.app-label {
   font-size: 12px;
   margin-bottom: 6px;
-  color: #94a3b8; /* soft gray (premium look) */
+  color: var(--slate-40);
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
-/* ===== INPUT FIELD ===== */
 .app-input .MuiOutlinedInput-root {
-  border-radius: 10px;
-  background: #020617;
-  color: #fff;
+  border-radius: 5px;
+  background: var(--slate-100);
+  color: var(--white);
   font-size: 14px;
+  padding: 5px 0px;
 }
-
-/* placeholder */
 .app-input input::placeholder {
-  color: #64748b;
+  color: var(--slate-50);
   opacity: 1;
 }
-
-/* border default */
 .app-input .MuiOutlinedInput-notchedOutline {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--indigo-35);
 }
-
-/* hover */
 .app-input .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: #6366f1;
+  border-color: var(--primary);
 }
-
-/* focus */
 .app-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #6366f1;
-  border-width: 1.5px;
+  border-color: var(--primary);
 }
-
-/* input text */
-.app-input input {
-  color: #fff;
-}
-
-/* multiline text */
-.app-input textarea {
-  color: #fff;
-}
-
-/* label spacing fix (if needed) */
-.MuiFormControl-root {
-  margin-top: 4px;
-}
-
-/* ===== SELECT FIELD ===== */
 .app-select .MuiOutlinedInput-root {
-  border-radius: 10px;
-  background: #020617;
-  color: #fff;
+  color: var(--white);
   font-size: 14px;
+  padding: 10px 0px;
+  border-radius: 10px !important;
 }
-
-/* select text */
 .app-select .MuiSelect-select {
-  padding: 10px 12px !important;
+  padding: 12px 12px !important;
   display: flex;
   align-items: center;
-  color: #fff;
+  background: var(--slate-100);
+  color: var(--white);
 }
-
-/* border default */
+.app-select .MuiSelect-icon{
+  color: var(--primary);
+}
 .app-select .MuiOutlinedInput-notchedOutline {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--indigo-35);
 }
-
-/* hover */
 .app-select:hover .MuiOutlinedInput-notchedOutline {
-  border-color: #6366f1;
+  border-color: var(--indigo-35) !important;
 }
-
-/* focus */
 .app-select.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #6366f1;
-  border-width: 1.5px;
+  border-color: var(--primary) !important;
 }
-
-/* ===== DROPDOWN MENU ===== */
 .app-select-dropdown {
-  background: #020617 !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--slate-100) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--indigo-35);
 }
-
-/* menu item */
 .app-select-dropdown .MuiMenuItem-root {
   font-size: 14px;
 }
-
-/* hover item */
 .app-select-dropdown .MuiMenuItem-root:hover {
-  background: rgba(99,102,241,0.2);
+  background:var(--indigo-20);
 }
-
-/* selected item */
 .app-select-dropdown .Mui-selected {
-  background: rgba(99,102,241,0.3) !important;
+  background: var( --indigo-30) !important;
 }
 
-@media screen and (min-width: 768px) {
-  .main-heading {
-    font-size: 32px;
-    line-height: 40px;
-  }
-  .sub-heading {
-    font-size: 18px;
-    line-height: 28px;
-  }
-}
-@media screen and (min-width: 768px) {
-
-}
-
-@media screen and (min-width: 900px) {
+@media (min-width: 768px) {
   .main-heading {
     font-size: 36px;
     line-height: 44px;
   }
 
+  .sub-heading {
+    font-size: 17px;
+    line-height: 28px;
+  }
 }
 
-@media screen and (min-width: 1024px) {
-    .main-heading {
-    font-size: 42px;
-    line-height: 50px;
+@media (min-width: 900px) {
+  .main-heading {
+    font-size: 44px;
+    line-height: 52px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-heading {
+    font-size: 50px;
+    line-height: 60px;
   }
 
-
   .sub-heading {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 30px;
   }
 }
 
-@media screen and (min-width: 1280px) {
-    .main-heading {
-    font-size: 48px;
-    line-height: 56px;
+@media (min-width: 1280px) {
+  .main-heading {
+    font-size: 56px;
+    line-height: 66px;
   }
 
   .sub-heading {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 34px;
   }
 }
-
-
-

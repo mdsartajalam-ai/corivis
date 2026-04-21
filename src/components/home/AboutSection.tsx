@@ -1,60 +1,38 @@
-"use client";
-
+import Button from "../button/Button";
 import styles from "@/styles/Home.module.css";
+import { companyFeatures } from "@/data/home";
+import MainHeading from "../heading/MainHeading";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-const features = [
-  "25+ Years of Industry Leadership",
-  "250+ Government Projects",
-  "500+ Renovations Completed",
-  "1M+ Smart Meters Installed",
-  "2MW+ Solar Infrastructure",
-];
-
 const AboutSection = () => {
+
+  const buttonClicked = () => {
+    console.log("button clicked");
+  };
+
   return (
-    <section className={styles.about_section}>
-      
-      {/* BACKGROUND GLOW */}
-      <div className={styles.bgGlow}></div>
-
-      <div className={styles.container}>
-        
-        {/* LEFT */}
-        <div className={styles.left}>
-          <span className={styles.badge}>ABOUT THE GROUP</span>
-
-          <h2 className={styles.heading}>
-            Building Infrastructure <br />
-            <span>with Integrity & Innovation</span>
-          </h2>
-
-          <p className={styles.sub}>
-            We are a multidisciplinary infrastructure powerhouse delivering 
-            sustainable, scalable, and future-ready solutions across India.
-          </p>
-
-          <button className={styles.cta}>
-            View Company Profile
-          </button>
-        </div>
-
-        {/* RIGHT */}
-        <div className={styles.right}>
-          {features.map((item, i) => (
-            <div key={i} className={styles.card}>
-              
-              <div className={styles.iconBox}>
-                <CheckCircleIcon />
-              </div>
-
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-
+    <div className={styles.about_container}>
+      <div className={styles.ab_left}>
+        <p className={styles.glo_badge}>ABOUT THE GROUP</p>
+        <MainHeading text="Building Infrastructure {{with Integrity & Innovation}}" />
+        <p className={styles.glo_paragraph}>
+          We are a multidisciplinary infrastructure powerhouse delivering
+          sustainable, scalable, and future-ready solutions across India.
+        </p>
+        <Button text="View Company Profile" action={buttonClicked}/>
       </div>
-    </section>
+
+      <div className={styles.ab_right}>
+        {companyFeatures.map((item, index) => (
+          <div key={index} className={styles.ab_card}>
+            <div className={styles.ab_icon_box}>
+              <CheckCircleIcon />
+            </div>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

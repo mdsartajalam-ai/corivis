@@ -2,13 +2,13 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
-import ClientCarousel from "@/components/home/ClientCarousel";
-import RunningTestimonials from "@/components/home/RunningTestimonials";
+import ClientSection from "@/components/home/ClientSectionl";
 import Expertise from "@/components/home/Experties";
 import OurWork from "@/components/home/OurWork";
 import HappyCustomer from "@/components/home/HappyCustomer";
 import FutureCTA from "@/components/home/FutureCTA";
 import ContactForm from "@/components/home/ContactForm";
+import OurJourney from "@/components/home/OurJourney";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -30,16 +30,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.home_page}>
-        <section className={styles.section}>
+        <section className={styles.hero_section}>
           <HeroSection/>
+        </section>
+        <section className={styles.about_section}>
           <AboutSection/>
-          <ClientCarousel/>
-          <RunningTestimonials/>
+        </section>
+        <section className={styles.client_section}>
+          <ClientSection/>
+        </section>
+        <section className={styles.journey_section}>
+          <OurJourney/>
+        </section>
+        <section className={styles.expertise_section}>
           <Expertise/>
+        </section>
+        <section className={styles.work_section}>
           <OurWork/>
+        </section>
+        <section className={styles.customer_section}>
           <HappyCustomer/>
+        </section>
+        <section className={styles.cta_section}>
           <FutureCTA/>
-          <ContactForm/>
         </section>
       </main>
     </>

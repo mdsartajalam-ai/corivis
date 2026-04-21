@@ -1,39 +1,35 @@
-"use client";
-
+import Button from "../button/Button";
 import styles from "@/styles/Home.module.css";
+import MainHeading from "../heading/MainHeading";
+import EastIcon from "@mui/icons-material/East";
 
-export default function FutureCTA() {
+const FutureCTA = () => {
+  const buttonClicked = () => {
+    console.log("button clicked");
+  };
+
   return (
-    <section className={styles.cta_section}>
-      
-      {/* Background Glow */}
-      <div className={styles.cta_bg}></div>
+    <div className={styles.cta_container}>
+      <p className={styles.glo_badge}>READY TO BUILD</p>
+      <MainHeading text="Ready to Build {{The Future?}}" />
+      <p className={styles.cta_sub}>
+        Partner with us to create world-class infrastructure, sustainable energy
+        solutions, and modern designs that truly make an impact.
+      </p>
 
-      <div className={styles.cta_container}>
-
-        <span className={styles.cta_badge}>READY TO BUILD</span>
-
-        <h2 className={styles.cta_heading}>
-          Ready to Build <br />
-          <span>The Future?</span>
-        </h2>
-
-        <p className={styles.cta_sub}>
-          Partner with us to create world-class infrastructure, sustainable
-          energy solutions, and modern designs that truly make an impact.
-        </p>
-
-        <div className={styles.cta_actions}>
-          <button className={styles.cta_primary}>
-            Start Your Project →
-          </button>
-
-          <button className={styles.cta_secondary}>
-            Get Consultation
-          </button>
-        </div>
-
+      <div className={styles.cta_actions}>
+        <Button
+          text="Start Your Project"
+          action={buttonClicked}
+          endIcon={<EastIcon />}
+        />
+        <Button
+          text="Get Consultation"
+          action={buttonClicked}
+        />
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default FutureCTA;

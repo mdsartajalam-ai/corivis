@@ -1,38 +1,23 @@
-// import styles from "@/styles/Home.module.css";
-// import Button from "../button/Button";
-// import MainHeading from "../heading/MainHeading";
-// import SubHeading from "../heading/SubHeading";
-
-// const HeroSection = () => {
-//   const buttonClicked = () => {
-//     console.log("Button clicked!");
-//   };
-//   return (
-//     <div className={styles.container}>
-//       <h1>this is home page</h1>
-//       <Button text="Click me" action={buttonClicked} />
-//       <MainHeading text="this is main heading "/>
-//       <SubHeading text="this is sub heading"/>
-//     </div>
-//   );
-// };
-
-// export default HeroSection;
-"use client";
-
-import styles from "@/styles/Home.module.css";
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
 import c1 from "@/assets/hero/c1.jpg";
 import c2 from "@/assets/hero/c2.jpg";
 import c3 from "@/assets/hero/c3.jpg";
+import c4 from "@/assets/hero/c4.jpg";
+import Button from "../button/Button";
+import { useEffect, useState } from "react";
+import styles from "@/styles/Home.module.css";
+import EastIcon from "@mui/icons-material/East";
+import MainHeading from "../heading/MainHeading";
 
-const images = [c1, c2, c3];
+
+const images = [c1, c2, c3, c4];
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+
+  const buttonClicked = () => {
+    console.log("button clicked");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,9 +28,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={styles.hero}>
-      
-      {/* BACKGROUND IMAGE */}
+    <div className={styles.hero}>
       {images.map((img, i) => (
         <Image
           key={i}
@@ -53,46 +36,36 @@ const Hero = () => {
           alt="hero"
           fill
           priority={i === 0}
-          className={`${styles.bg} ${i === index ? styles.active : ""}`}
+          quality={100}
+          sizes="100vw" 
+          className={`${styles.hero_bg} ${i === index ? styles.hero_active : ""}`}
         />
       ))}
 
-      {/* OVERLAY */}
-      <div className={styles.overlay} />
+      <div className={styles.hero_overlay} />
 
-      {/* CONTENT */}
-      <div className={styles.container}>
-        
-        <div className={styles.left}>
-          
-          <span className={styles.badge}>
-            Trusted Since 1999
-          </span>
-
-          <h1 className={styles.heading}>
-            Engineering the Future of <br />
-            <span>Infrastructure</span>
-          </h1>
-
-          <p className={styles.sub}>
-            We build scalable, high-quality infrastructure solutions with 
+      <div className={styles.hero_container}>
+        <div className={styles.hero_left}>
+          <p className={styles.h_badge}>Trusted Since 1999</p>
+          <MainHeading text="Engineering the Future of  {{Infrastructure}}" />
+          <p className={styles.h_pra}>
+            We build scalable, high-quality infrastructure solutions with
             innovation, precision, and long-term impact.
           </p>
-
-          <div className={styles.actions}>
-            <button className="app-button">
-              Explore Services <ArrowForwardIcon />
-            </button>
-
-            <button className={styles.secondary}>
-              View Projects
-            </button>
+          <div className={styles.hero_btn}>
+            <Button
+              text="Explore Service"
+              action={buttonClicked}
+              endIcon={<EastIcon />}
+            />
+            <Button
+              text="View Project"
+              action={buttonClicked}
+            />
           </div>
-
         </div>
-
       </div>
-    </section>
+    </div>
   );
 };
 

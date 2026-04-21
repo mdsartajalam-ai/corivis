@@ -1,92 +1,127 @@
-"use client";
-
-import styles from "./header.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import Button from "../button/Button";
+import styles from "./header.module.css";
+import { navItems } from "@/data/header";
+import logo from "@/assets/logo/logo2.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import PhoneIcon from "@mui/icons-material/Phone";
 import { Drawer, IconButton } from "@mui/material";
-import logo from "@/assets/logo/logo2.png"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Services", path: "/services" },
-  { label: "Projects", path: "/projects" },
-  { label: "Contact", path: "/contact" },
-];
+export default function Navbar() {
+  const [drawer, setDrawer] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const buttonClicked = () => {
+    console.log("button clicked");
+  };
 
   return (
     <header className={styles.navbar}>
       <div className={styles.wrapper}>
-        
-        {/* LOGO */}
-        <div className={styles.logo}>
-          <Image src={logo} alt="logo" width={150} height={60} />
-        </div>
+        <Image alt="logo" src={logo} width={80} height={60} />
+        <nav className={styles.nav_center}>
+          {navItems.map((item, i) =>
+            item.dropdown ? (
+              <div key={i} className={styles.dropdown}>
+                <span className={styles.nav_link}>{item.label}</span>
+                <div className={styles.dropdown_menu}>
+                  {item.dropdown.map((sub, j) => (
+                    <Link
+                      key={j}
+                      href={sub.path}
+                      className={styles.dropdown_item}
+                    >
+                      {sub.label}
+                    </Link>
+                  ))}
 
-        {/* NAV LINKS */}
-        <nav className={styles.navCenter}>
-          {navLinks.map((item, i) => (
-            <Link key={i} href={item.path} className={styles.link}>
-              {item.label}
-            </Link>
-          ))}
+                  <Link href="/services" className={styles.dropdown_view}>
+                    View All Services →
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <Link key={i} href={item.path} className={styles.nav_link}>
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
-        {/* RIGHT */}
-        <div className={styles.right}>
-
-          {/* CTA (DESKTOP ONLY) */}
-          <button className={`app-button ${styles.desktopCta}`}>
-            <PhoneIcon fontSize="small" />
-            Get Started
-          </button>
-
-          {/* MOBILE MENU */}
+        <div className={styles.nav_right}>
+          <Button 
+            text="Login / Signup" 
+            action={buttonClicked}
+          />
           <IconButton
-            className={styles.menuBtn}
-            onClick={() => setOpen(true)}
+            className={styles.menu_btn}
+            onClick={() => setDrawer(true)}
           >
             <MenuIcon />
           </IconButton>
         </div>
       </div>
 
-      {/* DRAWER */}
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+      <Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)}>
         <div className={styles.drawer}>
-          
-          <div className={styles.drawerTop}>
+          <div className={styles.drawer_top}>
             <span>Menu</span>
-            <CloseIcon onClick={() => setOpen(false)} />
+            <CloseIcon onClick={() => setDrawer(false)} />
           </div>
 
-          {navLinks.map((item, i) => (
-            <Link
-              key={i}
-              href={item.path}
-              className={styles.drawerLink}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item, i) =>
+            item.dropdown ? (
+              <div key={i}>
+                <div
+                  className={styles.drawer_link}
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                >
+                  {item.label}
+                  <ExpandMoreIcon
+                    className={`${styles.arrow} ${
+                      openIndex === i ? styles.rotate : ""
+                    }`}
+                  />
+                </div>
 
-          {/* CTA INSIDE DRAWER */}
-          <button className="app-button">
-            <PhoneIcon />
-            Free Consultation
-          </button>
+                {openIndex === i && (
+                  <div className={styles.submenu}>
+                    {item.dropdown.map((sub, j) => (
+                      <Link
+                        key={j}
+                        href={sub.path}
+                        className={styles.submenu_item}
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+
+                    <Link href="/services" className={styles.submenu_view}>
+                      View All Services →
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={i}
+                href={item.path}
+                className={styles.drawer_link}
+                onClick={() => setDrawer(false)}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
+          <Button 
+            text="Login / Signup" 
+            action={buttonClicked}
+          />
         </div>
       </Drawer>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -3,7 +3,8 @@ import ButtonLoader from "@/components/loader/ButtonLoader";
 
 type ButtonProps = {
   text: string;
-  icon?: ReactNode;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   disabled?: boolean;
   className?: string;
   action: () => void;
@@ -13,27 +14,30 @@ type ButtonProps = {
 
 const Button = ({
   text,
-  icon,
+  startIcon,
+  endIcon,
   action,
   disabled,
   isLoading,
   className,
-  type = "button"
+  type = "button",
 }: ButtonProps) => {
   return (
     <button
       type={type}
       onClick={action}
       disabled={disabled}
-      className={`${"app-button"} ${className ? className : ""}`}
+      className={`app-button ${className || ""}`}
     >
-      {!isLoading ?
+      {!isLoading ? (
         <div className="btn-content">
-          {icon}
+          {startIcon}
           <div>{text}</div>
-        </div> :
+          {endIcon}
+        </div>
+      ) : (
         <ButtonLoader />
-      }
+      )}
     </button>
   );
 };
