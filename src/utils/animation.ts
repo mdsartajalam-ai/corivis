@@ -1,17 +1,23 @@
-export const container = {
+import { Variants } from "framer-motion";
+
+export const container: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
     },
   },
 };
 
-export const item = {
-  hidden: { opacity: 0, y: 40 },
+export const item: Variants = {
+  hidden: { opacity: 0, y: 50 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 1, 0.5, 1],
+    },
   },
 };

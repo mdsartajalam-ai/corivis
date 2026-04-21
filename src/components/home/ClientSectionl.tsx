@@ -1,51 +1,49 @@
-
-
-import styles from "@/styles/Home.module.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { clients } from "@/data/home";
+import styles from "@/styles/Home.module.css";
 import MainHeading from "../heading/MainHeading";
-
+import { container, item } from "@/utils/animation";
 
 const ClientSection = () => {
   return (
-    <section className={styles.client_container}>
-      
-      {/* Heading */}
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      variants={container}
+      viewport={{ once: true }}
+      className={styles.client_container}
+    >
       <div className={styles.client_head}>
-        <MainHeading text="Trusted by {{Industry}} Leaders"/>
-        <p className={styles.heading_sub}>
+        <motion.div variants={item}>
+          <MainHeading text="Trusted by {{Industry}} Leaders" />
+        </motion.div>
+
+        <motion.p variants={item} className={styles.heading_sub}>
           Delivering excellence across top organizations
-        </p>
+        </motion.p>
       </div>
 
-      {/* Carousel */}
       <div className={styles.carousel_mask}>
         <div className={styles.carousel_track}>
-          
-          {[...clients, ...clients].map((item, i) => (
-            <div key={i} className={styles.client_card}>
-              
+          {[...clients, ...clients].map((itemData, i) => (
+            <motion.div key={i} variants={item} className={styles.client_card}>
               <div className={styles.card_content}>
                 <Image
-                  src={item.logo}
-                  alt={item.name}
                   width={120}
                   height={60}
+                  src={itemData.logo}
+                  alt={itemData.name}
                   className={styles.logo_img}
                 />
 
-                <span className={styles.client_name}>
-                  {item.name}
-                </span>
+                <span className={styles.client_name}>{itemData.name}</span>
               </div>
-
-            </div>
+            </motion.div>
           ))}
-
         </div>
       </div>
-
-    </section>
+    </motion.div>
   );
 };
 

@@ -1,28 +1,40 @@
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import styles from "@/styles/Home.module.css";
 import MainHeading from "../heading/MainHeading";
 import { projects, categories } from "@/data/home";
+import { container, item } from "@/utils/animation";
 
 const OurWork = () => {
   const [active, setActive] = useState(categories[0]);
 
   const filtered =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active);
+    active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <div className={styles.project_container}>
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      variants={container}
+      className={styles.project_container}
+      viewport={{ once: true }}
+    >
       <div className={styles.project_header}>
-        <p className={styles.glo_badge}>OUR PROJECTS</p>
-        <MainHeading text="Our Recent {{Work}}" />
-        <p className={styles.p_para}>
+        <motion.p variants={item} className={styles.glo_badge}>
+          OUR PROJECTS
+        </motion.p>
+
+        <motion.div variants={item}>
+          <MainHeading text="Our Recent {{Work}}" />
+        </motion.div>
+
+        <motion.p variants={item} className={styles.p_para}>
           A glimpse of our completed and ongoing projects across sectors.
-        </p>
+        </motion.p>
       </div>
 
-      <div className={styles.P_filter}>
+      <motion.div variants={item} className={styles.P_filter}>
         {categories.map((cat) => (
           <button
             key={cat}
@@ -34,29 +46,30 @@ const OurWork = () => {
             {cat}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       <div className={styles.projects_grid}>
-        {filtered.map((item, i) => (
-          <div key={i} className={styles.project_card}>
+        {filtered.map((itemData, i) => (
+          <motion.div key={i} variants={item} className={styles.project_card}>
             <div className={styles.project_img}>
               <Image
                 fill
                 quality={100}
-                src={item.image}
-                alt={item.title}
+                src={itemData.image}
+                alt={itemData.title}
                 className={styles.img}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
+
             <div className={styles.project_content}>
-              <span>{item.category}</span>
-              <h4>{item.title}</h4>
+              <span>{itemData.category}</span>
+              <h4>{itemData.title}</h4>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
