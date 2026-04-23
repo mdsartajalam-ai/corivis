@@ -5,9 +5,9 @@ export const navItems = [
   {
     label: "Services",
     dropdown: [
-      { label: "Construction", path: "/services/construction" },
-      { label: "Renewable Power", path: "/services/renewable" },
-      { label: "Web & App Development", path: "/services/web-app" },
+      { label: "Construction", path: "/construction" },
+      { label: "Renewable Power", path: "/renewable" },
+      { label: "Web & App Development", path: "/web-development" },
     ],
   },
 
