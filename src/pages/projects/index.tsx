@@ -17,6 +17,7 @@ import DesignServicesOutlinedIcon from "@mui/icons-material/DesignServicesOutlin
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import BarChartRoundedIcon from "@mui/icons-material/BarChartRounded";
+import React from "react";
 import Chip from "@mui/material/Chip";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
@@ -35,11 +36,30 @@ const categories = [
   { key: "interior", label: "Interiors" },
 ];
 
-const categoryMeta: Record<string, { icon: JSX.Element; color: string; bg: string }> = {
-  civil: { icon: <HomeWorkOutlinedIcon fontSize="small" />, color: "#6366f1", bg: "#eef2ff" },
-  smart: { icon: <SpeedOutlinedIcon fontSize="small" />, color: "#0ea5e9", bg: "#e0f2fe" },
-  solar: { icon: <SolarPowerOutlinedIcon fontSize="small" />, color: "#f59e0b", bg: "#fffbeb" },
-  interior: { icon: <DesignServicesOutlinedIcon fontSize="small" />, color: "#10b981", bg: "#ecfdf5" },
+const categoryMeta: Record<
+  string,
+  { icon: React.ReactNode; color: string; bg: string }
+> = {
+  civil: {
+    icon: <HomeWorkOutlinedIcon fontSize="small" />,
+    color: "#6366f1",
+    bg: "#eef2ff",
+  },
+  smart: {
+    icon: <SpeedOutlinedIcon fontSize="small" />,
+    color: "#0ea5e9",
+    bg: "#e0f2fe",
+  },
+  solar: {
+    icon: <SolarPowerOutlinedIcon fontSize="small" />,
+    color: "#f59e0b",
+    bg: "#fffbeb",
+  },
+  interior: {
+    icon: <DesignServicesOutlinedIcon fontSize="small" />,
+    color: "#10b981",
+    bg: "#ecfdf5",
+  },
 };
 
 const projects = [
