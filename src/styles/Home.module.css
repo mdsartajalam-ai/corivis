@@ -157,17 +157,19 @@ Enable hover only on non-touch devices
   color: var(--white);
 }
 .client_section {
-  background: linear-gradient(180deg, #020617, #020617);
+  /* background: linear-gradient(180deg, #020617, #020617); */
+  background: #f8f7ff;
 }
 .journey_section {
   background: radial-gradient(circle at top, #0f172a, #020617);
 }
 .expertise_section {
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  background: radial-gradient(circle at top, #e0e7ff, #ffffff 65%);
 }
 .work_section {
   background: #0b1220;
 }
+
 .customer_section {
   background: radial-gradient(circle at top, #0f172a, #020617);
 }
@@ -184,7 +186,7 @@ Enable hover only on non-touch devices
   max-width: 1240px;
   margin: 0 auto;
   width: 100%;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 .cta_container {
   text-align: center;
@@ -201,6 +203,7 @@ Enable hover only on non-touch devices
   gap: 40px;
   flex-direction: column;
 }
+
 .client_container {
   padding: 60px 0px;
 }
@@ -220,7 +223,7 @@ Enable hover only on non-touch devices
   position: relative;
   /* height: 100vh; */
   overflow: hidden;
-  padding: 120px 0px;
+  padding: 140px 0px 100px;
 }
 .hero_bg {
   position: absolute;
@@ -262,14 +265,6 @@ Enable hover only on non-touch devices
 }
 .hero_left {
   width: 100%;
-}
-.h_badge {
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: var(--indigo-35);
-  letter-spacing: 1px;
-  margin-bottom: 10px;
 }
 .h_pra {
   text-align: center;
@@ -326,7 +321,7 @@ Enable hover only on non-touch devices
   background: var(--white-5);
   backdrop-filter: blur(12px);
   border: 1px solid var(--white-10);
-  transition: 0.35s;
+  transition: 0.2s;
 }
 .ab_card:hover {
   transform: translateY(-6px) scale(1.02);
@@ -347,14 +342,21 @@ Enable hover only on non-touch devices
   );
   color: var(--white);
 }
+
+/* client section  */
+
 .client_head {
   text-align: center;
   margin-bottom: 60px;
 }
+.client_head :global(.main-heading) {
+  color: var(--slate-100);
+}
 .heading_sub {
   font-size: 16px;
-  color: var(--indigo-35);
+  color: var(--slate-60);
   margin-top: 10px;
+  line-height: 1.6;
 }
 .carousel_mask {
   overflow: hidden;
@@ -365,58 +367,92 @@ Enable hover only on non-touch devices
   content: "";
   position: absolute;
   top: 0;
-  width: 50px;
+  width: 40px;
   height: 100%;
   z-index: 2;
   pointer-events: none;
 }
+
 .carousel_mask::before {
   left: 0;
-  background: linear-gradient(to right, #020617, transparent);
+  background: linear-gradient(to right, #f8f7ff, transparent);
 }
+
 .carousel_mask::after {
   right: 0;
-  background: linear-gradient(to left, #020617, transparent);
+  background: linear-gradient(to left, #f8f7ff, transparent);
 }
+
 .carousel_track {
   display: flex;
   align-items: center;
   width: max-content;
   gap: 20px;
-  animation: scroll 16s linear infinite;
+  animation: scroll 18s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
+
 .client_card {
   min-width: 180px;
   padding: 10px;
 }
+
 .card_content {
   padding: 28px 24px;
-  border-radius: 16px;
-  background: var(--indigo-100);
-  border: 1px solid var(--white-10);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #e8e4fd;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 2px 8px rgba(99, 102, 241, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
+
 .logo_img {
   object-fit: contain;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.28s ease,
+    opacity 0.28s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
 }
+
 .client_name {
   margin-top: 12px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--indigo-35);
+  color: var(--slate-100);
+  letter-spacing: 0.2px;
 }
 .client_card:hover .card_content {
-  border-color: var(--primary);
+  border-color: #818cf8;
+  background: #ffffff;
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(99, 102, 241, 0.4);
-  transform: scale(1.02);
+    0 10px 28px rgba(99, 102, 241, 0.14),
+    0 3px 8px rgba(99, 102, 241, 0.08);
+  transform: translateY(-4px);
 }
+.client_card:hover .logo_img {
+  transform: scale(1.03);
+}
+/* end */
+
 .jo_left {
   position: relative;
   width: 100%;
@@ -431,25 +467,6 @@ Enable hover only on non-touch devices
   line-height: 24px;
   color: var(--indigo-35);
   margin-bottom: 18px;
-}
-.jo_author {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 25px;
-}
-.jo_author img {
-  border-radius: 50%;
-  border: 1px solid var(--indigo-35);
-}
-.jo_author h4 {
-  margin: 0;
-  font-size: 16px;
-  color: var(--white);
-}
-.jo_author span {
-  font-size: 13px;
-  color: var(--slate-40);
 }
 .jo_side_line {
   position: absolute;
@@ -495,70 +512,99 @@ Enable hover only on non-touch devices
   width: 100%;
   margin-bottom: 18px;
 }
+
+/* experties */
+
 .expertise_grid {
   margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 25px;
 }
+.expertise_container :global(.main-heading){
+  color: var(--slate-100);
+}
+
 .expertise_card {
-  border-radius: 18px;
-  background: linear-gradient(180deg, #0b1220, #020617);
-  border: 1px solid var(--white-7);
-  box-shadow:
-    0 10px 30px #00000080,
-    inset 0 1px 0 #ffffff08;
-  transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04),
+    0 10px 30px rgba(99, 102, 241, 0.06);
+
+  transition: 0.35s ease;
 }
+
 .expertise_card::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 18px;
-  background: linear-gradient(120deg, transparent, var(--primary), transparent);
-  opacity: 0.08;
-  transition: 0.4s;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    transparent 45%,
+    rgba(168, 85, 247, 0.06)
+  );
+  opacity: 0.7;
+  transition: 0.2s ease;
 }
+
 .expertise_inner {
-  padding: 32px;
-  text-align: left;
   position: relative;
   z-index: 2;
+  padding: 32px;
+  text-align: left;
 }
+
 .expertise_card:hover {
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-6px), scale(0.02);
+  border-color: #c7d2fe;
   box-shadow:
-    0 20px 50px #000000aa,
-    0 0 25px #6366f144;
-  border-color: var(--primary);
+    0 18px 40px rgba(99, 102, 241, 0.12),
+    0 8px 20px rgba(15, 23, 42, 0.06);
 }
+
 .expertise_card:hover::before {
-  opacity: 0.25;
+  opacity: 1;
 }
 .expertise_icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
-  margin-bottom: 16px;
-  box-shadow: 0 8px 20px #6366f155;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: 16px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow:
+    0 10px 24px rgba(99, 102, 241, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
 .expertise_inner h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: var(--white);
+  font-size: 19px;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+
+  color: #0f172a;
+
+  letter-spacing: -0.3px;
 }
+
 .expertise_inner p {
   font-size: 14px;
-  color: var(--slate-40);
-  line-height: 1.6;
+  line-height: 1.7;
+
+  color: #64748b;
 }
+
+/* end */
 .project_header {
   text-align: center;
   margin: 0 auto 50px;
@@ -760,9 +806,6 @@ Enable hover only on non-touch devices
   .hero_btn :global(.app-button) {
     width: fit-content;
   }
-  .h_badge {
-    text-align: left;
-  }
   .h_pra {
     text-align: left;
   }
@@ -823,5 +866,3 @@ Enable hover only on non-touch devices
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-

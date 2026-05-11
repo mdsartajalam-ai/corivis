@@ -28,6 +28,8 @@ const Expertise = () => {
             <motion.div
               key={i}
               variants={item}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.2 }}
               className={styles.expertise_card}
             >
               <div className={styles.expertise_inner}>

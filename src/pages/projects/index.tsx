@@ -22,17 +22,17 @@ import Chip from "@mui/material/Chip";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 const stats = [
-  { icon: <EmojiEventsOutlinedIcon />, value: "25+", label: "Years of Excellence" },
-  { icon: <HomeWorkOutlinedIcon />, value: "500+", label: "Projects Delivered" },
-  { icon: <PeopleAltOutlinedIcon />, value: "1200+", label: "Happy Clients" },
-  { icon: <BarChartRoundedIcon />, value: "₹200Cr+", label: "Project Value" },
+  { icon: <EmojiEventsOutlinedIcon />, value: "2+", label: "Years of Excellence" },
+  { icon: <HomeWorkOutlinedIcon />, value: "200+", label: "Projects Delivered" },
+  { icon: <PeopleAltOutlinedIcon />, value: "700+", label: "Happy Clients" },
+  { icon: <BarChartRoundedIcon />, value: "₹100Cr+", label: "Project Value" },
 ];
 
 const categories = [
   { key: "all", label: "All Projects" },
+  { key: "solar", label: "Solar Energy" },
   { key: "civil", label: "Civil Construction" },
   { key: "smart", label: "Smart Metering" },
-  { key: "solar", label: "Solar Energy" },
   { key: "interior", label: "Interiors" },
 ];
 

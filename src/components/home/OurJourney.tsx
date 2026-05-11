@@ -39,13 +39,6 @@ const OurJourney = () => {
             communities, and build a stronger, future-ready India.
           </motion.p>
 
-          <motion.div variants={item} className={styles.jo_author}>
-            <Image src={logo} alt="logo" width={54} height={54} />
-            <div>
-              <h4>Banty Kumar</h4>
-              <span>Managing Director</span>
-            </div>
-          </motion.div>
         </div>
       </div>
 

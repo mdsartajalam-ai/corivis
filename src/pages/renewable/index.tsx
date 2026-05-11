@@ -34,9 +34,9 @@ import RouterIcon from "@mui/icons-material/Router";
 /* ─────────────────── DATA ─────────────────── */
 
 const stats = [
-  { icon: <SolarPowerIcon />, value: "5000+", label: "Installations Done" },
-  { icon: <ElectricBoltIcon />, value: "2 MW+", label: "Capacity Deployed" },
-  { icon: <VerifiedIcon />, value: "25 yr", label: "Performance Warranty" },
+  { icon: <SolarPowerIcon />, value: "100+", label: "Installations Done" },
+  { icon: <ElectricBoltIcon />, value: "1 MW+", label: "Capacity Deployed" },
+  { icon: <VerifiedIcon />, value: "2 yr", label: "Performance Warranty" },
   { icon: <AccountBalanceIcon />, value: "100%", label: "Subsidy Assistance" },
 ];
 

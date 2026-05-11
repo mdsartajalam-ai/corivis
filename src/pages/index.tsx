@@ -9,6 +9,7 @@ import HappyCustomer from "@/components/home/HappyCustomer";
 import FutureCTA from "@/components/home/FutureCTA";
 import ContactForm from "@/components/home/ContactForm";
 import OurJourney from "@/components/home/OurJourney";
+import StatsSection from "@/components/home/StateSection";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -47,6 +48,9 @@ export default function Home() {
         </section>
         <section className={styles.work_section}>
           <OurWork/>
+        </section>
+        <section className={styles.work_sectio}>
+          <StatsSection/>
         </section>
         <section className={styles.customer_section}>
           <HappyCustomer/>

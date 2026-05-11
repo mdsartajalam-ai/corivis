@@ -8,6 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 
 const Footer = () => {
   return (
@@ -19,9 +20,15 @@ const Footer = () => {
             Building future-ready infrastructure with innovation and precision.
           </p>
           <div className={styles.info}>
-            <p><LocationOnIcon /> Patna, Bihar, India</p>
-            <p><CallIcon /> +91 90310 74805</p>
-            <p><EmailIcon /> info@brajmohangroup.in</p>
+            <p>
+              <LocationOnIcon /> Dalsinghsarai Samastipur, Bihar, India
+            </p>
+            <p>
+              <CallIcon /> +91 93046 53309
+            </p>
+            <p>
+              <EmailIcon /> info@eceladusgroup.in
+            </p>
           </div>
         </div>
 
@@ -31,17 +38,15 @@ const Footer = () => {
             <ul>
               <li>About</li>
               <li>Projects</li>
-              <li>Careers</li>
               <li>Contact</li>
             </ul>
           </div>
           <div>
             <h4>Services</h4>
             <ul>
-              <li>Real Estate</li>
+              <li>Solar Energy</li>
               <li>Construction</li>
-              <li>Consulting</li>
-              <li>Architecture</li>
+              <li>Development</li>
             </ul>
           </div>
         </div>
@@ -49,38 +54,51 @@ const Footer = () => {
         <div className={styles.right}>
           <h4>Follow Us</h4>
           <div className={styles.social}>
-            <span><FacebookIcon /></span>
-            <span><TwitterIcon /></span>
-            <span><InstagramIcon /></span>
-            <span><LinkedInIcon /></span>
+            <span>
+              <FacebookIcon />
+            </span>
+            <span>
+              <TwitterIcon />
+            </span>
+            <span>
+              <InstagramIcon />
+            </span>
+            <span>
+              <LinkedInIcon />
+            </span>
           </div>
           <div className={styles.legal}>
             <p>CIN: U45200BR1999PTC009060</p>
             <p>GST: 10AABCB6571F1Z5</p>
           </div>
         </div>
-
       </div>
 
       <div className={styles.mapWrapper}>
         <iframe
-          src="https://www.google.com/maps?q=Kankarbagh,Patna&output=embed"
+          title="Eceladus group Location"
+          src="https://maps.google.com/maps?q=Dalsinghsarai,Samastipur,Bihar,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
           loading="lazy"
-          className={styles.map}
+          referrerPolicy="no-referrer-when-downgrade"
         />
-        <Link
-          href="https://maps.google.com?q=Kankarbagh,Patna"
+
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India"
           target="_blank"
-          className={styles.mapBtn}
+          rel="noopener noreferrer"
+          className={styles.mapOverlayBtn}
         >
-          Open in Maps <OpenInNewIcon className={styles.icon} />
-        </Link>
+          <OpenInNewRoundedIcon fontSize="small" /> Open in Maps
+        </a>
       </div>
 
       <div className={styles.copy}>
         © {new Date().getFullYear()} Eceladus Group. All rights reserved.
       </div>
-
     </footer>
   );
 };

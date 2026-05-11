@@ -103,7 +103,7 @@
 }
 .mapWrapper::after {
   content: "";
-  position: absolute;
+  /* position: absolute; */
   inset: 0;
   background: linear-gradient(to bottom, #02061733, #020617cc);
 }

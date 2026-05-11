@@ -5,8 +5,8 @@ export const navItems = [
   {
     label: "Services",
     dropdown: [
+      { label: "Solar Energy", path: "/renewable" },
       { label: "Construction", path: "/construction" },
-      { label: "Renewable Power", path: "/renewable" },
       { label: "Web & App Development", path: "/web-development" },
     ],
   },

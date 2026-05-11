@@ -25,10 +25,10 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { value: "25+", label: "Years Legacy", icon: <CalendarTodayIcon fontSize="small" /> },
-  { value: "500+", label: "Projects Done", icon: <TrendingUpIcon fontSize="small" /> },
-  { value: "10K+", label: "Lives Impacted", icon: <GroupsIcon fontSize="small" /> },
-  { value: "₹200Cr+", label: "Work Delivered", icon: <StarBorderIcon fontSize="small" /> },
+  { value: "2+", label: "Years Legacy", icon: <CalendarTodayIcon fontSize="small" /> },
+  { value: "200+", label: "Projects Done", icon: <TrendingUpIcon fontSize="small" /> },
+  { value: "1K+", label: "Lives Impacted", icon: <GroupsIcon fontSize="small" /> },
+  { value: "₹100Cr+", label: "Work Delivered", icon: <StarBorderIcon fontSize="small" /> },
 ];
 
 const values = [
@@ -64,35 +64,35 @@ const values = [
 
 const timeline = [
   {
-    year: "1999",
+    year: "2024",
     title: "Foundation",
     desc: "Established in Patna, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
     icon: <BusinessIcon />,
     tag: "Origin",
   },
   {
-    year: "2005",
+    year: "2024",
     title: "Government Expansion",
     desc: "Scaled into large-scale government civil projects and highway road construction across multiple Bihar districts.",
     icon: <TrendingUpIcon />,
     tag: "Growth",
   },
   {
-    year: "2012",
+    year: "2025",
     title: "Smart Metering",
     desc: "Partnered with Bihar's major power corporations for smart meter installation across thousands of households.",
     icon: <BoltIcon />,
     tag: "Energy",
   },
   {
-    year: "2018",
+    year: "2025",
     title: "Solar Initiative",
     desc: "Launched our green energy division, installing rooftop solar units statewide — powering a cleaner tomorrow.",
     icon: <EnergySavingsLeafIcon />,
     tag: "Green",
   },
   {
-    year: "2024",
+    year: "2026",
     title: "Digital Leap",
     desc: "Integrated AI and digital solutions into core infrastructure services — stepping boldly into India's tech future.",
     icon: <CodeIcon />,
@@ -166,16 +166,16 @@ export default function AboutPage() {
         <div className={styles.heroInner}>
           {/* Left */}
           <div className={styles.heroLeft}>
-            <div className={styles.heroPill}>
+            {/* <div className={styles.heroPill}>
               <AutoAwesomeIcon sx={{ fontSize: 13 }} />
-              Est. 1999 · Patna, Bihar
-            </div>
+                Patna, Bihar
+            </div> */}
             <h1 className={styles.heroH1}>
               <span>Building</span>
               <span className={styles.heroAccentLine}>
                 India's <em>Future</em>
               </span>
-              <span className={styles.heroLine3}>Since 1999</span>
+             
             </h1>
             <p className={styles.heroDesc}>
               A multidisciplinary infrastructure powerhouse — from construction
@@ -206,7 +206,7 @@ export default function AboutPage() {
               <div className={styles.heroCardGlow} />
               <div className={styles.heroCardTop}>
                 <LocationOnIcon sx={{ color: "#a5b4fc", fontSize: 18 }} />
-                <span>Patna, Bihar · India</span>
+                <span>Samastipur, Bihar · India</span>
               </div>
               <div className={styles.heroCardQuote}>
                 <FormatQuoteIcon sx={{ color: "#6366f1", fontSize: 36, opacity: 0.4 }} />
@@ -218,8 +218,8 @@ export default function AboutPage() {
               </div>
               <div className={styles.heroCardStats}>
                 {[
-                  { n: "25+", l: "Years" },
-                  { n: "500+", l: "Projects" },
+                  { n: "2+", l: "Years" },
+                  { n: "200+", l: "Projects" },
                   { n: "3", l: "Verticals" },
                 ].map((s, i) => (
                   <React.Fragment key={i}>
@@ -278,7 +278,7 @@ export default function AboutPage() {
               </div>
               <div className={styles.missionMiniCards}>
                 <div className={styles.missionMini}>
-                  <strong>10K+</strong>
+                  <strong>1K+</strong>
                   <span>Households Powered with Solar</span>
                 </div>
                 <div className={styles.missionMini}>
@@ -362,7 +362,7 @@ export default function AboutPage() {
           <div className={`${styles.centerHeader} ${styles.reveal}`}>
             <span className={styles.sectionTag}>Our Story</span>
             <h2 className={styles.sectionTitle}>
-              A Journey of <span className={styles.accent}>25 Years</span>
+              A Journey of <span className={styles.accent}>2 Years</span>
             </h2>
             <p className={styles.sectionSub}>
               From a bold vision in Patna to Bihar's most trusted infrastructure group.

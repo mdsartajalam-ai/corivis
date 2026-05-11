@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import c1 from "@/assets/hero/c1.jpg";
-import c2 from "@/assets/hero/c2.jpg";
-import c3 from "@/assets/hero/c3.jpg";
-import c4 from "@/assets/hero/c4.jpg";
+import c2 from "@/assets/hero/sl3.jpeg";
+import c4 from "@/assets/hero/sl5.jpeg";
+import c3 from "@/assets/hero/sl2.jpg";
+import c1 from "@/assets/hero/sl1.jpg";
 import Button from "../button/Button";
 import { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
@@ -52,9 +52,6 @@ const Hero = () => {
         className={styles.hero_container}
       >
         <div className={styles.hero_left}>
-          <motion.p variants={item} className={styles.h_badge}>
-            Trusted Since 1999
-          </motion.p>
 
           <motion.div variants={item}>
             <MainHeading text="Engineering the Future of  {{Infrastructure}}" />

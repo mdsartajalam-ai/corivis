@@ -40,7 +40,12 @@ const AboutSection = () => {
 
       <div className={styles.ab_right}>
         {companyFeatures.map((itemText, index) => (
-          <motion.div key={index} variants={item} className={styles.ab_card}>
+          <motion.div
+            key={index}
+            variants={item}
+            whileHover={{ y: -6 }}
+            className={styles.ab_card}
+          >
             <div className={styles.ab_icon_box}>
               <CheckCircleIcon />
             </div>

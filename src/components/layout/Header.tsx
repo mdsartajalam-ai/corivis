@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <header className={styles.navbar}>
       <div className={styles.wrapper}>
-        <Image alt="logo" src={logo} width={80} height={60} />
+        <Image alt="logo" src={logo} width={150} height={60} />
         <nav className={styles.nav_center}>
           {navItems.map((item, i) =>
             item.dropdown ? (

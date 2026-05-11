@@ -25,8 +25,8 @@ const contactInfo = [
   {
     icon: <LocationOnOutlinedIcon />,
     label: "Visit Us",
-    value: "8H/7 Bahadurpur Housing Colony,\nNew Bypass Road, Patna – 800026",
-    link: "https://www.google.com/maps/dir/?api=1&destination=House%2C+Braj+mohan+developers+pvt.+Ltd.%2C+no%2C+8H%2F7%2C+Vijay+Nagar%2C+Patna%2C+Bihar+800026",
+    value: "Dalsinghsarai, Samastipur,\nBihar, India",
+    link: "https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India",
     linkLabel: "Get Directions",
     color: "#6366f1",
     bg: "#eef2ff",
@@ -34,8 +34,8 @@ const contactInfo = [
   {
     icon: <PhoneOutlinedIcon />,
     label: "Call Us",
-    value: "+91 90310 74805",
-    link: "tel:+919031074805",
+    value: "+91 93046 53309",
+    link: "tel:+919304653309",
     linkLabel: "Call Now",
     color: "#10b981",
     bg: "#ecfdf5",
@@ -43,8 +43,8 @@ const contactInfo = [
   {
     icon: <EmailOutlinedIcon />,
     label: "Email Us",
-    value: "info@brajmohangroup.in",
-    link: "mailto:info@brajmohangroup.in",
+    value: "info@eceladusgroup.in",
+    link: "mailto:info@eceladusgroup.in",
     linkLabel: "Send Email",
     color: "#0ea5e9",
     bg: "#e0f2fe",
@@ -61,16 +61,31 @@ const contactInfo = [
 ];
 
 const services = [
-  { key: "construction", label: "Civil Construction", icon: <HomeWorkOutlinedIcon fontSize="small" /> },
-  { key: "solar", label: "Renewable Power", icon: <SolarPowerOutlinedIcon fontSize="small" /> },
-  { key: "web", label: "Web Development", icon: <CodeOutlinedIcon fontSize="small" /> },
-  { key: "app", label: "App Development", icon: <PhoneAndroidOutlinedIcon fontSize="small" /> },
-  { key: "other", label: "Other Services", icon: <MiscellaneousServicesOutlinedIcon fontSize="small" /> },
+  {
+    key: "solar power",
+    label: "Renewable Power",
+    icon: <SolarPowerOutlinedIcon fontSize="small" />,
+  },
+  {
+    key: "construction",
+    label: "Civil Construction",
+    icon: <HomeWorkOutlinedIcon fontSize="small" />,
+  },
+  {
+    key: "web & app",
+    label: "web & app Development",
+    icon: <CodeOutlinedIcon fontSize="small" />,
+  },
+  {
+    key: "other",
+    label: "Other Services",
+    icon: <MiscellaneousServicesOutlinedIcon fontSize="small" />,
+  },
 ];
 
 const trustItems = [
-  "25+ years of trusted excellence",
-  "500+ successfully delivered projects",
+  "2+ years of trusted excellence",
+  "200+ successfully delivered projects",
   "Response within 24 hours",
   "Dedicated project manager assigned",
 ];
@@ -87,7 +102,9 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [snackOpen, setSnackOpen] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -96,9 +113,11 @@ export default function ContactPage() {
   };
 
   const handleWhatsApp = () => {
-    const svc = services.find((s) => s.key === formData.service)?.label || "your services";
+    const svc =
+      services.find((s) => s.key === formData.service)?.label ||
+      "your services";
     const msg = encodeURIComponent(
-      `Hello, I'm ${formData.name || "interested"} and I'd like to enquire about ${svc}. ${formData.message}`
+      `Hello, I'm ${formData.name || "interested"} and I'd like to enquire about ${svc}. ${formData.message}`,
     );
     window.open(`https://wa.me/919031074805?text=${msg}`, "_blank");
   };
@@ -126,8 +145,9 @@ export default function ContactPage() {
             <span className={styles.heroAccent}>Great Together</span>
           </h1>
           <p className={styles.heroSub}>
-            Have a project in mind? Our expert team is ready to listen, plan, and deliver
-            beyond expectations. Reach out — we respond within 24 hours.
+            Have a project in mind? Our expert team is ready to listen, plan,
+            and deliver beyond expectations. Reach out — we respond within 24
+            hours.
           </p>
           <div className={styles.heroActions}>
             <a href="tel:+919031074805" className={styles.heroBtn}>
@@ -144,8 +164,15 @@ export default function ContactPage() {
           </div>
         </div>
         <div className={styles.heroWave}>
-          <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,35 C480,70 960,0 1440,35 L1440,70 L0,70 Z" fill="#f8faff" />
+          <svg
+            viewBox="0 0 1440 70"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,35 C480,70 960,0 1440,35 L1440,70 L0,70 Z"
+              fill="#f8faff"
+            />
           </svg>
         </div>
       </section>
@@ -168,36 +195,44 @@ export default function ContactPage() {
       <section className={styles.mainSection}>
         <div className={styles.container}>
           <div className={styles.mainGrid}>
-
             {/* LEFT — Info Cards */}
             <div className={styles.leftCol}>
               <div className={styles.sectionLabel}>Contact Information</div>
               <h2 className={styles.sectionTitle}>Reach Our Team</h2>
               <p className={styles.sectionDesc}>
-                We're headquartered in Patna and serve clients across Bihar and beyond.
-                Pick your preferred channel — we're always available.
+                We're headquartered in Patna and serve clients across Bihar and
+                beyond. Pick your preferred channel — we're always available.
               </p>
 
               <div className={styles.infoCards}>
                 {contactInfo.map((item, i) => (
                   <div className={styles.infoCard} key={i}>
-                    <span className={styles.infoIcon} style={{ color: item.color, background: item.bg }}>
+                    <span
+                      className={styles.infoIcon}
+                      style={{ color: item.color, background: item.bg }}
+                    >
                       {item.icon}
                     </span>
                     <div className={styles.infoBody}>
                       <span className={styles.infoLabel}>{item.label}</span>
-                      <span className={styles.infoValue} style={{ whiteSpace: "pre-line" }}>
+                      <span
+                        className={styles.infoValue}
+                        style={{ whiteSpace: "pre-line" }}
+                      >
                         {item.value}
                       </span>
                       {item.link && (
                         <a
                           href={item.link}
-                          target={item.link.startsWith("http") ? "_blank" : undefined}
+                          target={
+                            item.link.startsWith("http") ? "_blank" : undefined
+                          }
                           rel="noopener noreferrer"
                           className={styles.infoLink}
                           style={{ color: item.color }}
                         >
-                          {item.linkLabel} <ArrowOutwardIcon fontSize="inherit" />
+                          {item.linkLabel}{" "}
+                          <ArrowOutwardIcon fontSize="inherit" />
                         </a>
                       )}
                     </div>
@@ -208,8 +243,8 @@ export default function ContactPage() {
               {/* Map embed */}
               <div className={styles.mapWrap}>
                 <iframe
-                  title="Braj Mohan Group Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.7!2d85.1376!3d25.6093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58df40000001%3A0x1234!2sBahadurpur+Housing+Colony%2C+Patna%2C+Bihar!5e0!3m2!1sen!2sin!4v1"
+                  title="Eceladus group Location"
+                  src="https://maps.google.com/maps?q=Dalsinghsarai,Samastipur,Bihar,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -217,8 +252,9 @@ export default function ContactPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=House%2C+Braj+mohan+developers+pvt.+Ltd.%2C+no%2C+8H%2F7%2C+Vijay+Nagar%2C+Patna%2C+Bihar+800026"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.mapOverlayBtn}
@@ -233,17 +269,26 @@ export default function ContactPage() {
               <div className={styles.formCard}>
                 <div className={styles.formHeader}>
                   <div className={styles.sectionLabel}>Send an Inquiry</div>
-                  <h2 className={styles.formTitle}>Tell Us About Your Project</h2>
+                  <h2 className={styles.formTitle}>
+                    Tell Us About Your Project
+                  </h2>
                   <p className={styles.formSubtitle}>
-                    Fill in the details and we'll connect with you via WhatsApp — fast & direct.
+                    Fill in the details and we'll connect with you via WhatsApp
+                    — fast & direct.
                   </p>
                 </div>
 
-                <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                <form
+                  className={styles.form}
+                  onSubmit={handleSubmit}
+                  noValidate
+                >
                   {/* Name + Phone */}
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
-                      <label className={styles.label} htmlFor="name">Full Name *</label>
+                      <label className={styles.label} htmlFor="name">
+                        Full Name *
+                      </label>
                       <input
                         id="name"
                         name="name"
@@ -256,7 +301,9 @@ export default function ContactPage() {
                       />
                     </div>
                     <div className={styles.formGroup}>
-                      <label className={styles.label} htmlFor="phone">Phone Number *</label>
+                      <label className={styles.label} htmlFor="phone">
+                        Phone Number *
+                      </label>
                       <input
                         id="phone"
                         name="phone"
@@ -272,7 +319,9 @@ export default function ContactPage() {
 
                   {/* Email */}
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="email">Email Address</label>
+                    <label className={styles.label} htmlFor="email">
+                      Email Address
+                    </label>
                     <input
                       id="email"
                       name="email"
@@ -303,7 +352,9 @@ export default function ContactPage() {
 
                   {/* Message */}
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="message">Project Details</label>
+                    <label className={styles.label} htmlFor="message">
+                      Project Details
+                    </label>
                     <textarea
                       id="message"
                       name="message"
@@ -316,10 +367,15 @@ export default function ContactPage() {
                   </div>
 
                   {/* Submit */}
-                  <button type="submit" className={styles.submitBtn} disabled={submitted}>
+                  <button
+                    type="submit"
+                    className={styles.submitBtn}
+                    disabled={submitted}
+                  >
                     {submitted ? (
                       <>
-                        <CheckCircleOutlineRoundedIcon fontSize="small" /> Sent via WhatsApp!
+                        <CheckCircleOutlineRoundedIcon fontSize="small" /> Sent
+                        via WhatsApp!
                       </>
                     ) : (
                       <>
@@ -330,13 +386,12 @@ export default function ContactPage() {
                   </button>
 
                   <p className={styles.formNote}>
-                    By submitting, you'll be redirected to WhatsApp with your message pre-filled.
-                    We respond within 24 hours.
+                    By submitting, you'll be redirected to WhatsApp with your
+                    message pre-filled. We respond within 24 hours.
                   </p>
                 </form>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -347,14 +402,16 @@ export default function ContactPage() {
           <div className={styles.ctaInner}>
             <div>
               <h3 className={styles.ctaTitle}>Prefer a quick call?</h3>
-              <p className={styles.ctaSub}>Our team is available Mon – Sat, 10 AM to 7 PM.</p>
+              <p className={styles.ctaSub}>
+                Our team is available Mon – Sat, 10 AM to 7 PM.
+              </p>
             </div>
             <div className={styles.ctaButtons}>
               <a href="tel:+919031074805" className={styles.ctaBtnPrimary}>
-                <PhoneOutlinedIcon fontSize="small" /> +91 90310 74805
+                <PhoneOutlinedIcon fontSize="small" /> +91 93046 53309
               </a>
               <a
-                href="https://wa.me/919031074805?text=Hello%2C%20I%20am%20interested%20in%20Braj%20Mohan%20Group%20services."
+                href="https://wa.me/919031074805?text=Hello%2C%20I%20am%20interested%20in%20your%2012KW%20On-Grid%20%26%20Off-Grid%20Solar%20Installation%20services%20in%20Dalsinghsarai%2C%20Samastipur%2C%20Bihar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaBtnWa}
@@ -372,7 +429,11 @@ export default function ContactPage() {
         onClose={() => setSnackOpen(false)}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <Alert severity="success" onClose={() => setSnackOpen(false)} sx={{ fontWeight: 600 }}>
+        <Alert
+          severity="success"
+          onClose={() => setSnackOpen(false)}
+          sx={{ fontWeight: 600 }}
+        >
           Message sent via WhatsApp! We'll respond shortly.
         </Alert>
       </Snackbar>

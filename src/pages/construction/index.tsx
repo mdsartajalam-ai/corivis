@@ -74,9 +74,9 @@ const services = [
 ];
 
 const stats = [
-  { icon: <EmojiEventsIcon />, value: "25+", label: "Years of Excellence" },
-  { icon: <VerifiedIcon />, value: "300+", label: "Projects Completed" },
-  { icon: <GroupsIcon />, value: "1200+", label: "Expert Workforce" },
+  { icon: <EmojiEventsIcon />, value: "2+", label: "Years of Excellence" },
+  { icon: <VerifiedIcon />, value: "50+", label: "Projects Completed" },
+  { icon: <GroupsIcon />, value: "500+", label: "Expert Workforce" },
   { icon: <HandshakeIcon />, value: "98%", label: "Client Satisfaction" },
 ];
 
@@ -212,9 +212,9 @@ export default function ConstructionPage() {
 
           <div className={styles.heroCards}>
             {[
-              { label: "Projects Delivered", val: "300+" },
-              { label: "Years of Trust", val: "25+" },
-              { label: "States Active", val: "12+" },
+              { label: "Projects Delivered", val: "50+" },
+              { label: "Years of Trust", val: "2+" },
+              { label: "States Active", val: "5+" },
             ].map((c) => (
               <div key={c.label} className={styles.heroCard}>
                 <span className={styles.heroCardVal}>{c.val}</span>
