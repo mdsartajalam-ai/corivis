@@ -29,6 +29,7 @@
   gap: 10px;
   font-size: 14px;
   margin: 8px 0;
+  line-height: 20px;
 }
 .info svg {
   color: var(--primary);

@@ -296,7 +296,7 @@ export default function AboutPage() {
                 <span className={styles.accent}>A Nation-Builder</span>
               </h2>
               <p className={styles.body}>
-                Braj Mohan Group is a multidisciplinary infrastructure powerhouse
+                Eceladdus Enllave Group is a multidisciplinary infrastructure powerhouse
                 headquartered in Patna, Bihar. With over two decades of experience,
                 we have bridged the gap between traditional construction and modern
                 technological innovation.

@@ -25,8 +25,9 @@ const contactInfo = [
   {
     icon: <LocationOnOutlinedIcon />,
     label: "Visit Us",
-    value: "Dalsinghsarai, Samastipur,\nBihar, India",
-    link: "https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India",
+    value:
+      "Mohanpur Road, Ward No.-39,\nIn front of Samastipur Emergency Hospital,\nSamastipur, Bihar - 848101, India",
+    link: "https://www.google.com/maps/dir/?api=1&destination=Mohanpur+Road+Ward+No.-39+In+front+of+Samastipur+Emergency+Hospital+Samastipur+Bihar+848101",
     linkLabel: "Get Directions",
     color: "#6366f1",
     bg: "#eef2ff",
@@ -34,8 +35,8 @@ const contactInfo = [
   {
     icon: <PhoneOutlinedIcon />,
     label: "Call Us",
-    value: "+91 93046 53309",
-    link: "tel:+919304653309",
+    value: "+91 92314 47001",
+    link: "tel:+919231447001",
     linkLabel: "Call Now",
     color: "#10b981",
     bg: "#ecfdf5",
@@ -43,8 +44,8 @@ const contactInfo = [
   {
     icon: <EmailOutlinedIcon />,
     label: "Email Us",
-    value: "info@eceladusgroup.in",
-    link: "mailto:info@eceladusgroup.in",
+    value: "support@eceladdusenllave.com",
+    link: "mailto:support@eceladdusenllave.com",
     linkLabel: "Send Email",
     color: "#0ea5e9",
     bg: "#e0f2fe",
@@ -244,7 +245,7 @@ export default function ContactPage() {
               <div className={styles.mapWrap}>
                 <iframe
                   title="Eceladus group Location"
-                  src="https://maps.google.com/maps?q=Dalsinghsarai,Samastipur,Bihar,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Mohanpur%20Road%2C%20Ward%20No.-39%2C%20In%20front%20of%20Samastipur%20Emergency%20Hospital%2C%20Samastipur%2C%20Bihar%20848101&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -254,7 +255,7 @@ export default function ContactPage() {
                 />
 
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Mohanpur+Road+Ward+No.-39+In+front+of+Samastipur+Emergency+Hospital+Samastipur+Bihar+848101"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.mapOverlayBtn}

@@ -15,19 +15,20 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <h2 className={styles.logo}>Eceladus Group</h2>
+          <h2 className={styles.logo}>Eceladdus Enllave Group</h2>
           <p className={styles.desc}>
             Building future-ready infrastructure with innovation and precision.
           </p>
           <div className={styles.info}>
             <p>
-              <LocationOnIcon /> Dalsinghsarai Samastipur, Bihar, India
+              <CallIcon /> +91 92314 47001
             </p>
             <p>
-              <CallIcon /> +91 93046 53309
+              <EmailIcon /> support@eceladdusenllave.com
             </p>
             <p>
-              <EmailIcon /> info@eceladusgroup.in
+              <LocationOnIcon /> Mohanpur Road, ward no.-39, In front of
+              Samastipur Emergency Hospital, Samastipur, Bihar (848101)
             </p>
           </div>
         </div>
@@ -77,7 +78,7 @@ const Footer = () => {
       <div className={styles.mapWrapper}>
         <iframe
           title="Eceladus group Location"
-          src="https://maps.google.com/maps?q=Dalsinghsarai,Samastipur,Bihar,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=Mohanpur%20Road%2C%20Ward%20No.-39%2C%20In%20front%20of%20Samastipur%20Emergency%20Hospital%2C%20Samastipur%2C%20Bihar%20848101&t=&z=16&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -87,7 +88,7 @@ const Footer = () => {
         />
 
         <a
-          href="https://www.google.com/maps/dir/?api=1&destination=Dalsinghsarai+Samastipur+Bihar+India"
+          href="https://www.google.com/maps/dir/?api=1&destination=Mohanpur+Road+Ward+No.-39+In+front+of+Samastipur+Emergency+Hospital+Samastipur+Bihar+848101"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.mapOverlayBtn}

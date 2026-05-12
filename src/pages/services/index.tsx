@@ -159,7 +159,7 @@ export default function ServicesPage() {
 
           <p className={styles.heroDesc}>
             A 360° approach to development — from laying foundations to
-            launching digital products. Braj Mohan Group is your end-to-end
+            launching digital products. Eceladdus Enllave Group is your end-to-end
             partner across construction, energy and technology.
           </p>
 
@@ -187,12 +187,12 @@ export default function ServicesPage() {
           <FormatQuoteRounded className={styles.quoteIcon} />
           <blockquote className={styles.quoteText}>
             Whether it&apos;s laying the foundation of a skyscraper, designing
-            its interiors, or powering it with solar energy — Braj Mohan Group
+            its interiors, or powering it with solar energy — Eceladdus Enllave Group
             handles everything from the ground up.
           </blockquote>
           <div className={styles.quoteDivider} />
           <p className={styles.quoteAuthor}>
-            Braj Mohan Group &nbsp;·&nbsp; Est. 1999 &nbsp;·&nbsp; Patna, Bihar
+            Eceladdus Enllave Group &nbsp;·&nbsp; Est. 1999 &nbsp;·&nbsp; Patna, Bihar
           </p>
         </div>
       </section>

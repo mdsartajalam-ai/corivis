@@ -129,7 +129,7 @@ const testimonials = [
   {
     name: "Arvind Sharma",
     role: "Director, Bihar State Roads Dept.",
-    text: "Braj Mohan Group delivered the NH-30 project three weeks ahead of schedule. Their technical precision and on-ground coordination is unmatched in the region.",
+    text: "Eceladdus Enllave Group delivered the NH-30 project three weeks ahead of schedule. Their technical precision and on-ground coordination is unmatched in the region.",
     rating: 5,
   },
   {
@@ -198,7 +198,7 @@ export default function ConstructionPage() {
             </h1>
             <p className={styles.heroDesc}>
               From monumental civil infrastructure to bespoke luxury interiors —
-              Braj Mohan Group engineers spaces that inspire, endure, and define skylines.
+              Eceladdus Enllave Group engineers spaces that inspire, endure, and define skylines.
             </p>
             <div className={styles.heroCta}>
               <Link href="/contact" className={styles.btnPrimary}>

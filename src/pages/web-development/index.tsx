@@ -263,7 +263,7 @@ const testimonials = [
     name: "Rajesh Kumar",
     role: "CEO, Patna Enterprises",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
-    text: "Braj Mohan Group delivered our e-commerce platform ahead of schedule. The attention to detail and post-launch support exceeded every expectation.",
+    text: "Eceladdus Enllave Group delivered our e-commerce platform ahead of schedule. The attention to detail and post-launch support exceeded every expectation.",
     stars: 5,
   },
   {

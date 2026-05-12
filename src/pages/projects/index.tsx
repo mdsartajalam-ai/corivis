@@ -401,7 +401,7 @@ export default function ProjectsPage() {
             <span className={styles.ctaEyebrow}>Ready to Build?</span>
             <h2 className={styles.ctaTitle}>Have a Project in Mind?</h2>
             <p className={styles.ctaSub}>
-              Let's discuss how Braj Mohan Group can turn your vision into a landmark project.
+              Let's discuss how Eceladdus Enllave Group can turn your vision into a landmark project.
             </p>
           </div>
           <div className={styles.ctaActions}>

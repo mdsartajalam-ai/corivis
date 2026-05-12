@@ -222,7 +222,7 @@ const testimonials = [
   {
     name: "Ramesh Prasad",
     role: "Homeowner, Patna",
-    text: "Braj Mohan Group handled everything — from subsidy paperwork to installation. My electricity bill dropped from ₹3,200 to nearly zero in just one month.",
+    text: "Eceladdus Enllave Group handled everything — from subsidy paperwork to installation. My electricity bill dropped from ₹3,200 to nearly zero in just one month.",
     rating: 5,
   },
   {
