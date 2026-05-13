@@ -127,8 +127,8 @@ const projects = [
     image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-10.jpeg&w=1200&q=80",
   },
   {
-    id: 10, category: "solar", title: "10 MW Ground-Mount Solar Farm",
-    location: "Nawada, Bihar", year: "2024", area: "10 MW", featured: true,
+    id: 10, category: "solar", title: "10 KW Ground-Mount Solar Farm",
+    location: "Nawada, Bihar", year: "2024", area: "10 KW", featured: true,
     tag: "Ongoing", tagColor: "#6366f1",
     desc: "Utility-scale bifacial solar installation with string inverters, SCADA monitoring, and grid synchronisation.",
     image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0021.jpg&w=1200&q=80",
