@@ -345,7 +345,7 @@ export default function WebDevelopmentPage() {
                 Start Your Project
                 <ArrowForwardRoundedIcon fontSize="small" />
               </Link>
-              <Link href="https://wa.me/919031074805" className={styles.heroCta2}>
+              <Link href="https://wa.me/919231447005" className={styles.heroCta2}>
                 <WhatsAppIcon fontSize="small" />
                 WhatsApp Us
               </Link>
@@ -760,9 +760,9 @@ export default function WebDevelopmentPage() {
                   Get Free Consultation
                   <ArrowForwardRoundedIcon fontSize="small" />
                 </Link>
-                <Link href="tel:+919031074805" className={styles.ctaBtn2}>
+                <Link href="tel:+919231447005" className={styles.ctaBtn2}>
                   <LocalPhoneRoundedIcon fontSize="small" />
-                  +91 90310 74805
+                  +91 92314 47005
                 </Link>
               </div>
             </div>

@@ -35,8 +35,8 @@ const contactInfo = [
   {
     icon: <PhoneOutlinedIcon />,
     label: "Call Us",
-    value: "+91 92314 47001",
-    link: "tel:+919231447001",
+    value: "+91 92314 47005",
+    link: "tel:+919231447005",
     linkLabel: "Call Now",
     color: "#10b981",
     bg: "#ecfdf5",
@@ -120,7 +120,7 @@ export default function ContactPage() {
     const msg = encodeURIComponent(
       `Hello, I'm ${formData.name || "interested"} and I'd like to enquire about ${svc}. ${formData.message}`,
     );
-    window.open(`https://wa.me/919031074805?text=${msg}`, "_blank");
+    window.open(`https://wa.me/919231447005?text=${msg}`, "_blank");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -151,11 +151,11 @@ export default function ContactPage() {
             hours.
           </p>
           <div className={styles.heroActions}>
-            <a href="tel:+919031074805" className={styles.heroBtn}>
+            <a href="tel:+919231447005" className={styles.heroBtn}>
               <PhoneOutlinedIcon fontSize="small" /> Call Us Now
             </a>
             <a
-              href="https://wa.me/919031074805?text=Hello%2C%20I%20am%20interested%20in%20Braj%20Mohan%20Group%20services."
+              href="https://wa.me/919231447005?text=Hello%2C%20I%20am%20interested%20in%20Braj%20Mohan%20Group%20services."
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.heroBtn} ${styles.heroBtnWa}`}
@@ -408,11 +408,11 @@ export default function ContactPage() {
               </p>
             </div>
             <div className={styles.ctaButtons}>
-              <a href="tel:+919031074805" className={styles.ctaBtnPrimary}>
-                <PhoneOutlinedIcon fontSize="small" /> +91 93046 53309
+              <a href="tel:+919231447005" className={styles.ctaBtnPrimary}>
+                <PhoneOutlinedIcon fontSize="small" /> +91 92314 47005
               </a>
               <a
-                href="https://wa.me/919031074805?text=Hello%2C%20I%20am%20interested%20in%20your%2012KW%20On-Grid%20%26%20Off-Grid%20Solar%20Installation%20services%20in%20Dalsinghsarai%2C%20Samastipur%2C%20Bihar."
+                href="https://wa.me/9231447005?text=Hello%2C%20I%20am%20interested%20in%20your%2012KW%20On-Grid%20%26%20Off-Grid%20Solar%20Installation%20services%20in%20Dalsinghsarai%2C%20Samastipur%2C%20Bihar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaBtnWa}

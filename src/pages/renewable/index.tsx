@@ -294,7 +294,7 @@ export default function RenewablePowerPage() {
               <Link href="/contact" className={styles.btnPrimary}>
                 Get Free Assessment <ArrowForwardIcon sx={{ fontSize: 18 }} />
               </Link>
-              <Link href="tel:+919031074805" className={styles.btnGhost}>
+              <Link href="tel:+919231447005" className={styles.btnGhost}>
                 <PhoneInTalkIcon sx={{ fontSize: 18 }} /> Call Now
               </Link>
             </div>
@@ -641,8 +641,8 @@ export default function RenewablePowerPage() {
             <Link href="/contact" className={styles.btnCtaPrimary}>
               <CalendarMonthIcon sx={{ fontSize: 18 }} /> Book Free Assessment
             </Link>
-            <Link href="tel:+919031074805" className={styles.btnCtaGhost}>
-              <PhoneInTalkIcon sx={{ fontSize: 18 }} /> +91 90310 74805
+            <Link href="tel:+919231447005" className={styles.btnCtaGhost}>
+              <PhoneInTalkIcon sx={{ fontSize: 18 }} /> +91 92314 47005
             </Link>
           </div>
         </div>

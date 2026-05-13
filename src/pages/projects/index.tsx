@@ -408,8 +408,8 @@ export default function ProjectsPage() {
             <a href="/contact" className={styles.ctaPrimary}>
               Start a Conversation <ArrowOutwardIcon fontSize="small" />
             </a>
-            <a href="tel:+919031074805" className={styles.ctaSecondary}>
-              +91 90310 74805
+            <a href="tel:+919231447005" className={styles.ctaSecondary}>
+              +91 92314 47005
             </a>
           </div>
         </div>

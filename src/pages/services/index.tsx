@@ -192,7 +192,7 @@ export default function ServicesPage() {
           </blockquote>
           <div className={styles.quoteDivider} />
           <p className={styles.quoteAuthor}>
-            Eceladdus Enllave Group &nbsp;·&nbsp; Est. 1999 &nbsp;·&nbsp; Patna, Bihar
+            Eceladdus Enllave Group &nbsp;·&nbsp; Est. 2024 &nbsp;·&nbsp; Samastipur, Bihar
           </p>
         </div>
       </section>

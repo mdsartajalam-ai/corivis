@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
           <div className={styles.info}>
             <p>
-              <CallIcon /> +91 92314 47001
+              <CallIcon /> +91 92314 47005
             </p>
             <p>
               <EmailIcon /> support@eceladdusenllave.com
