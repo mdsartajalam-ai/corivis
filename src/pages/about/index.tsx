@@ -27,8 +27,8 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 const stats = [
   { value: "2+", label: "Years Legacy", icon: <CalendarTodayIcon fontSize="small" /> },
   { value: "200+", label: "Projects Done", icon: <TrendingUpIcon fontSize="small" /> },
-  { value: "1K+", label: "Lives Impacted", icon: <GroupsIcon fontSize="small" /> },
-  { value: "₹100Cr+", label: "Work Delivered", icon: <StarBorderIcon fontSize="small" /> },
+  { value: "200+", label: "Lives Impacted", icon: <GroupsIcon fontSize="small" /> },
+  { value: "₹10Cr+", label: "Work Delivered", icon: <StarBorderIcon fontSize="small" /> },
 ];
 
 const values = [
@@ -64,14 +64,14 @@ const values = [
 
 const timeline = [
   {
-    year: "2024",
+    year: "2025",
     title: "Foundation",
     desc: "Established in Patna, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
     icon: <BusinessIcon />,
     tag: "Origin",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Government Expansion",
     desc: "Scaled into large-scale government civil projects and highway road construction across multiple Bihar districts.",
     icon: <TrendingUpIcon />,
@@ -113,7 +113,7 @@ const domains = [
   },
   {
     icon: <BoltIcon fontSize="large" />,
-    title: "Renewable Energy",
+    title: "Solar Energy",
     points: [
       "Rooftop solar installations",
       "Smart meter deployment",
@@ -183,7 +183,7 @@ export default function AboutPage() {
               the Government of Bihar for over two decades.
             </p>
             <div className={styles.heroCerts}>
-              {["CIN: U45200BR1999PTC009060", "GST: 10AABCB6571F1Z5"].map((c, i) => (
+              {["CIN: U68100BR2025PTC075378", "GST: 10AAICE8352L1ZJ "].map((c, i) => (
                 <span key={i} className={styles.certBadge}>
                   <VerifiedIcon sx={{ fontSize: 13, color: "#6366f1" }} />
                   {c}
@@ -297,7 +297,7 @@ export default function AboutPage() {
               </h2>
               <p className={styles.body}>
                 Eceladdus Enllave Group is a multidisciplinary infrastructure powerhouse
-                headquartered in Patna, Bihar. With over two decades of experience,
+                headquartered in Samastipur, Bihar. With over two years of experience,
                 we have bridged the gap between traditional construction and modern
                 technological innovation.
               </p>

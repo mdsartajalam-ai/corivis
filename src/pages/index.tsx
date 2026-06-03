@@ -10,6 +10,7 @@ import FutureCTA from "@/components/home/FutureCTA";
 import ContactForm from "@/components/home/ContactForm";
 import OurJourney from "@/components/home/OurJourney";
 import StatsSection from "@/components/home/StateSection";
+import MessageSection from "@/components/home/MessageSection";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -42,6 +43,9 @@ export default function Home() {
         </section>
         <section className={styles.journey_section}>
           <OurJourney/>
+        </section>
+        <section>
+          <MessageSection/>
         </section>
         <section className={styles.expertise_section}>
           <Expertise/>

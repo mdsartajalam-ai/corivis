@@ -7,11 +7,17 @@ import p3 from "@/assets/hero/sl1.jpg";
 import sl6 from "@/assets/hero/sl6.jpeg";
 import sl7 from "@/assets/hero/sl7.jpeg";
 import sl5 from "@/assets/hero/sl5.jpeg";
+import con1 from "@/assets/hero/cons1.jpeg";
+import con2 from "@/assets/hero/cons2.jpeg";
+import intr from "@/assets/hero/intr1.jpg";
 
 import cr1 from "@/assets/hero/hc1.jpeg";
 import cr2 from "@/assets/hero/hc2.jpeg";
 import cr3 from "@/assets/hero/cr3.jpg";
 import cr4 from "@/assets/hero/hc3.jpeg";
+import hp1 from "@/assets/hero/hp1.jpeg";
+import hp2 from "@/assets/hero/hp2.jpeg";
+import hp3 from "@/assets/hero/hp3.jpeg";
 
 import BoltIcon from "@mui/icons-material/Bolt";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -20,11 +26,10 @@ import ConstructionIcon from "@mui/icons-material/Construction";
 import GroupsIcon from "@mui/icons-material/Groups";
 
 export const companyFeatures = [
-  "5+ Years of Industry Leadership",
+  "2+ Years of Industry Leadership",
   "50+ Government Projects",
   "120+ Renovations Completed",
   "1MW+ Solar Infrastructure",
-  "1M+ Smart Meters Installed",
 ];
 
 export const clients = [
@@ -68,23 +73,23 @@ export const expertiseData = [
 export const projects = [
   { title: "Solar Plant Setup", category: "Solar Energy", image: sl7 },
   { title: "Solar Plant Setup", category: "Solar Energy", image: sl6 },
-  { title: "Building Construction", category: "Construction", image: p1 },
-  { title: "Infrastructure Project", category: "Infrastructure", image: sl5 },
-  { title: "Interior Design", category: "Design", image: p2 },
-  { title: "Renovation Work", category: "Construction", image: p3 },
+  { title: "Building Construction", category: "Construction", image: con2 },
+  { title: "solar Pant Setup", category: "Solar Energy", image: sl5 },
+  { title: "Interior Design", category: "Interior", image: intr },
+  { title: "Renovation Work", category: "Construction", image: con1 },
 ];
 
 export const categories = [
   "All",
   "Solar Energy",
   "Construction",
-  "Infrastructure",
-  "Design",
+  "Interior",
 ];
 
 export const customers = [
-  { name: "Ramesh Kumar", location: "Patna, Bihar", image: cr1 },
-  { name: "Sunita Devi", location: "Gaya, Bihar", image: cr2 },
-  { name: "Amit Sharma", location: "Delhi", image: cr3 },
-  { name: "Rajesh Singh", location: "Lucknow", image: cr4 },
+  { name: "Amit Sharma", location: "Samastipur, Bihar", phone: "3493289573", image: hp3 },
+  { name: "Ajay Kumar", location: "Sitamarhi, Bihar", phone: "4758237843", image: hp1 },
+  { name: "Ramesh Kumar", location: "Sonupur, Bihar", phone: "8734123409",  image: cr2 },
+  { name: "Vinay Singh", location: "Muzaffarpur, Bihar", phone: "6523981267", image: cr4 },
+  { name: "Mandeep Kumar", location: "Jahagirpur, Bihar", phone: "8723093218",  image: hp2 },
 ];

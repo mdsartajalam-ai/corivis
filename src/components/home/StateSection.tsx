@@ -31,12 +31,6 @@ const stats: Stat[] = [
     label: "Projects Delivered",
   },
   {
-    Icon: SpeedIcon,
-    numericValue: 1,
-    suffix: "M+",
-    label: "Smart Meters Installed",
-  },
-  {
     Icon: WbSunnyIcon,
     numericValue: 1,
     suffix: "MW+",

@@ -53,6 +53,7 @@ const HappyCustomers = () => {
               <div className={styles.hc_content}>
                 <h4>{itemData.name}</h4>
                 <span>{itemData.location}</span>
+                <p>{itemData.phone}</p>
               </div>
             </motion.div>
           ))}

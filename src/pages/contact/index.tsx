@@ -64,7 +64,7 @@ const contactInfo = [
 const services = [
   {
     key: "solar power",
-    label: "Renewable Power",
+    label: "Solar Energy",
     icon: <SolarPowerOutlinedIcon fontSize="small" />,
   },
   {
@@ -201,7 +201,7 @@ export default function ContactPage() {
               <div className={styles.sectionLabel}>Contact Information</div>
               <h2 className={styles.sectionTitle}>Reach Our Team</h2>
               <p className={styles.sectionDesc}>
-                We're headquartered in Patna and serve clients across Bihar and
+                We're headquartered in Samatipur and serve clients across Bihar and
                 beyond. Pick your preferred channel — we're always available.
               </p>
 

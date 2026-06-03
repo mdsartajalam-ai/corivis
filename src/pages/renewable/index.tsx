@@ -182,7 +182,7 @@ const subsidySlabs = [
   {
     size: "Above 3 kW",
     rate: "Fixed upper limit",
-    amount: "₹94,822 max",
+    amount: "₹78,000 max",
     popular: true,
   },
 ];
@@ -288,7 +288,7 @@ export default function RenewablePowerPage() {
             </h1>
             <p className={styles.heroDesc}>
               As Bihar's most trusted solar company, we bring world-class renewable infrastructure to homes,
-              offices, and industries — backed by government subsidies up to ₹94,822.
+              offices, and industries — backed by government subsidies up to ₹78,000.
             </p>
             <div className={styles.heroCta}>
               <Link href="/contact" className={styles.btnPrimary}>
@@ -525,10 +525,10 @@ export default function RenewablePowerPage() {
             </div>
             <div className={styles.emiBreakdown}>
               {[
-                { label: "System Cost (3kW)", val: "₹1,50,000", highlight: false },
-                { label: "Central Subsidy", val: "– ₹94,822", highlight: false },
-                { label: "Net Cost", val: "₹55,178", highlight: false },
-                { label: "EMI @ 7% / 5yr", val: "≈ ₹1,090/mo", highlight: true },
+                { label: "System Cost (3kW)", val: "₹1,20,000", highlight: false },
+                { label: "Central Subsidy", val: "– ₹78,000", highlight: false },
+                { label: "Net Cost", val: "₹42,000", highlight: false },
+                { label: "EMI @ 7% / 5yr", val: "≈ ₹832/mo", highlight: true },
               ].map((row) => (
                 <div key={row.label} className={`${styles.emiRow} ${row.highlight ? styles.emiRowHL : ""}`}>
                   <span>{row.label}</span>

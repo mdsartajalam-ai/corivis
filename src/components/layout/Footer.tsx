@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
           <div className={styles.info}>
             <p>
-              <CallIcon /> +91 92314 47005
+              <CallIcon /> +91 92314 47001
             </p>
             <p>
               <EmailIcon /> support@eceladdusenllave.com
@@ -69,8 +69,8 @@ const Footer = () => {
             </span>
           </div>
           <div className={styles.legal}>
-            <p>CIN: U45200BR1999PTC009060</p>
-            <p>GST: 10AABCB6571F1Z5</p>
+            <p>CIN: U68100BR2025PTC075378</p>
+            <p>GST: 10AAICE8352L1ZJ</p>
           </div>
         </div>
       </div>

@@ -19,11 +19,34 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import BarChartRoundedIcon from "@mui/icons-material/BarChartRounded";
 import React from "react";
 import Chip from "@mui/material/Chip";
+import Image from "next/image";
+
+import sl1 from "@/assets/hero/sl6.jpeg";
+import sl7 from "@/assets/hero/sl7.jpeg";
+import sl8 from "@/assets/hero/sl8.jpeg";
+import sl9 from "@/assets/hero/sl9.jpeg";
+import sl10 from "@/assets/hero/sl10.jpeg";
+import sl11 from "@/assets/hero/sl11.jpeg";
+
+import cons1 from "@/assets/hero/cons1.jpeg";
+import cons2 from "@/assets/hero/cons2.jpeg";
+import cons3 from "@/assets/hero/cons3.jpeg";
+import cons4 from "@/assets/hero/cons4.jpeg";
+
+import int1 from "@/assets/hero/intr1.jpg";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 const stats = [
-  { icon: <EmojiEventsOutlinedIcon />, value: "2+", label: "Years of Excellence" },
-  { icon: <HomeWorkOutlinedIcon />, value: "200+", label: "Projects Delivered" },
+  {
+    icon: <EmojiEventsOutlinedIcon />,
+    value: "2+",
+    label: "Years of Excellence",
+  },
+  {
+    icon: <HomeWorkOutlinedIcon />,
+    value: "200+",
+    label: "Projects Delivered",
+  },
   { icon: <PeopleAltOutlinedIcon />, value: "700+", label: "Happy Clients" },
   { icon: <BarChartRoundedIcon />, value: "₹100Cr+", label: "Project Value" },
 ];
@@ -32,7 +55,7 @@ const categories = [
   { key: "all", label: "All Projects" },
   { key: "solar", label: "Solar Energy" },
   { key: "civil", label: "Civil Construction" },
-  { key: "smart", label: "Smart Metering" },
+  // { key: "smart", label: "Smart Metering" },
   { key: "interior", label: "Interiors" },
 ];
 
@@ -64,109 +87,227 @@ const categoryMeta: Record<
 
 const projects = [
   {
-    id: 1, category: "civil", title: "Rajendra Nagar Residential Complex",
-    location: "Patna, Bihar", year: "2024", area: "12,000 sq.ft", featured: true,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "Premium residential complex with modern amenities, earthquake-resistant RCC structure, and sustainable landscaping.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-1.jpeg&w=1200&q=80",
-  },
-  {
-    id: 2, category: "civil", title: "NH-30 Bridge Infrastructure",
-    location: "Aurangabad, Bihar", year: "2023", area: "3.2 km span", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "Multi-lane bridge over Sone river, engineered for heavy traffic load with advanced anti-corrosion treatment.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-2.jpeg&w=1200&q=80",
-  },
-  {
-    id: 3, category: "civil", title: "Government School Complex",
-    location: "Gaya, Bihar", year: "2023", area: "8,500 sq.ft", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "State-of-the-art school building with smart classrooms, solar backup, and rainwater harvesting system.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-3.jpeg&w=1200&q=80",
-  },
-  {
-    id: 4, category: "smart", title: "BSPHCL Smart Meter Rollout — Phase I",
-    location: "Patna District", year: "2024", area: "18,000 units", featured: true,
-    tag: "Ongoing", tagColor: "#6366f1",
-    desc: "Large-scale advanced metering infrastructure deployment for Bihar State Power Holding Company, covering urban and semi-urban zones.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-4.jpeg&w=1200&q=80",
-  },
-  {
-    id: 5, category: "smart", title: "Rural AMI Network — Vaishali",
-    location: "Vaishali, Bihar", year: "2023", area: "7,200 units", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "End-to-end AMI solution with real-time monitoring dashboard, tamper detection, and GSM-based two-way communication.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-5.jpeg&w=1200&q=80",
-  },
-  {
-    id: 6, category: "civil", title: "Commercial Hub — Bailey Road",
-    location: "Patna, Bihar", year: "2022", area: "22,000 sq.ft", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "G+5 commercial complex with basement parking, fire-safety systems, and energy-efficient glazing facade.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-7.jpeg&w=1200&q=80",
-  },
-  {
-    id: 7, category: "smart", title: "Industrial Metering — Hajipur SEZ",
-    location: "Hajipur, Bihar", year: "2024", area: "3,400 units", featured: false,
-    tag: "Ongoing", tagColor: "#6366f1",
-    desc: "High-precision CT-operated smart meters for industrial consumers with demand forecasting and load management.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-8.jpeg&w=1200&q=80",
-  },
-  {
-    id: 8, category: "civil", title: "Anisabad Road Widening",
-    location: "Patna, Bihar", year: "2022", area: "4.8 km", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "Urban road widening and drainage improvement project under PMGSY, with LED street lighting and pedestrian pathways.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-9.jpeg&w=1200&q=80",
-  },
-  {
-    id: 9, category: "civil", title: "District Hospital — Chapra",
-    location: "Saran, Bihar", year: "2023", area: "15,000 sq.ft", featured: false,
-    tag: "Completed", tagColor: "#10b981",
-    desc: "Fully functional 100-bed district hospital with dedicated ICU, OT theatre, and pharmaceutical storage.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fwork-gallery%2Fwork-10.jpeg&w=1200&q=80",
-  },
-  {
-    id: 10, category: "solar", title: "10 KW Ground-Mount Solar Farm",
-    location: "Nawada, Bihar", year: "2024", area: "10 KW", featured: true,
-    tag: "Ongoing", tagColor: "#6366f1",
-    desc: "Utility-scale bifacial solar installation with string inverters, SCADA monitoring, and grid synchronisation.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0021.jpg&w=1200&q=80",
-  },
-  {
-    id: 11, category: "solar", title: "Rooftop Solar — IGIMS Hospital",
-    location: "Patna, Bihar", year: "2024", area: "250 kWp", featured: false,
-    tag: "Completed", tagColor: "#10b981",
+    id: 1,
+    category: "solar",
+    title: "Residential Rooftop Solar Project",
+    location: "Mehsaul, Bihar",
+    year: "2024",
+    area: "250 kWp",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
     desc: "Grid-tied rooftop system with net metering, reducing hospital electricity bill by 40% annually.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0022.jpg&w=1200&q=80",
+    image: sl7,
   },
   {
-    id: 12, category: "solar", title: "Agricultural Solar Pumping Scheme",
-    location: "Muzaffarpur, Bihar", year: "2023", area: "1.2 MW", featured: false,
-    tag: "Completed", tagColor: "#10b981",
+    id: 2,
+    category: "solar",
+    title: "Agricultural Solar Pumping Scheme",
+    location: "Sitamarhi, Bihar",
+    year: "2023",
+    area: "1.2 MW",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
     desc: "PM-KUSUM scheme solar pumps for 480 farmers, ensuring reliable irrigation without grid dependency.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0023.jpg&w=1200&q=80",
+    image: sl8,
   },
   {
-    id: 13, category: "solar", title: "Solar Street Lighting — Nalanda",
-    location: "Nalanda, Bihar", year: "2023", area: "800 units", featured: false,
-    tag: "Completed", tagColor: "#10b981",
+    id: 3,
+    category: "solar",
+    title: "Solar Street Lighting — Nalanda",
+    location: "Nalanda, Bihar",
+    year: "2023",
+    area: "800 units",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
     desc: "LED solar street lights with dusk-to-dawn sensors and lithium battery backup across 12 villages.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0025.jpg&w=1200&q=80",
+    image: sl9,
   },
   {
-    id: 14, category: "interior", title: "Corporate HQ — Tech Mahindra Patna",
-    location: "Patna, Bihar", year: "2024", area: "6,200 sq.ft", featured: true,
-    tag: "Completed", tagColor: "#10b981",
+    id: 11,
+    category: "civil",
+    title: "Rural Panchayat Bhawan Construction",
+    location: "Samastipur, Bihar",
+    year: "2024",
+    area: "4,500 sq.ft",
+    featured: true,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Modern Panchayat Bhawan with administrative offices, meeting hall, digital service center, and public facilities.",
+    image: cons1,
+  },
+  {
+    id: 12,
+    category: "civil",
+    title: "Village Community Hall",
+    location: "Sitamarhi, Bihar",
+    year: "2023",
+    area: "3,800 sq.ft",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Multi-purpose community hall designed for social gatherings, cultural events, training programs, and public meetings.",
+    image: cons2,
+  },
+  {
+    id: 13,
+    category: "civil",
+    title: "Government Primary School Building",
+    location: "Darbhanga, Bihar",
+    year: "2024",
+    area: "6,200 sq.ft",
+    featured: true,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "RCC school building with classrooms, administrative block, sanitation facilities, and playground infrastructure.",
+    image: cons3,
+  },
+  {
+    id: 4,
+    category: "smart",
+    title: "BSPHCL Smart Meter Rollout — Phase I",
+    location: "Patna District",
+    year: "2024",
+    area: "18,000 units",
+    featured: true,
+    tag: "Ongoing",
+    tagColor: "#6366f1",
+    desc: "Large-scale advanced metering infrastructure deployment for Bihar State Power Holding Company, covering urban and semi-urban zones.",
+    image: sl1,
+  },
+  {
+    id: 5,
+    category: "smart",
+    title: "Rural AMI Network — Vaishali",
+    location: "Vaishali, Bihar",
+    year: "2023",
+    area: "7,200 units",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "End-to-end AMI solution with real-time monitoring dashboard, tamper detection, and GSM-based two-way communication.",
+    image: sl1,
+  },
+  {
+    id: 29,
+    category: "civil",
+    title: "Rural Health Sub-Centre",
+    location: "Muzaffarpur, Bihar",
+    year: "2023",
+    area: "2,500 sq.ft",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Healthcare facility providing basic medical services, maternal care, vaccination support, and emergency treatment.",
+    image: cons4,
+  },
+  {
+    id: 7,
+    category: "smart",
+    title: "Industrial Metering — Hajipur SEZ",
+    location: "Hajipur, Bihar",
+    year: "2024",
+    area: "3,400 units",
+    featured: false,
+    tag: "Ongoing",
+    tagColor: "#6366f1",
+    desc: "High-precision CT-operated smart meters for industrial consumers with demand forecasting and load management.",
+    image: sl1,
+  },
+  {
+    id: 31,
+    category: "civil",
+    title: "Rural Residential Housing Cluster",
+    location: "Sitamarhi, Bihar",
+    year: "2024",
+    area: "18 Units",
+    featured: true,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Affordable rural housing project featuring durable RCC construction, sanitation facilities, and reliable water access.",
+    image: cons1,
+  },
+  {
+    id: 9,
+    category: "civil",
+    title: "District Hospital — Chapra",
+    location: "Saran, Bihar",
+    year: "2023",
+    area: "15,000 sq.ft",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Fully functional 100-bed district hospital with dedicated ICU, OT theatre, and pharmaceutical storage.",
+    image: cons2,
+  },
+  {
+    id: 10,
+    category: "solar",
+    title: "Solar Street Lighting Initiative",
+    location: "Samastipur, Bihar",
+    year: "2024",
+    area: "10 KW",
+    featured: true,
+    tag: "Ongoing",
+    tagColor: "#6366f1",
+    desc: "Utility-scale bifacial solar installation with string inverters, SCADA monitoring, and grid synchronisation.",
+    image: sl1,
+  },
+
+  {
+    id: 14,
+    category: "solar",
+    title: "Rooftop Solar Installation — Samastipur",
+    location: "Samastipur, Bihar",
+    year: "2024",
+    area: "120 kWp",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
+    desc: "Grid-connected rooftop solar system installed across commercial buildings with net metering and remote monitoring.",
+    image: sl10,
+  },
+  {
+    id: 15,
+    category: "solar",
+    title: "Agricultural Solar Pumping Project",
+    location: "Muzaffarpur, Bihar",
+    year: "2023",
+    area: "60 Pumps",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#13221d",
+    desc: "Solar-powered irrigation pumps deployed for farmers, ensuring reliable water supply while reducing diesel costs.",
+    image: sl11,
+  },
+
+  {
+    id: 16,
+    category: "interior",
+    title: "Corporate HQ — Tech Mahindra Patna",
+    location: "Patna, Bihar",
+    year: "2024",
+    area: "6,200 sq.ft",
+    featured: true,
+    tag: "Completed",
+    tagColor: "#10b981",
     desc: "Contemporary open-plan office with biophilic design, acoustic panels, collaborative zones, and ergonomic workstations.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0031.jpg&w=1200&q=80",
+    image: int1,
   },
   {
-    id: 15, category: "interior", title: "Luxury Villa — Boring Road",
-    location: "Patna, Bihar", year: "2023", area: "4,800 sq.ft", featured: false,
-    tag: "Completed", tagColor: "#10b981",
+    id: 17,
+    category: "interior",
+    title: "Luxury Villa — Boring Road",
+    location: "Patna, Bihar",
+    year: "2023",
+    area: "4,800 sq.ft",
+    featured: false,
+    tag: "Completed",
+    tagColor: "#10b981",
     desc: "High-end residential interior with Italian marble, custom millwork, smart home integration, and a rooftop lounge.",
-    image: "https://brajmohangroup.in/_next/image?url=%2Fimages%2Fsolar-gallery%2FIMG-20250805-WA0041.jpg&w=1200&q=80",
+    image: int1,
   },
 ];
 
@@ -193,7 +334,10 @@ export default function ProjectsPage() {
   useEffect(() => {
     const handleScroll = () => {
       if (heroRef.current) {
-        heroRef.current.style.setProperty("--scroll-y", `${window.scrollY * 0.35}px`);
+        heroRef.current.style.setProperty(
+          "--scroll-y",
+          `${window.scrollY * 0.35}px`,
+        );
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -215,13 +359,21 @@ export default function ProjectsPage() {
             <span className={styles.heroAccent}>Define Excellence</span>
           </h1>
           <p className={styles.heroSub}>
-            From civil infrastructure to smart metering, renewable energy to premium interiors —
-            every project is a testament to precision, quality, and lasting impact.
+            From civil infrastructure to smart metering, renewable energy to
+            premium interiors — every project is a testament to precision,
+            quality, and lasting impact.
           </p>
         </div>
         <div className={styles.heroWave}>
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8faff" />
+          <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+              fill="#f8faff"
+            />
           </svg>
         </div>
       </section>
@@ -246,7 +398,10 @@ export default function ProjectsPage() {
         <div className={styles.container}>
           <div className={styles.filterBar}>
             <div className={styles.filterLeft}>
-              <FilterListRoundedIcon fontSize="small" className={styles.filterIcon} />
+              <FilterListRoundedIcon
+                fontSize="small"
+                className={styles.filterIcon}
+              />
               <div className={styles.filterPills}>
                 {categories.map((c) => (
                   <button
@@ -277,7 +432,8 @@ export default function ProjectsPage() {
             </div>
           </div>
           <p className={styles.resultCount}>
-            Showing <strong>{visible.length}</strong> of <strong>{filtered.length}</strong> projects
+            Showing <strong>{visible.length}</strong> of{" "}
+            <strong>{filtered.length}</strong> projects
           </p>
         </div>
       </section>
@@ -285,7 +441,11 @@ export default function ProjectsPage() {
       {/* ── Projects Grid / List ──────────────── */}
       <section className={styles.projectsSection}>
         <div className={styles.container}>
-          <div className={viewMode === "grid" ? styles.gridLayout : styles.listLayout}>
+          <div
+            className={
+              viewMode === "grid" ? styles.gridLayout : styles.listLayout
+            }
+          >
             {visible.map((project, idx) => {
               const meta = categoryMeta[project.category];
               return viewMode === "grid" ? (
@@ -296,19 +456,40 @@ export default function ProjectsPage() {
                   style={{ animationDelay: `${idx * 60}ms` }}
                 >
                   <div className={styles.cardImageWrap}>
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className={styles.cardImage}
-                      loading="lazy"
+                      width={1200}
+                      height={800}
                     />
                     <div className={styles.cardImageOverlay} />
-                    <span className={styles.cardTag} style={{ color: project.tagColor, borderColor: `${project.tagColor}33`, background: `${project.tagColor}12` }}>
-                      <span className={styles.tagDot} style={{ background: project.tagColor }} />
+                    <span
+                      className={styles.cardTag}
+                      style={{
+                        color: project.tagColor,
+                        borderColor: `${project.tagColor}33`,
+                        background: `${project.tagColor}12`,
+                      }}
+                    >
+                      <span
+                        className={styles.tagDot}
+                        style={{ background: project.tagColor }}
+                      />
                       {project.tag}
                     </span>
-                    <span className={styles.cardCatBadge} style={{ color: meta.color, background: meta.bg }}>
-                      {meta.icon} {project.category === "civil" ? "Civil" : project.category === "smart" ? "Smart Metering" : project.category === "solar" ? "Solar" : "Interior"}
+                    <span
+                      className={styles.cardCatBadge}
+                      style={{ color: meta.color, background: meta.bg }}
+                    >
+                      {meta.icon}{" "}
+                      {project.category === "civil"
+                        ? "Civil"
+                        : project.category === "smart"
+                          ? "Smart Metering"
+                          : project.category === "solar"
+                            ? "Solar"
+                            : "Interior"}
                     </span>
                   </div>
                   <div className={styles.cardBody}>
@@ -316,13 +497,16 @@ export default function ProjectsPage() {
                     <p className={styles.cardDesc}>{project.desc}</p>
                     <div className={styles.cardMeta}>
                       <span className={styles.metaItem}>
-                        <LocationOnOutlinedIcon fontSize="inherit" /> {project.location}
+                        <LocationOnOutlinedIcon fontSize="inherit" />{" "}
+                        {project.location}
                       </span>
                       <span className={styles.metaItem}>
-                        <CalendarTodayOutlinedIcon fontSize="inherit" /> {project.year}
+                        <CalendarTodayOutlinedIcon fontSize="inherit" />{" "}
+                        {project.year}
                       </span>
                       <span className={styles.metaItem}>
-                        <SquareFootOutlinedIcon fontSize="inherit" /> {project.area}
+                        <SquareFootOutlinedIcon fontSize="inherit" />{" "}
+                        {project.area}
                       </span>
                     </div>
                     <button className={styles.cardCta}>
@@ -338,13 +522,17 @@ export default function ProjectsPage() {
                   style={{ animationDelay: `${idx * 50}ms` }}
                 >
                   <div className={styles.listImageWrap}>
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={400}
+                      height={300}
                       className={styles.listImage}
-                      loading="lazy"
                     />
-                    <span className={styles.listCatBadge} style={{ color: meta.color, background: meta.bg }}>
+                    <span
+                      className={styles.listCatBadge}
+                      style={{ color: meta.color, background: meta.bg }}
+                    >
                       {meta.icon}
                     </span>
                   </div>
@@ -366,13 +554,16 @@ export default function ProjectsPage() {
                     <p className={styles.listDesc}>{project.desc}</p>
                     <div className={styles.listMeta}>
                       <span className={styles.metaItem}>
-                        <LocationOnOutlinedIcon fontSize="inherit" /> {project.location}
+                        <LocationOnOutlinedIcon fontSize="inherit" />{" "}
+                        {project.location}
                       </span>
                       <span className={styles.metaItem}>
-                        <CalendarTodayOutlinedIcon fontSize="inherit" /> {project.year}
+                        <CalendarTodayOutlinedIcon fontSize="inherit" />{" "}
+                        {project.year}
                       </span>
                       <span className={styles.metaItem}>
-                        <SquareFootOutlinedIcon fontSize="inherit" /> {project.area}
+                        <SquareFootOutlinedIcon fontSize="inherit" />{" "}
+                        {project.area}
                       </span>
                     </div>
                   </div>
@@ -386,7 +577,10 @@ export default function ProjectsPage() {
 
           {hasMore && (
             <div className={styles.loadMoreWrap}>
-              <button className={styles.loadMoreBtn} onClick={() => setVisibleCount((v) => v + 6)}>
+              <button
+                className={styles.loadMoreBtn}
+                onClick={() => setVisibleCount((v) => v + 6)}
+              >
                 Load More Projects
               </button>
             </div>
@@ -401,7 +595,8 @@ export default function ProjectsPage() {
             <span className={styles.ctaEyebrow}>Ready to Build?</span>
             <h2 className={styles.ctaTitle}>Have a Project in Mind?</h2>
             <p className={styles.ctaSub}>
-              Let's discuss how Eceladdus Enllave Group can turn your vision into a landmark project.
+              Let's discuss how Eceladdus Enllave Group can turn your vision
+              into a landmark project.
             </p>
           </div>
           <div className={styles.ctaActions}>

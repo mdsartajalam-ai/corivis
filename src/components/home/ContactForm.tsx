@@ -25,7 +25,7 @@ export default function CallbackForm({ initialValues }: Props) {
 
   const handleSubmit = () => {
     const message = `Name: ${form.name}%0APhone: ${form.phone}%0AService: ${form.service}`;
-    window.open(`https://wa.me/919031074805?text=${message}`);
+    window.open(`https://wa.me/message/6CC5DBYQYKNLJ1?text=${message}`);
   };
 
   return (
@@ -65,10 +65,7 @@ export default function CallbackForm({ initialValues }: Props) {
         />
       </div>
 
-      <Button 
-        action={handleSubmit} 
-        text="Send Via Whatsapp" 
-      />
+      <Button action={handleSubmit} text="Send Via Whatsapp" />
     </div>
   );
 }
