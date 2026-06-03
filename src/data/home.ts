@@ -18,6 +18,7 @@ import cr4 from "@/assets/hero/hc3.jpeg";
 import hp1 from "@/assets/hero/hp1.jpeg";
 import hp2 from "@/assets/hero/hp2.jpeg";
 import hp3 from "@/assets/hero/hp3.jpeg";
+import hp4 from "@/assets/hero/hp4.jpeg";
 
 import BoltIcon from "@mui/icons-material/Bolt";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -87,9 +88,9 @@ export const categories = [
 ];
 
 export const customers = [
-  { name: "Amit Sharma", location: "Samastipur, Bihar", phone: "3493289573", image: hp3 },
-  { name: "Ajay Kumar", location: "Sitamarhi, Bihar", phone: "4758237843", image: hp1 },
-  { name: "Ramesh Kumar", location: "Sonupur, Bihar", phone: "8734123409",  image: cr2 },
-  { name: "Vinay Singh", location: "Muzaffarpur, Bihar", phone: "6523981267", image: cr4 },
-  { name: "Mandeep Kumar", location: "Jahagirpur, Bihar", phone: "8723093218",  image: hp2 },
+  { name: "Bablu kumar", location: "Dalsinghsarai, Samastipur, Bihar", phone: "+919304653309", image: hp4 },
+  { name: "Ajit Sharma", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919006403233", image: hp1 },
+  { name: "Sushil kumar", location: "Rampur Dayal, Muzaffarpur, Bihar", phone: "+919934257811",  image: cr2 },
+  { name: "Radhe kumar ", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919905404996", image: cr4 },
+  { name: "Ved Parkash Sharma", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919934257811",  image: hp2 },
 ];
