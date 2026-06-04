@@ -792,6 +792,9 @@
   color: #ffffff;
   box-shadow: 0 4px 16px #6366f135;
 }
+.yearTabActive:hover {
+  color: #ffffff;
+}
 
 /* Feature panel */
 .featurePanel {

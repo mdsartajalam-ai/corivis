@@ -79,13 +79,6 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "Smart Metering",
-    desc: "Partnered with Bihar's major power corporations for smart meter installation across thousands of households.",
-    icon: <BoltIcon />,
-    tag: "Energy",
-  },
-  {
-    year: "2025",
     title: "Solar Initiative",
     desc: "Launched our green energy division, installing rooftop solar units statewide — powering a cleaner tomorrow.",
     icon: <EnergySavingsLeafIcon />,

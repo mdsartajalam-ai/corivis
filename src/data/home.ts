@@ -42,6 +42,7 @@ export const clients = [
   { name: "Luminous", logo: logo },
 ];
 export const serviceOptions = [
+  { label: "Solar Energy" },
   { label: "Real Estate" },
   { label: "Construction" },
   { label: "Consulting" },
