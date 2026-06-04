@@ -155,7 +155,7 @@ export default function ContactPage() {
               <PhoneOutlinedIcon fontSize="small" /> Call Us Now
             </a>
             <a
-              href="https://wa.me/919231447005?text=Hello%2C%20I%20am%20interested%20in%20Braj%20Mohan%20Group%20services."
+              href="https://wa.me/919231447005?text=Hello%2C%20I%20am%20interested%20in%20Eceladdus%20Enllave%20Group%20services."
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.heroBtn} ${styles.heroBtnWa}`}

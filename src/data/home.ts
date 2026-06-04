@@ -25,6 +25,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import GroupsIcon from "@mui/icons-material/Groups";
+import { label } from "framer-motion/client";
 
 export const companyFeatures = [
   "2+ Years of Industry Leadership",
@@ -42,6 +43,7 @@ export const clients = [
   { name: "Luminous", logo: logo },
 ];
 export const serviceOptions = [
+  {label: "Solar"},
   { label: "Real Estate" },
   { label: "Construction" },
   { label: "Consulting" },
