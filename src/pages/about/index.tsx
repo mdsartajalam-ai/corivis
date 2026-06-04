@@ -66,7 +66,7 @@ const timeline = [
   {
     year: "2025",
     title: "Foundation",
-    desc: "Established in Patna, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
+    desc: "Established in Samastipur, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
     icon: <BusinessIcon />,
     tag: "Origin",
   },
