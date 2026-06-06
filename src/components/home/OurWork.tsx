@@ -17,8 +17,8 @@ const OurWork = () => {
       initial="hidden"
       whileInView="show"
       variants={container}
-      className={styles.project_container}
       viewport={{ once: true }}
+      className={styles.project_container}
     >
       <div className={styles.project_header}>
         <motion.p variants={item} className={styles.glo_badge}>
@@ -55,8 +55,8 @@ const OurWork = () => {
               <Image
                 fill
                 quality={100}
-                src={itemData.image}
                 alt={itemData.title}
+                src={itemData.image}
                 className={styles.img}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

@@ -22,6 +22,31 @@
   --white-3: #ffffff08;
   --navy-80: #020617cc;
   --slate-60: #475569;
+  --slate-5: #f8fafc;
+  --blue-8: #2563eb14;
+  --blue-60: #2563eb;
+  --slate-70: #4b5563;
+  --gray-20: #e5e7eb;
+  --indigo-3: #f8f7ff;
+  --white-95: #fffffff2;
+  --indigo-15: #e8e4fd;
+  --indigo-50: #818cf8;
+  --slate-20: #e2e8f0;
+  --indigo-25: #c7d2fe;
+  --slate-95: #0f172a;
+  --navy-90: #0b1d35;
+  --gold-18: #c9a84c2e;
+  --gold-22: #c9a84c38;
+  --gold-45: #c9a84c73;
+  --gold-60: #c9a84c;
+  --gold-5: #f5f0e8;
+  --blue-gray-40: #9db8d0;
+  --blue-gray-50: #7a9ab8;
+  --indigo-7: #6366f112;
+  --indigo-19: #6366f130;
+  --indigo-9: #6366f118;
+  --indigo-21: #6366f135;
+  --indigo-27: #6366f145;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -159,7 +184,7 @@ a {
   background: var(--slate-100);
   color: var(--white);
 }
-.app-select .MuiSelect-icon{
+.app-select .MuiSelect-icon {
   color: var(--primary);
 }
 .app-select .MuiOutlinedInput-notchedOutline {
@@ -180,10 +205,10 @@ a {
   font-size: 14px;
 }
 .app-select-dropdown .MuiMenuItem-root:hover {
-  background:var(--indigo-20);
+  background: var(--indigo-20);
 }
 .app-select-dropdown .Mui-selected {
-  background: var( --indigo-30) !important;
+  background: var(--indigo-30) !important;
 }
 
 @media (min-width: 768px) {

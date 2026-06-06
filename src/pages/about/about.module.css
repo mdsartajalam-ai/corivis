@@ -1,7 +1,19 @@
-/* ═══════════════════════════════════════════════════════
-   about.module.css  —  Premium About Page
-   Mobile-first: base = mobile, scale up with min-width
-   ═══════════════════════════════════════════════════════ */
+.about_page {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--background);
+}
+.hero_section {
+  background: #f8faff;
+  position: relative;
+  overflow: hidden;
+}
+.mission_section{
+  background: #f1f5f9;
+}
+
 
 /* ── Reveal animation ─────────────────────────────── */
 .reveal {
@@ -36,7 +48,7 @@
 }
 
 /* ── Shared Typography ───────────────────────────────── */
-.sectionTag {
+.section_tag {
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
@@ -50,7 +62,7 @@
   margin-bottom: 14px;
 }
 
-.sectionTagLight {
+.section_tag_light {
   display: inline-block;
   font-size: 11px;
   font-weight: 700;
@@ -64,7 +76,7 @@
   margin-bottom: 14px;
 }
 
-.sectionTitle {
+.section_title {
   font-size: clamp(26px, 4.5vw, 40px);
   font-weight: 800;
   color: #111827;
@@ -73,7 +85,7 @@
   margin: 0 0 14px;
 }
 
-.sectionTitleLight {
+.section_title_light {
   font-size: clamp(26px, 4.5vw, 40px);
   font-weight: 800;
   color: #ffffff;
@@ -86,18 +98,18 @@
   color: #6366f1;
 }
 
-.accentLight {
+.accent_light {
   color: #a5b4fc;
 }
 
-.sectionSub {
+.section_sub {
   color: #64748b;
   font-size: 16px;
   line-height: 1.75;
   margin: 0;
 }
 
-.sectionSubLight {
+.section_sub_light {
   color: #94a3b8;
   font-size: 16px;
   line-height: 1.75;
@@ -111,14 +123,14 @@
   margin: 0 0 14px;
 }
 
-.centerHeader {
+.center_header {
   text-align: center;
   max-width: 620px;
   margin: 0 auto 52px;
 }
 
 /* ── Buttons ─────────────────────────────────────────── */
-.btnPrimary {
+.btn_primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -132,13 +144,13 @@
   box-shadow: 0 4px 20px #6366f135;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.btnPrimary:hover {
+.btn_primary:hover {
   background: #4f46e5;
   transform: translateY(-2px);
   box-shadow: 0 8px 32px #6366f145;
 }
 
-.btnGhost {
+.btn_ghost {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -152,13 +164,13 @@
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
-.btnGhost:hover {
+.btn_ghost:hover {
   border-color: #6366f1;
   color: #6366f1;
   background: #6366f108;
 }
 
-.btnOutlineDark {
+.btn_outline_dark {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -172,7 +184,7 @@
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s;
 }
-.btnOutlineDark:hover {
+.btn_outline_dark:hover {
   border-color: #6366f1;
   background: #eef2ff;
 }
@@ -180,7 +192,7 @@
 /* ═══════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════ */
-.hero {
+/* .hero {
   position: relative;
   background: #f8faff;
   overflow: hidden;
@@ -259,7 +271,7 @@
   }
 }
 
-/* Hero Left */
+
 .heroLeft {
   flex: 1;
   animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -346,7 +358,7 @@
   gap: 14px;
 }
 
-/* Hero Right */
+
 .heroRight {
   flex: 1;
   position: relative;
@@ -429,7 +441,7 @@
   background: #ffffff12;
 }
 
-/* Float chips */
+
 .floatChip {
   position: absolute;
   display: inline-flex;
@@ -463,7 +475,7 @@
   .chip2 { right: -28px; }
 }
 
-/* Stats bar */
+
 .statsBar {
   position: relative;
   max-width: 1180px;
@@ -516,12 +528,12 @@
   font-size: 12px;
   color: #64748b;
   font-weight: 500;
-}
+} */
 
 /* ═══════════════════════════════════════════════════════
    MISSION
    ═══════════════════════════════════════════════════════ */
-.missionSection {
+/* .missionSection {
   background: #ffffff;
   padding: 80px 0;
 }
@@ -544,7 +556,7 @@
   }
 }
 
-/* Visual side */
+
 .missionVisual {
   flex: 1;
   display: flex;
@@ -631,7 +643,6 @@
   line-height: 1.5;
 }
 
-/* Text side */
 .missionText {
   flex: 1;
   display: flex;
@@ -652,7 +663,7 @@
   font-size: 14.5px;
   color: #475569;
   line-height: 1.6;
-}
+} */
 
 /* ═══════════════════════════════════════════════════════
    VALUES

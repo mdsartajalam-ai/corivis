@@ -7,7 +7,6 @@ import Expertise from "@/components/home/Experties";
 import OurWork from "@/components/home/OurWork";
 import HappyCustomer from "@/components/home/HappyCustomer";
 import FutureCTA from "@/components/home/FutureCTA";
-import ContactForm from "@/components/home/ContactForm";
 import OurJourney from "@/components/home/OurJourney";
 import StatsSection from "@/components/home/StateSection";
 import MessageSection from "@/components/home/MessageSection";
@@ -44,7 +43,7 @@ export default function Home() {
         <section className={styles.journey_section}>
           <OurJourney/>
         </section>
-        <section>
+        <section className={styles.message_section}>
           <MessageSection/>
         </section>
         <section className={styles.expertise_section}>
@@ -53,7 +52,7 @@ export default function Home() {
         <section className={styles.work_section}>
           <OurWork/>
         </section>
-        <section className={styles.work_sectio}>
+        <section className={styles.state_section}>
           <StatsSection/>
         </section>
         <section className={styles.customer_section}>

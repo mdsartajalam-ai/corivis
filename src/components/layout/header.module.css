@@ -111,7 +111,7 @@
   height: 38px;
 }
 .menu_btn {
-  color: var(--white) !important;
+  color: var(--slate-100) !important;
 }
 .drawer {
   width: 300px;

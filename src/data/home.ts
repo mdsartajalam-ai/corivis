@@ -26,6 +26,9 @@ import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import GroupsIcon from "@mui/icons-material/Groups";
 import { label } from "framer-motion/client";
+import EngineeringIcon from "@mui/icons-material/Engineering";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
 
 export const companyFeatures = [
   "2+ Years of Industry Leadership",
@@ -95,4 +98,26 @@ export const customers = [
   { name: "Sushil kumar", location: "Rampur Dayal, Muzaffarpur, Bihar", phone: "+919934257811",  image: cr2 },
   { name: "Radhe kumar ", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919905404996", image: cr4 },
   { name: "Ved Parkash Sharma", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919934257811",  image: hp2 },
+];
+
+
+export const stats = [
+  {
+    Icon: EngineeringIcon,
+    numericValue: 2,
+    suffix: "+",
+    label: "Years Experience",
+  },
+  {
+    Icon: TaskAltIcon,
+    numericValue: 100,
+    suffix: "+",
+    label: "Projects Delivered",
+  },
+  {
+    Icon: WbSunnyIcon,
+    numericValue: 1,
+    suffix: "MW+",
+    label: "Solar Capacity",
+  },
 ];

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { clients } from "@/data/home";
+import { motion } from "framer-motion";
 import styles from "@/styles/Home.module.css";
 import MainHeading from "../heading/MainHeading";
 import { container, item } from "@/utils/animation";

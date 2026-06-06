@@ -21,15 +21,33 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import HeroSection from "@/components/about/HeroSection";
+import MissionSection from "@/components/about/MissionSection";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
-const stats = [
-  { value: "2+", label: "Years Legacy", icon: <CalendarTodayIcon fontSize="small" /> },
-  { value: "200+", label: "Projects Done", icon: <TrendingUpIcon fontSize="small" /> },
-  { value: "200+", label: "Lives Impacted", icon: <GroupsIcon fontSize="small" /> },
-  { value: "₹10Cr+", label: "Work Delivered", icon: <StarBorderIcon fontSize="small" /> },
-];
+// const stats = [
+//   {
+//     value: "2+",
+//     label: "Years Legacy",
+//     icon: <CalendarTodayIcon fontSize="small" />,
+//   },
+//   {
+//     value: "200+",
+//     label: "Projects Done",
+//     icon: <TrendingUpIcon fontSize="small" />,
+//   },
+//   {
+//     value: "200+",
+//     label: "Lives Impacted",
+//     icon: <GroupsIcon fontSize="small" />,
+//   },
+//   {
+//     value: "₹10Cr+",
+//     label: "Work Delivered",
+//     icon: <StarBorderIcon fontSize="small" />,
+//   },
+// ];
 
 const values = [
   {
@@ -138,17 +156,25 @@ export default function AboutPage() {
           if (e.isIntersecting) e.target.classList.add(styles.visible);
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
     );
-    document.querySelectorAll(`.${styles.reveal}`).forEach((el) => observer.observe(el));
+    document
+      .querySelectorAll(`.${styles.reveal}`)
+      .forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <main className={styles.main}>
+    <main className={styles.about_page}>
+      <section className={styles.hero_section}>
+        <HeroSection />
+      </section>
+      <section className={styles.mission_section}>
+        <MissionSection/>
+      </section>
 
       {/* ══ HERO ══ */}
-      <section className={styles.hero}>
+      {/* <section className={styles.hero}>
         <div className={styles.heroBg}>
           <div className={styles.heroOrb1} />
           <div className={styles.heroOrb2} />
@@ -157,18 +183,12 @@ export default function AboutPage() {
         </div>
 
         <div className={styles.heroInner}>
-          {/* Left */}
           <div className={styles.heroLeft}>
-            {/* <div className={styles.heroPill}>
-              <AutoAwesomeIcon sx={{ fontSize: 13 }} />
-                Patna, Bihar
-            </div> */}
             <h1 className={styles.heroH1}>
               <span>Building</span>
               <span className={styles.heroAccentLine}>
                 India's <em>Future</em>
               </span>
-             
             </h1>
             <p className={styles.heroDesc}>
               A multidisciplinary infrastructure powerhouse — from construction
@@ -176,24 +196,24 @@ export default function AboutPage() {
               the Government of Bihar for over two decades.
             </p>
             <div className={styles.heroCerts}>
-              {["CIN: U68100BR2025PTC075378", "GST: 10AAICE8352L1ZJ "].map((c, i) => (
-                <span key={i} className={styles.certBadge}>
-                  <VerifiedIcon sx={{ fontSize: 13, color: "#6366f1" }} />
-                  {c}
-                </span>
-              ))}
+              {["CIN: U68100BR2025PTC075378", "GST: 10AAICE8352L1ZJ "].map(
+                (c, i) => (
+                  <span key={i} className={styles.certBadge}>
+                    <VerifiedIcon sx={{ fontSize: 13, color: "#6366f1" }} />
+                    {c}
+                  </span>
+                ),
+              )}
             </div>
             <div className={styles.heroActions}>
-              <a href="/contact" className={styles.btnPrimary}>
+              <a href="/contact" className={styles.btn_primary}>
                 Partner With Us <ArrowForwardIcon fontSize="small" />
               </a>
-              <a href="#journey" className={styles.btnGhost}>
+              <a href="#journey" className={styles.btn_ghost}>
                 Our Journey
               </a>
             </div>
           </div>
-
-          {/* Right */}
           <div className={styles.heroRight}>
             <div className={styles.heroCard}>
               <div className={styles.heroCardGlow} />
@@ -202,7 +222,9 @@ export default function AboutPage() {
                 <span>Samastipur, Bihar · India</span>
               </div>
               <div className={styles.heroCardQuote}>
-                <FormatQuoteIcon sx={{ color: "#6366f1", fontSize: 36, opacity: 0.4 }} />
+                <FormatQuoteIcon
+                  sx={{ color: "#6366f1", fontSize: 36, opacity: 0.4 }}
+                />
                 <p>
                   "We don't just build structures — we build the foundation of
                   communities, the pathways of progress, and the systems of a
@@ -236,8 +258,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-
-        {/* Stats bar */}
         <div className={styles.statsBar}>
           {stats.map((s, i) => (
             <div key={i} className={styles.statItem}>
@@ -247,13 +267,13 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ══ MISSION ══ */}
-      <section className={styles.missionSection}>
+      {/* <section className={styles.missionSection}>
         <div className={styles.container}>
           <div className={styles.missionGrid}>
-            {/* Visual side */}
+      
             <div className={`${styles.missionVisual} ${styles.reveal}`}>
               <div className={styles.missionDarkCard}>
                 <div className={styles.missionCardGlow} />
@@ -265,7 +285,9 @@ export default function AboutPage() {
                 </p>
                 <div className={styles.missionTags}>
                   {["Infrastructure", "Energy", "Technology"].map((t, i) => (
-                    <span key={i} className={styles.missionTag}>{t}</span>
+                    <span key={i} className={styles.missionTag}>
+                      {t}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -281,22 +303,22 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Text side */}
             <div className={`${styles.missionText} ${styles.reveal}`}>
-              <span className={styles.sectionTag}>Who We Are</span>
-              <h2 className={styles.sectionTitle}>
+              <span className={styles.section_tag}>Who We Are</span>
+              <h2 className={styles.section_title}>
                 More Than a Company —<br />
                 <span className={styles.accent}>A Nation-Builder</span>
               </h2>
               <p className={styles.body}>
-                Eceladdus Enllave Group is a multidisciplinary infrastructure powerhouse
-                headquartered in Samastipur, Bihar. With over two years of experience,
-                we have bridged the gap between traditional construction and modern
-                technological innovation.
+                Eceladdus Enllave Group is a multidisciplinary infrastructure
+                powerhouse headquartered in Samastipur, Bihar. With over two
+                years of experience, we have bridged the gap between traditional
+                construction and modern technological innovation.
               </p>
               <p className={styles.body}>
                 Our mission is to build a sustainable, progressive ecosystem for
-                future generations — one project, one household, one community at a time.
+                future generations — one project, one household, one community
+                at a time.
               </p>
               <div className={styles.checkList}>
                 {[
@@ -306,7 +328,9 @@ export default function AboutPage() {
                   "Committed to net-zero construction practices",
                 ].map((item, i) => (
                   <div key={i} className={styles.checkItem}>
-                    <CheckCircleIcon sx={{ fontSize: 17, color: "#6366f1", flexShrink: 0 }} />
+                    <CheckCircleIcon
+                      sx={{ fontSize: 17, color: "#6366f1", flexShrink: 0 }}
+                    />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -314,19 +338,20 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ VALUES ══ */}
       <section className={styles.valuesSection}>
         <div className={styles.valuesGlow} />
         <div className={styles.container}>
-          <div className={`${styles.centerHeader} ${styles.reveal}`}>
-            <span className={styles.sectionTagLight}>Core Philosophy</span>
-            <h2 className={styles.sectionTitleLight}>
-              Driven by <span className={styles.accentLight}>Values</span>
+          <div className={`${styles.center_header} ${styles.reveal}`}>
+            <span className={styles.section_tag_light}>Core Philosophy</span>
+            <h2 className={styles.section_title_light}>
+              Driven by <span className={styles.accent_light}>Values</span>
             </h2>
-            <p className={styles.sectionSubLight}>
-              Four principles that guide every decision, every project, and every partnership we undertake.
+            <p className={styles.section_sub_light}>
+              Four principles that guide every decision, every project, and
+              every partnership we undertake.
             </p>
           </div>
           <div className={styles.valuesGrid}>
@@ -337,12 +362,18 @@ export default function AboutPage() {
                 style={{ transitionDelay: `${i * 0.08}s` }}
               >
                 <span className={styles.valueNum}>0{i + 1}</span>
-                <div className={styles.valueIconWrap} style={{ background: v.bg, color: v.color }}>
+                <div
+                  className={styles.valueIconWrap}
+                  style={{ background: v.bg, color: v.color }}
+                >
                   {v.icon}
                 </div>
                 <h3 className={styles.valueTitle}>{v.title}</h3>
                 <p className={styles.valueDesc}>{v.desc}</p>
-                <div className={styles.valueBar} style={{ background: v.color }} />
+                <div
+                  className={styles.valueBar}
+                  style={{ background: v.color }}
+                />
               </div>
             ))}
           </div>
@@ -352,13 +383,14 @@ export default function AboutPage() {
       {/* ══ JOURNEY ══ */}
       <section className={styles.journeySection} id="journey">
         <div className={styles.container}>
-          <div className={`${styles.centerHeader} ${styles.reveal}`}>
-            <span className={styles.sectionTag}>Our Story</span>
-            <h2 className={styles.sectionTitle}>
+          <div className={`${styles.center_header} ${styles.reveal}`}>
+            <span className={styles.section_tag}>Our Story</span>
+            <h2 className={styles.section_title}>
               A Journey of <span className={styles.accent}>2 Years</span>
             </h2>
-            <p className={styles.sectionSub}>
-              From a bold vision in Patna to Bihar's most trusted infrastructure group.
+            <p className={styles.section_sub}>
+              From a bold vision in Patna to Bihar's most trusted infrastructure
+              group.
             </p>
           </div>
 
@@ -378,17 +410,27 @@ export default function AboutPage() {
           {/* Feature panel */}
           <div className={`${styles.featurePanel} ${styles.reveal}`}>
             <div className={styles.featurePanelLeft}>
-              <span className={styles.featureTag}>{timeline[activeYear].tag}</span>
-              <div className={styles.featureYear}>{timeline[activeYear].year}</div>
-              <h3 className={styles.featureTitle}>{timeline[activeYear].title}</h3>
+              <span className={styles.featureTag}>
+                {timeline[activeYear].tag}
+              </span>
+              <div className={styles.featureYear}>
+                {timeline[activeYear].year}
+              </div>
+              <h3 className={styles.featureTitle}>
+                {timeline[activeYear].title}
+              </h3>
               <p className={styles.featureDesc}>{timeline[activeYear].desc}</p>
             </div>
             <div className={styles.featurePanelRight}>
-              <div className={styles.featureIconBig}>{timeline[activeYear].icon}</div>
+              <div className={styles.featureIconBig}>
+                {timeline[activeYear].icon}
+              </div>
               <div className={styles.featureProgress}>
                 <div
                   className={styles.featureProgressFill}
-                  style={{ height: `${((activeYear + 1) / timeline.length) * 100}%` }}
+                  style={{
+                    height: `${((activeYear + 1) / timeline.length) * 100}%`,
+                  }}
                 />
                 {timeline.map((_, i) => (
                   <div
@@ -423,13 +465,15 @@ export default function AboutPage() {
       <section className={styles.domainsSection}>
         <div className={styles.domainsGlow} />
         <div className={styles.container}>
-          <div className={`${styles.centerHeader} ${styles.reveal}`}>
-            <span className={styles.sectionTagLight}>What We Do</span>
-            <h2 className={styles.sectionTitleLight}>
-              Three <span className={styles.accentLight}>Pillars</span> of Expertise
+          <div className={`${styles.center_header} ${styles.reveal}`}>
+            <span className={styles.section_tag_light}>What We Do</span>
+            <h2 className={styles.section_title_tight}>
+              Three <span className={styles.accent_light}>Pillars</span> of
+              Expertise
             </h2>
-            <p className={styles.sectionSubLight}>
-              A multidisciplinary group delivering excellence across construction, energy, and technology.
+            <p className={styles.section_sub_light}>
+              A multidisciplinary group delivering excellence across
+              construction, energy, and technology.
             </p>
           </div>
           <div className={styles.domainsGrid}>
@@ -439,14 +483,19 @@ export default function AboutPage() {
                 className={`${styles.domainCard} ${styles.reveal}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className={styles.domainIconWrap} style={{ background: d.gradient }}>
+                <div
+                  className={styles.domainIconWrap}
+                  style={{ background: d.gradient }}
+                >
                   {d.icon}
                 </div>
                 <h3 className={styles.domainTitle}>{d.title}</h3>
                 <ul className={styles.domainList}>
                   {d.points.map((p, j) => (
                     <li key={j} className={styles.domainPoint}>
-                      <CheckCircleIcon sx={{ fontSize: 14, color: "#a5b4fc", flexShrink: 0 }} />
+                      <CheckCircleIcon
+                        sx={{ fontSize: 14, color: "#a5b4fc", flexShrink: 0 }}
+                      />
                       {p}
                     </li>
                   ))}
@@ -474,20 +523,19 @@ export default function AboutPage() {
             Ready to Build Something <em>Extraordinary?</em>
           </h2>
           <p className={styles.ctaSub}>
-            Partner with Bihar's most trusted infrastructure group.
-            Let's shape the future of India — together.
+            Partner with Bihar's most trusted infrastructure group. Let's shape
+            the future of India — together.
           </p>
           <div className={styles.ctaActions}>
-            <a href="/contact" className={styles.btnPrimary}>
+            <a href="/contact" className={styles.btn_primary}>
               Start a Conversation <ArrowForwardIcon fontSize="small" />
             </a>
-            <a href="/projects" className={styles.btnOutlineDark}>
+            <a href="/projects" className={styles.btn_outline_dark}>
               View Our Projects
             </a>
           </div>
         </div>
       </section>
-
     </main>
   );
 }

@@ -1,18 +1,10 @@
-/* ═══════════════════════════════════════════════
-   StatsSection.module.css
-   Palette:  Navy #0b1d35  |  Gold #c9a84c  |  White #f5f0e8
-   ═══════════════════════════════════════════════ */
-
-/* ── Section wrapper ──────────────────────────── */
-.section {
-  position: relative;
-  padding: 96px 24px;
-  background: #0b1d35;
-  overflow: hidden;
+.state_container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 70px 20px;
 }
-
-/* Mesh / noise background layer */
-.bgMesh {
+.bg_mesh {
   position: absolute;
   inset: 0;
   background:
@@ -34,173 +26,147 @@
     );
   pointer-events: none;
 }
-
-/* ── Container ────────────────────────────────── */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Grid ─────────────────────────────────────── */
-.grid {
+.state_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  grid-template-columns: 1fr;
 }
-
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 560px) {
-  .grid { grid-template-columns: 1fr; }
-}
-
-/* ── Card ─────────────────────────────────────── */
-.card {
+.state_card {
   position: relative;
-  border-radius: 20px;
-  background: linear-gradient(160deg, #132846 0%, #0d1f35 60%, #091628 100%);
-  border: 1px solid rgba(201, 168, 76, 0.18);
-  padding: 2px;                          /* border "glow" trick        */
+  padding: 2px;
   cursor: default;
+  border-radius: 20px;
+  border: 1px solid var(--gold-18);
+  background: linear-gradient(160deg, #132846 0%, #0d1f35 60%, #091628 100%);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   animation: fadeSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.card:hover {
+.state_card:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(201, 168, 76, 0.35),
-    0 0 32px rgba(201, 168, 76, 0.08);
+    0 24px 48px #00000073,
+    0 0 0 1px #c9a84c59,
+    0 0 32px #c9a84c14;
 }
-
-/* ── Inner padding layer ──────────────────────── */
-.cardInner {
+.card_inner {
   position: relative;
-  padding: 36px 28px 32px;
-  border-radius: 18px;
-  background: linear-gradient(160deg, #132846 0%, #0d1f35 60%, #091628 100%);
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
+  padding: 36px 28px 32px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #132846 0%, #0d1f35 60%, #091628 100%);
 }
-
-/* ── Top accent bar ───────────────────────────── */
-.accentLine {
+.accent_line {
   position: absolute;
   top: 0;
   left: 28px;
   right: 28px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #c9a84c 40%, #e8c96a 60%, transparent);
-  border-radius: 0 0 4px 4px;
   opacity: 0.7;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c9a84c 40%,
+    #e8c96a 60%,
+    transparent
+  );
 }
-
-/* ── Icon box ─────────────────────────────────── */
-.iconBox {
+.icon_box {
   width: 52px;
   height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(145deg, #1e3d62 0%, #152d4a 100%);
-  border: 1px solid rgba(201, 168, 76, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-radius: 14px;
+  border: 1px solid var(--gold-22);
+  background: linear-gradient(145deg, #1e3d62 0%, #152d4a 100%);
+  box-shadow: 0 4px 16px #0000004d;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
-
-.card:hover .iconBox {
+.state_card:hover .icon_box {
+  border-color: var(--gold-45);
   background: linear-gradient(145deg, #243f5e 0%, #1a3350 100%);
-  border-color: rgba(201, 168, 76, 0.45);
 }
-
-.icon {
+.st_icon {
   width: 26px !important;
   height: 26px !important;
   font-size: 26px !important;
-  color: #c9a84c !important;
+  color: var(--gold-60) !important;
 }
-
-/* ── Number ───────────────────────────────────── */
-.number {
+.st_number {
+  margin-bottom: 14px;
   font-family: "Georgia", "Times New Roman", serif;
   font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 700;
-  color: #f5f0e8;
-  letter-spacing: -0.02em;
   line-height: 1;
-  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  color: var(--gold-5);
   background: linear-gradient(135deg, #ffffff 30%, #e8dfc9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* ── Gold divider ─────────────────────────────── */
-.divider {
+.st_divider {
   width: 36px;
   height: 2px;
-  background: linear-gradient(90deg, #c9a84c, #e8c96a);
-  border-radius: 2px;
   margin-bottom: 14px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e8c96a);
   transition: width 0.3s ease;
 }
-
-.card:hover .divider {
+.state_card:hover .st_divider {
   width: 52px;
 }
-
-/* ── Label ────────────────────────────────────── */
-.label {
-  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
+.st_label {
+  margin: 0;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #7a9ab8;
-  margin: 0;
+  color: var(--blue-gray-50);
+  font-family: "Trebuchet MS", "Gill Sans", sans-serif;
   transition: color 0.3s ease;
 }
 
-.card:hover .label {
-  color: #9db8d0;
+.state_card:hover .st_label {
+  color: var(--blue-gray-40);
 }
 
-/* ── Corner glow decoration ───────────────────── */
-.cornerGlow {
+.st_corner_glow {
   position: absolute;
-  bottom: -20px;
   right: -20px;
+  bottom: -20px;
   width: 80px;
   height: 80px;
+  opacity: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
   pointer-events: none;
   transition: opacity 0.3s ease;
-  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 76, 0.12) 0%,
+    transparent 70%
+  );
 }
-
-.card:hover .cornerGlow {
+.state_card:hover .st_corner_glow {
   opacity: 1;
 }
-
-/* ── Enter animation ──────────────────────────── */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@media (min-width: 720px) {
+  .state_grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+}
+@media (min-width: 1024px) {
+  .state_grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
