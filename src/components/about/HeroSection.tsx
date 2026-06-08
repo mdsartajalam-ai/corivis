@@ -3,7 +3,7 @@ import { stats } from "@/data/icon";
 import Button from "../button/Button";
 import { useRouter } from "next/navigation";
 import MainHeading from "../heading/MainHeading";
-import styles from "@/pages/about/test.module.css";
+import styles from "@/pages/about/about.module.css";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { certificates, heroCardStats } from "@/data/about";
 import LocationOnIcon from "@mui/icons-material/LocationOn";

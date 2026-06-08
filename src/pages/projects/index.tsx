@@ -34,6 +34,7 @@ import cons3 from "@/assets/hero/cons3.jpeg";
 import cons4 from "@/assets/hero/cons4.jpeg";
 
 import int1 from "@/assets/hero/intr1.jpg";
+import HeroSection from "@/components/projects/HeroSection";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 const stats = [
@@ -278,7 +279,10 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <main className={styles.root}>
+    <main className={styles.main}>
+      <section className={styles.hero_section}>
+        {/* <HeroSection /> */}
+      </section>
       {/* ── Hero ──────────────────────────────── */}
       <section className={styles.hero} ref={heroRef}>
         <div className={styles.heroBg} />

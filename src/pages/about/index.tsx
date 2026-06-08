@@ -23,6 +23,10 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import HeroSection from "@/components/about/HeroSection";
 import MissionSection from "@/components/about/MissionSection";
+import ValueSection from "@/components/about/ValueSection";
+import JourneySection from "@/components/about/JourneySection";
+import DomainSection from "@/components/about/DomainSection";
+import CTASection from "@/components/about/CTASection";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -49,105 +53,105 @@ import MissionSection from "@/components/about/MissionSection";
 //   },
 // ];
 
-const values = [
-  {
-    icon: <WorkspacePremiumIcon />,
-    title: "Excellence",
-    desc: "World-class quality in every brick laid and every line of code written — no shortcuts, no compromise.",
-    color: "#6366f1",
-    bg: "#6366f112",
-  },
-  {
-    icon: <HandshakeIcon />,
-    title: "Integrity",
-    desc: "Transparent, ethical dealings with every government body, private stakeholder, and community partner.",
-    color: "#8b5cf6",
-    bg: "#8b5cf612",
-  },
-  {
-    icon: <EmojiObjectsIcon />,
-    title: "Innovation",
-    desc: "Pioneering AI-integrated infrastructure and green-energy solutions that redefine what is possible.",
-    color: "#6366f1",
-    bg: "#6366f112",
-  },
-  {
-    icon: <EnergySavingsLeafIcon />,
-    title: "Sustainability",
-    desc: "Steadfast commitment to reducing carbon footprint through solar energy and responsible construction.",
-    color: "#8b5cf6",
-    bg: "#8b5cf612",
-  },
-];
+// const values = [
+//   {
+//     icon: <WorkspacePremiumIcon />,
+//     title: "Excellence",
+//     desc: "World-class quality in every brick laid and every line of code written — no shortcuts, no compromise.",
+//     color: "#6366f1",
+//     bg: "#6366f112",
+//   },
+//   {
+//     icon: <HandshakeIcon />,
+//     title: "Integrity",
+//     desc: "Transparent, ethical dealings with every government body, private stakeholder, and community partner.",
+//     color: "#8b5cf6",
+//     bg: "#8b5cf612",
+//   },
+//   {
+//     icon: <EmojiObjectsIcon />,
+//     title: "Innovation",
+//     desc: "Pioneering AI-integrated infrastructure and green-energy solutions that redefine what is possible.",
+//     color: "#6366f1",
+//     bg: "#6366f112",
+//   },
+//   {
+//     icon: <EnergySavingsLeafIcon />,
+//     title: "Sustainability",
+//     desc: "Steadfast commitment to reducing carbon footprint through solar energy and responsible construction.",
+//     color: "#8b5cf6",
+//     bg: "#8b5cf612",
+//   },
+// ];
 
-const timeline = [
-  {
-    year: "2025",
-    title: "Foundation",
-    desc: "Established in Samastipur, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
-    icon: <BusinessIcon />,
-    tag: "Origin",
-  },
-  {
-    year: "2025",
-    title: "Government Expansion",
-    desc: "Scaled into large-scale government civil projects and highway road construction across multiple Bihar districts.",
-    icon: <TrendingUpIcon />,
-    tag: "Growth",
-  },
-  {
-    year: "2025",
-    title: "Solar Initiative",
-    desc: "Launched our green energy division, installing rooftop solar units statewide — powering a cleaner tomorrow.",
-    icon: <EnergySavingsLeafIcon />,
-    tag: "Green",
-  },
-  {
-    year: "2026",
-    title: "Digital Leap",
-    desc: "Integrated AI and digital solutions into core infrastructure services — stepping boldly into India's tech future.",
-    icon: <CodeIcon />,
-    tag: "Tech",
-  },
-];
+// const timeline = [
+//   {
+//     year: "2025",
+//     title: "Foundation",
+//     desc: "Established in Samastipur, Bihar with a bold vision to transform India's infrastructure landscape from the ground up.",
+//     icon: <BusinessIcon />,
+//     tag: "Origin",
+//   },
+//   {
+//     year: "2025",
+//     title: "Government Expansion",
+//     desc: "Scaled into large-scale government civil projects and highway road construction across multiple Bihar districts.",
+//     icon: <TrendingUpIcon />,
+//     tag: "Growth",
+//   },
+//   {
+//     year: "2025",
+//     title: "Solar Initiative",
+//     desc: "Launched our green energy division, installing rooftop solar units statewide — powering a cleaner tomorrow.",
+//     icon: <EnergySavingsLeafIcon />,
+//     tag: "Green",
+//   },
+//   {
+//     year: "2026",
+//     title: "Digital Leap",
+//     desc: "Integrated AI and digital solutions into core infrastructure services — stepping boldly into India's tech future.",
+//     icon: <CodeIcon />,
+//     tag: "Tech",
+//   },
+// ];
 
-const domains = [
-  {
-    icon: <BusinessIcon fontSize="large" />,
-    title: "Civil & Infrastructure",
-    points: [
-      "Government buildings & highways",
-      "Bridge & road construction",
-      "Housing & real estate projects",
-    ],
-    gradient: "linear-gradient(135deg, #6366f1, #4f46e5)",
-  },
-  {
-    icon: <BoltIcon fontSize="large" />,
-    title: "Solar Energy",
-    points: [
-      "Rooftop solar installations",
-      "Smart meter deployment",
-      "Green energy partnerships",
-    ],
-    gradient: "linear-gradient(135deg, #8b5cf6, #6366f1)",
-  },
-  {
-    icon: <CodeIcon fontSize="large" />,
-    title: "Digital & Technology",
-    points: [
-      "Web & app development",
-      "AI-driven solutions",
-      "Digital transformation",
-    ],
-    gradient: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-  },
-];
+// const domains = [
+//   {
+//     icon: <BusinessIcon fontSize="large" />,
+//     title: "Civil & Infrastructure",
+//     points: [
+//       "Government buildings & highways",
+//       "Bridge & road construction",
+//       "Housing & real estate projects",
+//     ],
+//     gradient: "linear-gradient(135deg, #6366f1, #4f46e5)",
+//   },
+//   {
+//     icon: <BoltIcon fontSize="large" />,
+//     title: "Solar Energy",
+//     points: [
+//       "Rooftop solar installations",
+//       "Smart meter deployment",
+//       "Green energy partnerships",
+//     ],
+//     gradient: "linear-gradient(135deg, #8b5cf6, #6366f1)",
+//   },
+//   {
+//     icon: <CodeIcon fontSize="large" />,
+//     title: "Digital & Technology",
+//     points: [
+//       "Web & app development",
+//       "AI-driven solutions",
+//       "Digital transformation",
+//     ],
+//     gradient: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+//   },
+// ];
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
-  const [activeYear, setActiveYear] = useState(0);
+  // const [activeYear, setActiveYear] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -171,6 +175,18 @@ export default function AboutPage() {
       </section>
       <section className={styles.mission_section}>
         <MissionSection/>
+      </section>
+      <section className={styles.value_section}>
+        <ValueSection/>
+      </section>
+      <section className={styles.journey_section}>
+        <JourneySection/>
+      </section>
+      <section className={styles.domain_section}>
+        <DomainSection/>
+      </section>
+      <section className={styles.cta_section}>
+        <CTASection/>
       </section>
 
       {/* ══ HERO ══ */}
@@ -341,7 +357,7 @@ export default function AboutPage() {
       </section> */}
 
       {/* ══ VALUES ══ */}
-      <section className={styles.valuesSection}>
+      {/* <section className={styles.valuesSection}>
         <div className={styles.valuesGlow} />
         <div className={styles.container}>
           <div className={`${styles.center_header} ${styles.reveal}`}>
@@ -378,10 +394,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ JOURNEY ══ */}
-      <section className={styles.journeySection} id="journey">
+      {/* <section className={styles.journeySection} id="journey">
         <div className={styles.container}>
           <div className={`${styles.center_header} ${styles.reveal}`}>
             <span className={styles.section_tag}>Our Story</span>
@@ -394,7 +410,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Tab row */}
           <div className={`${styles.yearTabs} ${styles.reveal}`}>
             {timeline.map((t, i) => (
               <button
@@ -407,7 +422,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Feature panel */}
+         
           <div className={`${styles.featurePanel} ${styles.reveal}`}>
             <div className={styles.featurePanelLeft}>
               <span className={styles.featureTag}>
@@ -443,7 +458,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Strip */}
+     
           <div className={styles.timelineStrip}>
             {timeline.map((t, i) => (
               <div
@@ -459,10 +474,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ DOMAINS ══ */}
-      <section className={styles.domainsSection}>
+      {/* <section className={styles.domainsSection}>
         <div className={styles.domainsGlow} />
         <div className={styles.container}>
           <div className={`${styles.center_header} ${styles.reveal}`}>
@@ -507,10 +522,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══ CTA ══ */}
-      <section className={styles.ctaSection}>
+      {/* <section className={styles.ctaSection}>
         <div className={styles.ctaBg}>
           <div className={styles.ctaOrb1} />
           <div className={styles.ctaOrb2} />
@@ -535,7 +550,7 @@ export default function AboutPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

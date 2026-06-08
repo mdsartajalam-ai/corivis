@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { tags, features } from "@/data/about";
 import MainHeading from "../heading/MainHeading";
-import styles from "@/pages/about/test.module.css";
+import styles from "@/pages/about/about.module.css";
 import BusinessIcon from "@mui/icons-material/Business";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 
 const MissionSection = () => {
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
