@@ -1,123 +1,111 @@
-import logo from "@/assets/logo/logo2.png";
-import logo1 from "@/assets/hero/c3.jpg";
+import ph1 from "@/assets/home/ph1.jpg";
+import ph2 from "@/assets/home/ph2.jpg";
+import ph3 from "@/assets/home/ph3.jpg";
+import ph4 from "@/assets/home/ph4.jpg";
+import ph5 from "@/assets/home/ph5.jpg";
 
-import p1 from "@/assets/hero/c1.jpg";
-import p2 from "@/assets/hero/c2.jpg";
-import p3 from "@/assets/hero/sl1.jpg";
-import sl6 from "@/assets/hero/sl6.jpeg";
-import sl7 from "@/assets/hero/sl7.jpeg";
-import sl5 from "@/assets/hero/sl5.jpeg";
-import con1 from "@/assets/hero/cons1.jpeg";
-import con2 from "@/assets/hero/cons2.jpeg";
-import intr from "@/assets/hero/intr1.jpg";
-
-import cr1 from "@/assets/hero/hc1.jpeg";
-import cr2 from "@/assets/hero/hc2.jpeg";
-import cr3 from "@/assets/hero/cr3.jpg";
-import cr4 from "@/assets/hero/hc3.jpeg";
-import hp1 from "@/assets/hero/hp1.jpeg";
-import hp2 from "@/assets/hero/hp2.jpeg";
-import hp3 from "@/assets/hero/hp3.jpeg";
-import hp4 from "@/assets/hero/hp4.jpeg";
-
-import BoltIcon from "@mui/icons-material/Bolt";
-import LanguageIcon from "@mui/icons-material/Language";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import GroupsIcon from "@mui/icons-material/Groups";
-import { label } from "framer-motion/client";
-import EngineeringIcon from "@mui/icons-material/Engineering";
-import TaskAltIcon from "@mui/icons-material/TaskAlt";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-
-export const companyFeatures = [
-  "2+ Years of Industry Leadership",
-  "50+ Government Projects",
-  "120+ Renovations Completed",
-  "1MW+ Solar Infrastructure",
+export const clientLogos = [
+  { label: "pipefy" },
+  { label: "teamwork." },
+  { label: "clojo" },
+  { label: "django" },
+  { label: "rackspace" },
+  { label: "portal" },
+];
+export const statList = [
+  { value: "80+", label: "Projects Delivered" },
+  { value: "8+ Years", label: "Enterprise Experience" },
+  { value: "24×7", label: "Delivery & Support" },
+  {
+    value: "Global",
+    label: "Delivery Across India, UK, Europe & North America",
+  },
+];
+export const projectList = [
+  {
+    slug: "sportly",
+    title: "Sportly",
+    subtitle:
+      "Apple Business Manager (ABM), Jamf Pro, Microsoft Intune for macOS, iOS/iPadOS management, compliance, application deployment, and zero-touch Apple device provisioning.",
+    image_src: ph1,
+    span_size: "normal",
+  },
+  {
+    slug: "payrole-1",
+    title: "Payrole",
+    subtitle: "Mobile App Design",
+    image_src: ph2,
+    span_size: "normal",
+  },
+  {
+    slug: "wepay",
+    title: "Wepay",
+    subtitle: "Mobile App Design",
+    image_src: ph3,
+    span_size: "wide",
+  },
+  {
+    slug: "estaterty",
+    title: "Estaterty",
+    subtitle: "Mobile App Design",
+    image_src: ph4,
+    span_size: "normal",
+  },
+  {
+    slug: "payrole-2",
+    title: "Payrole",
+    subtitle: "Mobile App Design",
+    image_src: ph5,
+    span_size: "normal",
+  },
 ];
 
-export const clients = [
-  { name: "Adani Infra", logo: logo1 },
-  { name: "Tata Projects", logo: logo },
-  { name: "L&T Construction", logo: logo },
-  { name: "GMR Group", logo: logo },
-  { name: "Loom Solar", logo: logo1 },
-  { name: "Luminous", logo: logo },
+export const testimonialList = [
+  {
+    quote:
+      "I had the pleasure of working with Ivan on a recent project, and I was blown away by their creativity and attention to detail. I highly recommend Daniel for anyone looking for a talented and professional designer.",
+    name: "Richard Jonas",
+    role: "CEO of Teamwork",
+    company: "teamwork.",
+    initials: "RJ",
+  },
+  {
+    quote:
+      "Corivis delivered exactly what we needed, on time and with a level of polish we didn't expect. Their team communicated clearly at every stage of the rollout.",
+    name: "Amelia Ross",
+    role: "VP Engineering of Pipefy",
+    company: "pipefy",
+    initials: "AR",
+  },
+  {
+    quote:
+      "From discovery to deployment, the Corivis team felt like an extension of ours. Security and compliance were never an afterthought — it was built in from day one.",
+    name: "Marcus Webb",
+    role: "CTO of Rackspace",
+    company: "rackspace",
+    initials: "MW",
+  },
 ];
+
 export const serviceOptions = [
-  { label: "Solar Energy" },
-  { label: "Real Estate" },
-  { label: "Construction" },
-  { label: "Consulting" },
-  { label: "Technology Services" },
+  "Apple Device Management",
+  "Microsoft Azure",
+  "Microsoft 365",
+  "Microsoft Intune",
+  "Microsoft Entra ID",
+  "ServiceNow",
+  "SolarWinds",
+  "Azure Data Engineering",
+  "Power Platform",
+  "UI/UX Design",
+  "PowerShell Automation",
+  "IT Operations",
 ];
 
-export const expertiseData = [
-  {
-    title: "Solar Energy",
-    desc: "Smart renewable energy solutions.",
-    icon: BoltIcon,
-  },
-  {
-    title: "Construction",
-    desc: "Advanced infrastructure & modern architecture.",
-    icon: ConstructionIcon,
-  },
-  {
-    title: "Manpower Services",
-    desc: "Skilled workforce and staffing solutions.",
-    icon: GroupsIcon,
-  },
-  {
-    title: "Web & App Development",
-    desc: "Scalable high-performance platforms.",
-    icon: LanguageIcon,
-  },
-];
-
-export const projects = [
-  { title: "Solar Plant Setup", category: "Solar Energy", image: sl7 },
-  { title: "Solar Plant Setup", category: "Solar Energy", image: sl6 },
-  { title: "Building Construction", category: "Construction", image: con2 },
-  { title: "solar Pant Setup", category: "Solar Energy", image: sl5 },
-  { title: "Interior Design", category: "Interior", image: intr },
-  { title: "Renovation Work", category: "Construction", image: con1 },
-];
-
-export const categories = [
-  "All",
-  "Solar Energy",
-  "Construction",
-  "Interior",
-];
-
-export const customers = [
-  { name: "Bablu kumar", location: "Dalsinghsarai, Samastipur, Bihar", phone: "+919304653309", image: hp4 },
-  { name: "Ajit Sharma", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919006403233", image: hp1 },
-  { name: "Sushil kumar", location: "Rampur Dayal, Muzaffarpur, Bihar", phone: "+919934257811",  image: cr2 },
-  { name: "Radhe kumar ", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919905404996", image: cr4 },
-  { name: "Ved Parkash Sharma", location: "Runni Saidpur, Sitamarhi, Bihar", phone: "+919934257811",  image: hp2 },
-];
-
-
-export const stats = [
-  {
-    Icon: EngineeringIcon,
-    numericValue: 2,
-    suffix: "+",
-    label: "Years Experience",
-  },
-  {
-    Icon: TaskAltIcon,
-    numericValue: 100,
-    suffix: "+",
-    label: "Projects Delivered",
-  },
-  {
-    Icon: WbSunnyIcon,
-    numericValue: 1,
-    suffix: "MW+",
-    label: "Solar Capacity",
-  },
+export const budgetOptions = [
+  "$1k - $5k",
+  "$5k - $10k",
+  "$10k - $20k",
+  "$20k - $50k",
+  ">$50k",
 ];

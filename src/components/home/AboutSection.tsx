@@ -1,60 +1,58 @@
-import Button from "../button/Button";
-import { motion } from "framer-motion";
-import styles from "@/styles/Home.module.css";
-import { companyFeatures } from "@/data/home";
-import MainHeading from "../heading/MainHeading";
-import { container, item } from "@/utils/animation";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { statList } from "@/data/home";
+import styles from "./about.module.css";
+import { featureList } from "@/data/iocn";
+import SubHeading from "../heading/SubHeading";
 
-const AboutSection = () => {
-  const buttonClicked = () => {
-    console.log("button clicked");
-  };
-
+export default function AboutSection() {
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      variants={container}
-      viewport={{ once: true }}
-      className={styles.about_container}
-    >
-      <div className={styles.ab_left}>
-        <motion.p variants={item} className={styles.glo_badge}>
-          ABOUT THE GROUP
-        </motion.p>
-
-        <motion.div variants={item}>
-          <MainHeading text="Building Infrastructure {{with Integrity & Innovation}}" />
-        </motion.div>
-
-        <motion.p variants={item} className={styles.glo_paragraph}>
-          We are a multidisciplinary infrastructure powerhouse delivering
-          sustainable, scalable, and future-ready solutions across India.
-        </motion.p>
-
-        <motion.div variants={item}>
-          <Button text="View Company Profile" action={buttonClicked} />
-        </motion.div>
+    <div className={styles.about_container}>
+      <div className={styles.about_label_col}>
+        <SubHeading text="About Corivis" />
       </div>
 
-      <div className={styles.ab_right}>
-        {companyFeatures.map((itemText, index) => (
-          <motion.div
-            key={index}
-            variants={item}
-            whileHover={{ y: -6 }}
-            className={styles.ab_card}
-          >
-            <div className={styles.ab_icon_box}>
-              <CheckCircleIcon />
+      <div className={styles.about_content_col}>
+        <h3 className={styles.about_heading}>Technology. Innovation. Impact</h3>
+
+        <p className={styles.about_paragraph}>
+          Corivis is a technology consulting and engineering company helping
+          organizations transform the way they work. Our expertise spans
+          Microsoft Cloud, Modern Workplace, Identity &amp; Security, Enterprise
+          Service Management, IT Operations, Data Engineering, Digital
+          Experience, and Automation.
+        </p>
+
+        <p className={styles.about_paragraph}>
+          We combine deep technical capability with a customer-first approach to
+          deliver secure, scalable, and future-ready solutions that drive
+          business growth and operational excellence.
+        </p>
+
+        <div className={styles.about_feature_grid}>
+          {featureList.map((item, index) => (
+            <div key={item.title} className={styles.about_feature_item}>
+              <span
+                className={`${styles.about_feature_icon} ${styles[`icon_${index + 1}`]}`}
+              >
+                {item.icon}
+              </span>
+
+              <div className={styles.about_feature_text}>
+                <h4 className={styles.about_feature_title}>{item.title}</h4>
+                <p className={styles.about_feature_desc}>{item.description}</p>
+              </div>
             </div>
-            <span>{itemText}</span>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-};
+          ))}
+        </div>
 
-export default AboutSection;
+        <div className={styles.about_stats_row}>
+          {statList.map((stat_item) => (
+            <div key={stat_item.label} className={styles.about_stat_item}>
+              <span className={styles.about_stat_value}>{stat_item.value}</span>
+              <span className={styles.about_stat_label}>{stat_item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

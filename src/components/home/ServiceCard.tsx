@@ -1,0 +1,108 @@
+import Link from "next/link";
+import Image from "next/image";
+import { useRef } from "react";
+import styles from "./servicess.module.css";
+import DescriptionIcon from "@mui/icons-material/Description";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+
+type Item = {
+  slug: string;
+  title: string;
+  badges: string[];
+  image_src: string;
+  description: string;
+  image_caption: string;
+  brochure_href: string;
+};
+
+type Props = {
+  item: Item;
+  index: number;
+  total: number;
+  range: [number, number];
+  progress: MotionValue<number>;
+  panelRef: (el: HTMLDivElement | null) => void;
+};
+
+export default function ServiceCard({
+  item,
+  index,
+  total,
+  range,
+  progress,
+  panelRef,
+}: Props) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "start start"],
+  });
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
+
+  const targetScale = 1 - (total - index) * 0.05;
+  const scale = useTransform(progress, range, [1, targetScale]);
+
+  const theme = (index % 6) + 1;
+
+  return (
+    <div
+      ref={(el) => {
+        cardRef.current = el;
+        panelRef(el);
+      }}
+      data-panel-index={index}
+      className={styles.panel}
+      style={{ zIndex: index + 1 }}
+    >
+      <motion.div className={styles.shell} style={{ scale, y: index * 16 }}>
+        <div className={`${styles.card} ${styles[`card_${theme}`]}`}>
+          <span className={`${styles.glow} ${styles[`glow_${theme}`]}`} />
+
+          <div className={styles.text}>
+            <div className={styles.badge_row}>
+              {item.badges.map((badge, i) => {
+                const bTheme = (i % 6) + 1;
+                return (
+                  <span
+                    key={badge}
+                    className={`${styles.badge} ${styles[`badge_${bTheme}`]}`}
+                  >
+                    {badge}
+                  </span>
+                );
+              })}
+            </div>
+
+            <h3 className={styles.title}>{item.title}</h3>
+            <p className={styles.desc}>{item.description}</p>
+
+            <Link
+              href={item.brochure_href}
+              className={`${styles.btn} ${styles[`btn_${theme}`]}`}
+            >
+              <span>Download Brochure</span>
+              <DescriptionIcon fontSize="small" />
+            </Link>
+          </div>
+
+          <div className={styles.img_col}>
+            <div className={`${styles.img_wrap} ${styles[`img_wrap_${theme}`]}`}>
+              <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} />
+              <motion.div className={styles.scaler} style={{ scale: imgScale }}>
+                <Image
+                  fill
+                  src={item.image_src}
+                  className={styles.img}
+                  alt={item.image_caption}
+                  sizes="(min-width: 1024px) 260px, 200px"
+                />
+              </motion.div>
+            </div>
+            <p className={styles.caption}>{item.image_caption}</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}

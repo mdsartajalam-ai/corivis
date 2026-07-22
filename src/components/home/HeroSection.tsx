@@ -1,79 +1,86 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
-import c2 from "@/assets/hero/sl3.jpeg";
-import c4 from "@/assets/hero/sl5.jpeg";
-import c3 from "@/assets/hero/sl2.jpg";
-import c1 from "@/assets/hero/sl1.jpg";
+import { useState } from "react";
 import Button from "../button/Button";
-import { useEffect, useState } from "react";
-import styles from "@/styles/Home.module.css";
-import EastIcon from "@mui/icons-material/East";
+import styles from "./hero.module.css";
+import { clientLogos } from "@/data/home";
+import image from "@/assets/home/img1.jpg";
 import MainHeading from "../heading/MainHeading";
-import { container, item } from "@/utils/animation";
+import ConsultationModal from "../modal/ConsultationModal";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const images = [c1, c2, c3, c4];
+const marquee_logos = [...clientLogos, ...clientLogos, ...clientLogos];
 
-const Hero = () => {
-  const [index, setIndex] = useState(0);
-
+export default function Hero() {
   const buttonClicked = () => {
-    console.log("button clicked");
+    document.getElementById("services")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className={styles.hero}>
-      {images.map((img, i) => (
+    <div className={styles.hero_root}>
+      <div className={styles.hero_bg_wrapper}>
         <Image
           fill
-          key={i}
-          src={img}
-          alt="hero"
-          quality={100}
+          priority
+          src={image}
           sizes="100vw"
-          priority={i === 0}
-          className={`${styles.hero_bg} ${i === index ? styles.hero_active : ""}`}
+          className={styles.hero_bg_image}
+          alt="Team collaborating in a modern office"
         />
-      ))}
+        <div className={styles.hero_overlay} />
+        <div className={styles.hero_vignette} />
+        <div className={styles.hero_glow} />
+      </div>
+      <div className={styles.hero_content_wraper}>
+        <div className={styles.hero_content}>
+          <MainHeading
+            title="Engineering the Future of"
+            subTitle="Enterprise Technology"
+          />
+          <p className={styles.hero_description}>
+            We help organizations modernize, secure, and scale through Cloud
+            Engineering, Modern Workplace, Enterprise Service Management, IT
+            Operations, Data Engineering, and Digital Product Development.
+          </p>
 
-      <div className={styles.hero_overlay} />
-
-      <motion.div
-        animate="show"
-        initial="hidden"
-        variants={container}
-        className={styles.hero_container}
-      >
-        <div className={styles.hero_left}>
-
-          <motion.div variants={item}>
-            <MainHeading text="Engineering the Future of  {{Infrastructure}}" />
-          </motion.div>
-
-          <motion.p variants={item} className={styles.h_pra}>
-            We build scalable, high-quality infrastructure solutions with
-            innovation, precision, and long-term impact.
-          </motion.p>
-
-          <motion.div variants={item} className={styles.hero_btn}>
+          <div className={styles.hero_actions}>
             <Button
-              text="Explore Service"
-              action={buttonClicked}
-              endIcon={<EastIcon />}
+              action={() => setOpen(true)}
+              text="Book a free consultation"
+              endIcon={<ArrowForwardIcon fontSize="small" />}
             />
-            <Button text="View Project" action={buttonClicked} />
-          </motion.div>
+            <Button
+              text="Explore services"
+              action={buttonClicked}
+              endIcon={<ArrowForwardIcon fontSize="small" />}
+            />
+          </div>
         </div>
-      </motion.div>
+      </div>
+
+      <div className={styles.hero_logos_section}>
+        <div className={styles.hero_marquee}>
+          <div className={styles.hero_marquee_track}>
+            {marquee_logos.map((logo_item, logo_index) => (
+              <span
+                key={`${logo_item.label}-${logo_index}`}
+                className={`${styles.hero_logo_item} ${
+                  styles[`logo${(logo_index % 6) + 1}`]
+                }`}
+              >
+                {logo_item.label}
+              </span>
+            ))}
+          </div>
+          <div className={styles.hero_marquee_fade_left} />
+          <div className={styles.hero_marquee_fade_right} />
+        </div>
+      </div>
+      <ConsultationModal isOpen={open} onClose={() => setOpen(false)} />
     </div>
   );
-};
-
-export default Hero;
+}

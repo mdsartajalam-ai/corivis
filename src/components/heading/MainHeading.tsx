@@ -1,21 +1,20 @@
-type MainHeadingProps = {
-  text: string;
-};
+interface MainHeadingProps {
+  title: string;
+  subTitle?: string;
+}
 
-export default function MainHeading({ text }: MainHeadingProps) {
-  const parts = text.split(/(\{\{[^}]+\}\})/g);
-
+const MainHeading = ({ title, subTitle }: MainHeadingProps) => {
   return (
     <h2 className="main-heading">
-      {parts.map((part, i) =>
-        part.startsWith("{{") && part.endsWith("}}") ? (
-          <span key={i} className="highlight">
-            {part.slice(2, -2)}
-          </span>
-        ) : (
-          part
-        )
+      {title}
+      {subTitle && (
+        <>
+          <br />
+          {subTitle}
+        </>
       )}
     </h2>
   );
-}
+};
+
+export default MainHeading;

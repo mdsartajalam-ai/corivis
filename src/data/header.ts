@@ -1,16 +1,27 @@
-export const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
+export const navLink = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
-  {
-    label: "Services",
-    dropdown: [
-      { label: "Solar Energy", path: "/renewable" },
-      { label: "Construction", path: "/construction" },
-      { label: "Web & App Development", path: "/web-development" },
-    ],
-  },
+export const servicesList = [
+  "Apple Device Management",
+  "Microsoft Intune",
+  "Azure Cloud",
+  "Azure Data Engineering",
+  "ServiceNow",
+  "SolarWinds",
+  "Power Platform",
+  "UI/UX Design",
+  "Automation",
+  "Consulting",
+];
 
-  { label: "Projects", path: "/projects" },
-  { label: "Contact", path: "/contact" },
+export const quickLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
 ];

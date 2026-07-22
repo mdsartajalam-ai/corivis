@@ -1,0 +1,99 @@
+import styles from "./partner.module.css";
+import SubHeading from "../heading/SubHeading";
+import { clientLogos,testimonialList } from "@/data/home";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+
+
+
+const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
+const marqueeLestimonials = [...testimonialList,...testimonialList,...testimonialList,];
+
+export default function PartnerSection() {
+  return (
+    <div className={styles.partners_root}>
+      <div className={styles.partners_topbar} />
+
+      <div className={styles.partners_container}>
+        <div className={styles.partners_header}>
+          <div className={styles.partners_header_text}>
+            <SubHeading text="Strategic Partnership with Industry Leaders" />
+          </div>
+
+          <div className={styles.partners_badge}>
+            <div className={styles.partners_badge_grid}>
+              <span className={styles.badge_square_red} />
+              <span className={styles.badge_square_green} />
+              <span className={styles.badge_square_blue} />
+              <span className={styles.badge_square_yellow} />
+            </div>
+            <div className={styles.partners_badge_text}>
+              <span className={styles.partners_badge_title}>Microsoft</span>
+              <span className={styles.partners_badge_subtitle}>Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.logo_marquee_section}>
+        <div className={styles.logo_marquee}>
+          <div className={styles.logo_marquee_track}>
+            {marqueeLogos.map((item, index) => (
+              <span
+                key={`${item.label}-${index}`}
+                className={`${styles.logo_item} ${styles[`logo${(index % clientLogos.length) + 1}`]}`}
+              >
+                {item.label}
+              </span>
+            ))}
+          </div>
+          <div className={styles.logo_fade_left} />
+          <div className={styles.logo_fade_right} />
+        </div>
+      </div>
+
+      <div className={styles.testimonial_marquee_section}>
+        <div className={styles.testimonial_marquee}>
+          <div className={styles.testimonial_marquee_track}>
+            {marqueeLestimonials.map((item, index) => (
+              <div
+                key={`${item.name}-${index}`}
+                className={styles.testimonial_card}
+              >
+                <FormatQuoteIcon className={styles.testimonial_quote_icon} />
+
+                <p className={styles.testimonial_quote}>
+                  {item.quote}
+                </p>
+
+                <div className={styles.testimonial_footer}>
+                  <div className={styles.testimonial_person}>
+                    <span
+                      className={`${styles.testimonial_avatar} ${
+                        styles[`test_avatar${(index % testimonialList.length) + 1}`]}`}
+                    >
+                      {item.initials}
+                    </span>
+                    <div className={styles.testimonial_person_text}>
+                      <span className={styles.testimonial_name}>
+                        {item.name}
+                      </span>
+                      <span className={styles.testimonial_role}>
+                        {item.role}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className={styles.testimonial_company_logo}>
+                    {item.company}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.testimonial_fade_left} />
+          <div className={styles.testimonial_fade_right} />
+        </div>
+      </div>
+    </div>
+  );
+}

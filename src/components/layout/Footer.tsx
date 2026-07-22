@@ -1,107 +1,132 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./footer.module.css";
-import CallIcon from "@mui/icons-material/Call";
-import EmailIcon from "@mui/icons-material/Email";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
+import SocialIcon from "../home/SocialIcon";
+import logo2 from "@/assets/logo/logo2.png";
+import { useEffect, useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import { servicesList, quickLinks } from "@/data/header";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 
-const Footer = () => {
+
+export default function Footer() {
+  const [show_scroll_top, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handle_scroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handle_scroll);
+    return () => window.removeEventListener("scroll", handle_scroll);
+  }, []);
+
+  const scroll_to_top = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <h2 className={styles.logo}>Eceladdus Enllave Group</h2>
-          <p className={styles.desc}>
-            Building future-ready infrastructure with innovation and precision.
+    <footer className={styles.footer_root}>
+      <div className={styles.footer_topbar} />
+
+      <IconButton
+        aria-label="Scroll to top"
+        onClick={scroll_to_top}
+        className={`${styles.scroll_top_btn} ${
+          show_scroll_top ? styles.scroll_top_btn_visible : ""
+        }`}
+      >
+        <KeyboardDoubleArrowUpIcon />
+      </IconButton>
+
+      <div className={styles.footer_container}>
+        <div className={styles.footer_brand}>
+          <Link 
+            href="/" 
+            className={styles.logo_wrapper}
+          >
+            <Image
+              fill
+              alt="Logo"
+              src={logo2}
+              unoptimized
+              className={styles.logo}
+            />
+          </Link>
+
+          <p className={styles.footer_tagline}>
+            Engineering the Future of Enterprise Technology
           </p>
-          <div className={styles.info}>
-            <p>
-              <CallIcon /> +91 92314 47001
-            </p>
-            <p>
-              <EmailIcon /> support@eceladdusenllave.com
-            </p>
-            <p>
-              <LocationOnIcon /> Mohanpur Road, ward no.-39, In front of
-              Samastipur Emergency Hospital, Samastipur, Bihar (848101)
-            </p>
-          </div>
         </div>
 
-        <div className={styles.links}>
-          <div>
-            <h4>Company</h4>
-            <ul>
-              <li>About</li>
-              <li>Projects</li>
-              <li>Contact</li>
+        <div className={styles.footer_grid}>
+          <div className={styles.footer_column}>
+            <h3 className={styles.footer_heading}>Services</h3>
+            <ul className={styles.footer_list}>
+              {servicesList.map((service_item) => (
+                <li 
+                  key={service_item} 
+                  className={styles.footer_list_item}
+                >
+                  <Link 
+                    href="/services" 
+                    className={styles.footer_link}
+                  >
+                    {service_item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <div>
-            <h4>Services</h4>
-            <ul>
-              <li>Solar Energy</li>
-              <li>Construction</li>
-              <li>Development</li>
-            </ul>
-          </div>
-        </div>
 
-        <div className={styles.right}>
-          <h4>Follow Us</h4>
-          <div className={styles.social}>
-            <span>
-              <FacebookIcon />
-            </span>
-            <span>
-              <TwitterIcon />
-            </span>
-            <span>
-              <InstagramIcon />
-            </span>
-            <span>
-              <LinkedInIcon />
-            </span>
+          <div className={styles.footer_column}>
+            <h3 className={styles.footer_heading}>Quick</h3>
+            <ul className={styles.footer_list}>
+              {quickLinks.map((quick_item) => (
+                <li
+                  key={quick_item.label}
+                  className={styles.footer_list_item}
+                >
+                  <Link 
+                    href={quick_item.href} 
+                    className={styles.footer_link}
+                  >
+                    {quick_item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className={styles.legal}>
-            <p>CIN: U68100BR2025PTC075378</p>
-            <p>GST: 10AAICE8352L1ZJ</p>
+
+          <div className={styles.footer_column}>
+            <h3 className={styles.footer_heading}>Contact</h3>
+            <ul className={styles.footer_list}>
+              <li className={styles.footer_list_item}>
+                <Link
+                  className={styles.footer_link}
+                  href="mailto:hello@corivis.com"
+                >
+                  hello@corivis.com
+                </Link>
+              </li>
+              <li className={styles.footer_list_item_static}>
+                Mumbai, India
+              </li>
+              <li className={styles.footer_list_item_static}>24×7 Support</li>
+            </ul>
+          </div>
+
+          <div className={styles.footer_column}>
+            <h3 className={styles.footer_heading}>Follow Us</h3>
+            <SocialIcon/>
           </div>
         </div>
       </div>
 
-      <div className={styles.mapWrapper}>
-        <iframe
-          title="Eceladus group Location"
-          src="https://maps.google.com/maps?q=Mohanpur%20Road%2C%20Ward%20No.-39%2C%20In%20front%20of%20Samastipur%20Emergency%20Hospital%2C%20Samastipur%2C%20Bihar%20848101&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-
-        <a
-          href="https://www.google.com/maps/dir/?api=1&destination=Mohanpur+Road+Ward+No.-39+In+front+of+Samastipur+Emergency+Hospital+Samastipur+Bihar+848101"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.mapOverlayBtn}
-        >
-          <OpenInNewRoundedIcon fontSize="small" /> Open in Maps
-        </a>
-      </div>
-
-      <div className={styles.copy}>
-        © {new Date().getFullYear()} Eceladus Group. All rights reserved.
+      <div className={styles.footer_bottom}>
+        <p className={styles.footer_copyright}>
+          ©{new Date().getFullYear()} All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

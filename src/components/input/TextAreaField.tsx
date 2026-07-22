@@ -1,46 +1,48 @@
 import { ChangeEvent } from "react";
 import styles from "@/components/modal/consultation.module.css";
 
-interface InputFieldProps {
+interface TextAreaFieldProps {
   label: string;
   name?: string;
+  rows?: number;
+  value?: string;
   required?: boolean;
   disabled?: boolean;
+  className?: string;
   placeholder?: string;
-  value?: string | number;
-  type?: "text" | "email" | "password" | "number" | "tel";
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const InputField = ({
+const TextAreaField = ({
   label,
   name,
   value,
   disabled,
-  placeholder,
-  type = "text",
-  required = false,
+  rows = 2,
   onChange,
-}: InputFieldProps) => {
+  className,
+  placeholder,
+  required = false,
+}: TextAreaFieldProps) => {
   return (
-    <label className={styles.modal_field}>
+    <label className={`${styles.modal_field} ${className || ""}`}>
       <span className={styles.modal_label}>
         {label}
         {required && <span>*</span>}
       </span>
 
-      <input
-        type={type}
+      <textarea
+        rows={rows}
         name={name}
         value={value}
         onChange={onChange}
         required={required}
         disabled={disabled}
         placeholder={placeholder}
-        className={styles.modal_input}
+        className={styles.modal_textarea}
       />
     </label>
   );
 };
 
-export default InputField;
+export default TextAreaField;

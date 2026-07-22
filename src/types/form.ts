@@ -1,5 +1,8 @@
-export type contactForm = {
+export interface ContactFormType {
   name: string;
-  phone: string;
-  service:string
-};
+  email: string;
+  message: string;
+  contact_no: string;
+  company_name: string;
+
+}

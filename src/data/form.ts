@@ -1,7 +1,9 @@
-import { contactForm } from "@/types/form";
+import { ContactFormType } from "@/types/form";
 
-export const contactFormData: contactForm = {
+export const contactFormInitialData: ContactFormType = {
   name: "",
-  phone: "",
-  service: "",
+  email: "",
+  message: "",
+  contact_no: "",
+  company_name: "",
 };

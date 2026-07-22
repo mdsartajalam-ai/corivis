@@ -1,15 +1,13 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import styles from "@/styles/Home.module.css";
+import CtaSection from "@/components/home/CtaSection";
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
-import ClientSection from "@/components/home/ClientSectionl";
-import Expertise from "@/components/home/Experties";
-import OurWork from "@/components/home/OurWork";
-import HappyCustomer from "@/components/home/HappyCustomer";
-import FutureCTA from "@/components/home/FutureCTA";
-import OurJourney from "@/components/home/OurJourney";
-import StatsSection from "@/components/home/StateSection";
-import MessageSection from "@/components/home/MessageSection";
+import PartnerSection from "@/components/home/ParterSection";
+import ProcessSection from "@/components/home/ProcessSection";
+import ProjectSection from "@/components/home/ProjectSection";
+import ServicesSection from "@/components/home/ServicessSection";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -22,6 +20,14 @@ import MessageSection from "@/components/home/MessageSection";
 // });
 
 export default function Home() {
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Head>
@@ -31,35 +37,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.home_page}>
-        <section className={styles.hero_section}>
-          <HeroSection/>
+        <section id="home" className={styles.hero_section}>
+          <HeroSection />
         </section>
-        <section className={styles.about_section}>
-          <AboutSection/>
+        <section id="about" className={styles.about_section}>
+          <AboutSection />
         </section>
-        <section className={styles.client_section}>
-          <ClientSection/>
+        <section id="services" className={styles.services_section}>
+          <ServicesSection />
         </section>
-        <section className={styles.journey_section}>
-          <OurJourney/>
+        <section id="projects" className={styles.project_section}>
+          <ProjectSection />
         </section>
-        <section className={styles.message_section}>
-          <MessageSection/>
+        <section className={styles.partner_section}>
+          <PartnerSection />
         </section>
-        <section className={styles.expertise_section}>
-          <Expertise/>
-        </section>
-        <section className={styles.work_section}>
-          <OurWork/>
-        </section>
-        <section className={styles.state_section}>
-          <StatsSection/>
-        </section>
-        <section className={styles.customer_section}>
-          <HappyCustomer/>
+        <section className={styles.process_section}>
+          <ProcessSection />
         </section>
         <section className={styles.cta_section}>
-          <FutureCTA/>
+          <CtaSection />
         </section>
       </main>
     </>

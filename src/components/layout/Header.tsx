@@ -1,127 +1,159 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import Button from "../button/Button";
+import { navLink } from "@/data/header";
 import styles from "./header.module.css";
-import { navItems } from "@/data/header";
-import logo from "@/assets/logo/logo2.png";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import { Drawer, IconButton } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import logo2 from "@/assets/logo/logo2.png";
+import SocialIcon from "../home/SocialIcon";
+import { useEffect, useState } from "react";
+import ContactModal from "../modal/ContactModal";
+import IconButton from "@mui/material/IconButton";
+import ConsultationModal from "../modal/ConsultationModal";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
-export default function Navbar() {
-  const [drawer, setDrawer] = useState(false);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const buttonClicked = () => {
-    console.log("button clicked");
-  };
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const [open, setOpen] = useState(false);
+  const [openContact, setOpenContact] = useState(false);
 
   return (
-    <header className={styles.navbar}>
-      <div className={styles.wrapper}>
-        <Image alt="logo" src={logo} width={150} height={60} />
-        <nav className={styles.nav_center}>
-          {navItems.map((item, i) =>
-            item.dropdown ? (
-              <div key={i} className={styles.dropdown}>
-                <span className={styles.nav_link}>{item.label}</span>
-                <div className={styles.dropdown_menu}>
-                  {item.dropdown.map((sub, j) => (
-                    <Link
-                      key={j}
-                      href={sub.path}
-                      className={styles.dropdown_item}
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
+    <header className={styles.header}>
+      <div className={styles.desktop_bar}>
+        <Link href="/" className={styles.logo_wrapper}>
+          <Image
+            fill
+            alt="Logo"
+            src={logo2}
+            unoptimized
+            className={styles.logo}
+          />
+        </Link>
 
-                  <Link href="/services" className={styles.dropdown_view}>
-                    View All Services →
-                  </Link>
-                </div>
-              </div>
+        <nav className={styles.desktop_nav} aria-label="Primary">
+          {navLink.map((link) =>
+            link.href === "#contact" ? (
+              <button
+                key={link.href}
+                type="button"
+                className={`${styles.nav_link} ${styles.nav_link_button}`}
+                onClick={() => setOpenContact(true)}
+              >
+                {link.label}
+              </button>
             ) : (
-              <Link key={i} href={item.path} className={styles.nav_link}>
-                {item.label}
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.nav_link}
+              >
+                {link.label}
               </Link>
             ),
           )}
         </nav>
 
-        <div className={styles.nav_right}>
-          <Button 
-            text="Login / Signup" 
-            action={buttonClicked}
-          />
-          <IconButton
-            className={styles.menu_btn}
-            onClick={() => setDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
-        </div>
+        <Button
+          text="Contact Us"
+          action={() => setOpenContact(true)}
+          endIcon={<MailOutlineRoundedIcon fontSize="small" />}
+        />
       </div>
 
-      <Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)}>
-        <div className={styles.drawer}>
-          <div className={styles.drawer_top}>
-            <span>Menu</span>
-            <CloseIcon onClick={() => setDrawer(false)} />
-          </div>
+      <div className={styles.mobile_bar}>
+        <Link href="/" className={styles.logo_wrapper}>
+          <Image
+            fill
+            alt="Logo"
+            src={logo2}
+            unoptimized
+            className={styles.logo}
+          />
+        </Link>
 
-          {navItems.map((item, i) =>
-            item.dropdown ? (
-              <div key={i}>
-                <div
-                  className={styles.drawer_link}
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                >
-                  {item.label}
-                  <ExpandMoreIcon
-                    className={`${styles.arrow} ${
-                      openIndex === i ? styles.rotate : ""
-                    }`}
-                  />
-                </div>
+        <IconButton
+          aria-label="Open menu"
+          className={styles.icon_toggle}
+          onClick={() => setIsMenuOpen(true)}
+        >
+          <MenuRoundedIcon className={styles.icon_toggle_glyph} />
+        </IconButton>
+      </div>
 
-                {openIndex === i && (
-                  <div className={styles.submenu}>
-                    {item.dropdown.map((sub, j) => (
-                      <Link
-                        key={j}
-                        href={sub.path}
-                        className={styles.submenu_item}
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
+      <div
+        aria-hidden={!isMenuOpen}
+        className={`${styles.mobile_menu} ${isMenuOpen ? styles.mobile_menu_open : ""}`}
+      >
+        <div className={styles.mobile_menu_top}>
+          <Link href="/">
+            <Image src={logo2} width={120} alt="MediNivo Logo" />
+          </Link>
 
-                    <Link href="/services" className={styles.submenu_view}>
-                      View All Services →
-                    </Link>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={i}
-                href={item.path}
-                className={styles.drawer_link}
-                onClick={() => setDrawer(false)}
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
-          <Button 
-            text="Login / Signup" 
-            action={buttonClicked}
+          <IconButton
+            aria-label="Close menu"
+            className={styles.icon_toggle}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <CloseRoundedIcon className={styles.icon_toggle_glyph} />
+          </IconButton>
+        </div>
+
+        <div className={styles.mobile_menu_divider} />
+
+        <nav aria-label="Mobile primary" className={styles.mobile_nav}>
+          {navLink.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={styles.mobile_nav_link}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>{link.label}</span>
+              <ArrowOutwardRoundedIcon
+                fontSize="small"
+                className={styles.mobile_nav_arrow}
+              />
+            </Link>
+          ))}
+        </nav>
+
+        <div className={styles.mobile_menu_actions}>
+          <Button
+            action={() => setOpen(true)}
+            text="Book a free consultation"
+            endIcon={<ArrowForwardIcon fontSize="small" />}
+          />
+          <Button
+            text="Contact Us"
+            action={() => setOpenContact(true)}
+            endIcon={<ArrowForwardIcon fontSize="small" />}
           />
         </div>
-      </Drawer>
+
+        <div className={styles.mobile_menu_footer}>
+          <span className={styles.follow_label}>Follow Us.</span>
+          <SocialIcon />
+        </div>
+      </div>
+      <ContactModal
+        isOpen={openContact}
+        onClose={() => setOpenContact(false)}
+      />
+      <ConsultationModal 
+        isOpen={open} 
+        onClose={() => setOpen(false)} 
+      />
     </header>
   );
 }
