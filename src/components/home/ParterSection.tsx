@@ -1,21 +1,25 @@
+import Image from "next/image";
 import styles from "./partner.module.css";
 import SubHeading from "../heading/SubHeading";
-import { clientLogos,testimonialList } from "@/data/home";
+import { clientLogos, testimonialList } from "@/data/home";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
-
-
 const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
-const marqueeLestimonials = [...testimonialList,...testimonialList,...testimonialList,];
+const marqueeLestimonials = [
+  ...testimonialList,
+  ...testimonialList,
+  ...testimonialList,
+];
 
 export default function PartnerSection() {
   return (
     <div className={styles.partners_root}>
-      <div className={styles.partners_topbar} />
-
       <div className={styles.partners_container}>
         <div className={styles.partners_header}>
           <div className={styles.partners_header_text}>
+            <p className={styles.ph_subtitle}>
+              Corivis Colaboration with Tect Giants
+            </p>
             <SubHeading text="Strategic Partnership with Industry Leaders" />
           </div>
 
@@ -61,18 +65,25 @@ export default function PartnerSection() {
               >
                 <FormatQuoteIcon className={styles.testimonial_quote_icon} />
 
-                <p className={styles.testimonial_quote}>
-                  {item.quote}
-                </p>
+                <p className={styles.testimonial_quote}>{item.quote}</p>
 
                 <div className={styles.testimonial_footer}>
                   <div className={styles.testimonial_person}>
-                    <span
+                    <div
                       className={`${styles.testimonial_avatar} ${
-                        styles[`test_avatar${(index % testimonialList.length) + 1}`]}`}
+                        styles[
+                          `test_avatar${(index % testimonialList.length) + 1}`
+                        ]
+                      }`}
                     >
-                      {item.initials}
-                    </span>
+                      <Image
+                        fill
+                        sizes="100px"
+                        src={item.avatar}
+                        alt={item.name}
+                        className={styles.avatar_image}
+                      />
+                    </div>
                     <div className={styles.testimonial_person_text}>
                       <span className={styles.testimonial_name}>
                         {item.name}

@@ -21,18 +21,19 @@
   flex-direction: column;
 }
 .about_heading {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   color: #0b0f16;
-  line-height: 1.25;
+  line-height: 36px;
   letter-spacing: -0.4px;
-  margin: 0 0 20px;
+  margin: 0 0 26px;
+  max-width: 300px;
 }
 .about_paragraph {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #4b5563;
-  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 26px;
+  color: #4a4d55;
+  margin: 0 0 18px;
 }
 .about_feature_grid {
   margin-top: 28px;
@@ -47,7 +48,9 @@
   padding: 12px;
   margin: -12px;
   border-radius: 14px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 .about_feature_item:hover {
   background-color: #f7f9fc;
@@ -55,8 +58,8 @@
 }
 .about_feature_icon {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -64,6 +67,10 @@
   color: #1c86db;
   transition: transform 0.3s ease;
 }
+.about_feature_icon svg {
+  font-size: 30px;
+}
+
 .about_feature_item:hover .about_feature_icon {
   transform: scale(1.08) rotate(-3deg);
 }
@@ -72,15 +79,15 @@
   flex-direction: column;
 }
 .about_feature_title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: #0b0f16;
   margin: 0 0 4px;
 }
 .about_feature_desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: #6b7280;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4a4d55;
   margin: 0;
 }
 .about_stats_row {
@@ -97,7 +104,7 @@
   gap: 6px;
 }
 .about_stat_value {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   color: #0b0f16;
   letter-spacing: -0.5px;
@@ -107,8 +114,8 @@
   color: #1c86db;
 }
 .about_stat_label {
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.4;
   color: #6b7280;
   font-weight: 500;
 }
@@ -131,7 +138,6 @@
   background: #e5f6f8;
 }
 
-
 /* ==========================================================================
    Breakpoints
    ========================================================================== */
@@ -139,7 +145,7 @@
 @media screen and (min-width: 768px) {
   .about_container {
     padding: 72px 40px 40px;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 48px;
   }
 
@@ -148,7 +154,8 @@
   }
 
   .about_heading {
-    font-size: 26px;
+    font-size: 36px;
+    max-width: 500px;
   }
 
   .about_feature_grid {
@@ -163,7 +170,10 @@
   }
 
   .about_stat_value {
-    font-size: 30px;
+    font-size: 32px;
+  }
+  .about_feature_title {
+    font-size: 22px;
   }
 }
 
@@ -171,28 +181,28 @@
   .about_container {
     padding: 80px 64px 40px;
     grid-template-columns: 240px 1fr;
-    gap: 60px;
+    gap: 70px;
   }
 
   .about_heading {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .about_feature_icon {
-    width: 44px;
-    height: 44px;
+    /* width: 44px;
+    height: 44px; */
     border-radius: 13px;
   }
 
   .about_stat_value {
-    font-size: 32px;
+    font-size: 40px;
   }
 }
 @media screen and (min-width: 1420px) {
   .about_container {
     padding: 80px 0px 40px;
-    grid-template-columns: 240px 1fr;
-    gap: 60px;
+    grid-template-columns: 260px 1fr;
+    gap: 170px;
   }
-
 }
+

@@ -1,3 +1,4 @@
+import CountUp from "react-countup";
 import { statList } from "@/data/home";
 import styles from "./about.module.css";
 import { featureList } from "@/data/iocn";
@@ -11,7 +12,9 @@ export default function AboutSection() {
       </div>
 
       <div className={styles.about_content_col}>
-        <h3 className={styles.about_heading}>Technology. Innovation. Impact</h3>
+        <h3 className={styles.about_heading}>
+          Technology. Innovation. Impact
+        </h3>
 
         <p className={styles.about_paragraph}>
           Corivis is a technology consulting and engineering company helping
@@ -45,10 +48,27 @@ export default function AboutSection() {
         </div>
 
         <div className={styles.about_stats_row}>
-          {statList.map((stat_item) => (
-            <div key={stat_item.label} className={styles.about_stat_item}>
-              <span className={styles.about_stat_value}>{stat_item.value}</span>
-              <span className={styles.about_stat_label}>{stat_item.label}</span>
+          {statList.map((item, index) => (
+            <div key={index} className={styles.about_stat_item}>
+              <span className={styles.about_stat_value}>
+                {typeof item.value === "number" ? (
+                  <>
+                    <CountUp
+                      end={item.value}
+                      duration={2.5}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+                    {item.suffix}
+                  </>
+                ) : (
+                  item.value
+                )}
+              </span>
+
+              <span className={styles.about_stat_label}>
+                {item.label}
+              </span>
             </div>
           ))}
         </div>

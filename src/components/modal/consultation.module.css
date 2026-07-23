@@ -211,7 +211,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-
 @keyframes modal_backdrop_fade_in {
   from {
     opacity: 0;
@@ -255,6 +254,9 @@
 
   .modal_submit_btn {
     width: auto;
+  }
+  .modal_backdrop {
+    align-items: center;
   }
 }
 

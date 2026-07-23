@@ -16,7 +16,9 @@ export default function ProjectSection() {
 
   return (
     <div className={styles.projects_container}>
-      <SubHeading text="Our Works &amp; Projects" />
+      <div className={styles.pr_head}>
+        <SubHeading text="Our Works &amp; Projects" />
+      </div>
       <div className={styles.projects_grid}>
         {projectList.map((project_item) => (
           <Link

@@ -7,18 +7,20 @@
 }
 .process_header {
   text-align: center;
+  margin: 0px auto;
   margin-bottom: 44px;
+  max-width: 300px;
 }
 .process_eyebrow {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   letter-spacing: 0.4px;
-  color: #9ca6b4;
-  margin: 0 0 10px;
+  color: #dee3eb;
+  margin: 0 0 24px;
 }
 .process_heading {
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 34px;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.4px;
   margin: 0;
@@ -27,7 +29,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 30px;
 }
 .process_connector_line {
   display: none;
@@ -37,7 +39,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 18px 12px;
+  padding: 18px 10px;
   border-radius: 18px;
   transition:
     transform 0.35s ease,
@@ -60,8 +62,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background-color: #ffffff;
   color: #2e9bf0;
@@ -69,6 +71,9 @@
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
+}
+.process_icon_circle svg{
+  font-size: 34px;
 }
 .process_step:hover .process_icon_circle {
   transform: scale(1.08);
@@ -95,20 +100,19 @@
   border: 2px solid #05070b;
 }
 .process_step_title {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 600;
   color: #ffffff;
   letter-spacing: -0.3px;
   margin: 0 0 8px;
 }
 .process_step_desc {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: #9ca6b4;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c8ced6;
   margin: 0;
-  max-width: 240px;
+  max-width: 260px;
 }
-
 
 @media screen and (min-width: 768px) {
   .process_container {
@@ -116,12 +120,13 @@
   }
   .process_header {
     margin-bottom: 56px;
+    max-width: 600px;
   }
   .process_eyebrow {
-    font-size: 14px;
+    font-size: 22px;
   }
   .process_heading {
-    font-size: 34px;
+    font-size: 38px;
   }
   .process_steps {
     grid-template-columns: repeat(2, 1fr);
@@ -132,10 +137,10 @@
     height: 66px;
   }
   .process_step_title {
-    font-size: 22px;
+    font-size: 32px;
   }
   .process_step_desc {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 
@@ -147,7 +152,7 @@
     margin-bottom: 64px;
   }
   .process_heading {
-    font-size: 38px;
+    font-size: 40px;
   }
   .process_steps {
     grid-template-columns: repeat(4, 1fr);
@@ -171,7 +176,7 @@
     z-index: 0;
   }
   .process_step_title {
-    font-size: 24px;
+    font-size: 34px;
   }
 }
 @media screen and (min-width: 1420px) {

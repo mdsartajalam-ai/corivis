@@ -8,6 +8,7 @@ import PartnerSection from "@/components/home/ParterSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import ProjectSection from "@/components/home/ProjectSection";
 import ServicesSection from "@/components/home/ServicessSection";
+import ServicesMobile from "@/components/home/ServicesMobile";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -44,16 +45,21 @@ export default function Home() {
           <AboutSection />
         </section>
         <section id="services" className={styles.services_section}>
-          <ServicesSection />
+          <div className={styles.desktop}>
+            <ServicesSection />
+          </div>
+          <div className={styles.mobile}>
+            <ServicesMobile />
+          </div>
         </section>
         <section id="projects" className={styles.project_section}>
           <ProjectSection />
         </section>
-        <section className={styles.partner_section}>
-          <PartnerSection />
-        </section>
         <section className={styles.process_section}>
           <ProcessSection />
+        </section>
+        <section className={styles.partner_section}>
+          <PartnerSection />
         </section>
         <section className={styles.cta_section}>
           <CtaSection />

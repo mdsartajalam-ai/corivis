@@ -14,16 +14,16 @@
   max-width: 640px;
 }
 .cta_heading {
-  font-size: 30px;
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
   color: #ffffff;
   letter-spacing: -0.5px;
   margin: 0;
 }
 .cta_description {
-  margin-top: 14px;
-  font-size: 14.5px;
+  margin-top: 20px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   max-width: 480px;
@@ -38,6 +38,7 @@
   background: #ffffff;
   color: #0b0f16;
   box-shadow: 0 8px 20px rgba(4, 20, 40, 0.18);
+  width: 100%;
 }
 .cta_actions_col :last-child:global(.app-button) {
   background-color: transparent;
@@ -58,7 +59,7 @@
     gap: 32px;
   }
   .cta_heading {
-    font-size: 38px;
+    font-size: 50px;
   }
   .cta_description {
     font-size: 15.5px;
@@ -74,7 +75,7 @@
     padding: 68px 64px;
   }
   .cta_heading {
-    font-size: 44px;
+    font-size: 50px;
   }
   .cta_description {
     font-size: 16px;

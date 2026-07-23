@@ -7,6 +7,7 @@ import image from "@/assets/home/img1.jpg";
 import MainHeading from "../heading/MainHeading";
 import ConsultationModal from "../modal/ConsultationModal";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import GlowButton from "../button/GlowButton";
 
 const marquee_logos = [...clientLogos, ...clientLogos, ...clientLogos];
 
@@ -48,7 +49,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.hero_actions}>
-            <Button
+            <GlowButton
               action={() => setOpen(true)}
               text="Book a free consultation"
               endIcon={<ArrowForwardIcon fontSize="small" />}

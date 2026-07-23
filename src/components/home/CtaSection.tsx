@@ -2,11 +2,13 @@ import { useState } from "react";
 import styles from "./cta.module.css";
 import Button from "../button/Button";
 import ContactModal from "../modal/ContactModal";
+import ConsultationModal from "../modal/ConsultationModal";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 
 export default function CtaSection() {
   const [openContact, setOpenContact] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={styles.cta_container}>
@@ -23,7 +25,7 @@ export default function CtaSection() {
       <div className={styles.cta_actions_col}>
         <Button
           text="Request a Call Back"
-          action={() => setOpenContact(true)}
+          action={() => setOpen(true)}
           endIcon={<ArrowForwardIcon fontSize="small" />}
         />
         <Button
@@ -35,6 +37,10 @@ export default function CtaSection() {
       <ContactModal
         isOpen={openContact}
         onClose={() => setOpenContact(false)}
+      />
+      <ConsultationModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
       />
     </div>
   );

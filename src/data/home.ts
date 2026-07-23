@@ -3,6 +3,7 @@ import ph2 from "@/assets/home/ph2.jpg";
 import ph3 from "@/assets/home/ph3.jpg";
 import ph4 from "@/assets/home/ph4.jpg";
 import ph5 from "@/assets/home/ph5.jpg";
+import avatar1 from "@/assets/home/av.avif";
 
 export const clientLogos = [
   { label: "pipefy" },
@@ -13,9 +14,21 @@ export const clientLogos = [
   { label: "portal" },
 ];
 export const statList = [
-  { value: "80+", label: "Projects Delivered" },
-  { value: "8+ Years", label: "Enterprise Experience" },
-  { value: "24×7", label: "Delivery & Support" },
+  {
+    value: 80,
+    suffix: "+",
+    label: "Projects Delivered",
+  },
+  {
+    value: 8,
+    suffix: "+ Years",
+    label: "Enterprise Experience",
+  },
+  {
+    value: 24,
+    suffix: "×7",
+    label: "Delivery & Support",
+  },
   {
     value: "Global",
     label: "Delivery Across India, UK, Europe & North America",
@@ -60,6 +73,7 @@ export const projectList = [
   },
 ];
 
+
 export const testimonialList = [
   {
     quote:
@@ -67,7 +81,7 @@ export const testimonialList = [
     name: "Richard Jonas",
     role: "CEO of Teamwork",
     company: "teamwork.",
-    initials: "RJ",
+    avatar: avatar1,
   },
   {
     quote:
@@ -75,7 +89,7 @@ export const testimonialList = [
     name: "Amelia Ross",
     role: "VP Engineering of Pipefy",
     company: "pipefy",
-    initials: "AR",
+    avatar: avatar1,
   },
   {
     quote:
@@ -83,7 +97,7 @@ export const testimonialList = [
     name: "Marcus Webb",
     role: "CTO of Rackspace",
     company: "rackspace",
-    initials: "MW",
+    avatar: avatar1,
   },
 ];
 
