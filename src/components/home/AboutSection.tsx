@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CountUp from "react-countup";
 import { statList } from "@/data/home";
 import styles from "./about.module.css";
@@ -12,9 +13,7 @@ export default function AboutSection() {
       </div>
 
       <div className={styles.about_content_col}>
-        <h3 className={styles.about_heading}>
-          Technology. Innovation. Impact
-        </h3>
+        <h3 className={styles.about_heading}>Technology. Innovation. Impact</h3>
 
         <p className={styles.about_paragraph}>
           Corivis is a technology consulting and engineering company helping
@@ -32,13 +31,14 @@ export default function AboutSection() {
 
         <div className={styles.about_feature_grid}>
           {featureList.map((item, index) => (
-            <div key={item.title} className={styles.about_feature_item}>
-              <span
-                className={`${styles.about_feature_icon} ${styles[`icon_${index + 1}`]}`}
-              >
-                {item.icon}
-              </span>
-
+            <div key={index} className={styles.about_feature_item}>
+              <Image
+                width={100}
+                height={100}
+                src={item.image}
+                alt={item.title}
+                className={styles.feature_icon_image}
+              />
               <div className={styles.about_feature_text}>
                 <h4 className={styles.about_feature_title}>{item.title}</h4>
                 <p className={styles.about_feature_desc}>{item.description}</p>
@@ -66,9 +66,7 @@ export default function AboutSection() {
                 )}
               </span>
 
-              <span className={styles.about_stat_label}>
-                {item.label}
-              </span>
+              <span className={styles.about_stat_label}>{item.label}</span>
             </div>
           ))}
         </div>

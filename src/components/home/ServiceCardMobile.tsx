@@ -4,6 +4,8 @@ import AddIcon from "@mui/icons-material/Add";
 import styles from "./servicemobile.module.css";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DescriptionIcon from "@mui/icons-material/Description";
+import BrochureModal from "../modal/BrochureModal";
+import { useState } from "react";
 
 type Item = {
   slug: string;
@@ -29,6 +31,7 @@ export default function ServiceCardMobile({
   onToggle,
 }: Props) {
   const theme = (index % 6) + 1;
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={styles.item}>
@@ -83,16 +86,22 @@ export default function ServiceCardMobile({
             </div>
             <p className={styles.caption}>{item.image_caption}</p>
 
-            <Link
-              href={item.brochure_href}
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
               className={`${styles.btn} ${styles[`btn_${theme}`]}`}
             >
               <span>Download Brochure</span>
               <DescriptionIcon fontSize="small" />
-            </Link>
+            </button>
           </div>
         </div>
       )}
+      <BrochureModal
+        isOpen={open}
+        title={item.title}
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 }

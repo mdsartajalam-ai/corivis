@@ -152,7 +152,6 @@
 .mobile_nav {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--white-12);
 }
 .mobile_nav_link {
   display: flex;

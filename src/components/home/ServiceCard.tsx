@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./servicess.module.css";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import BrochureModal from "../modal/BrochureModal";
 
 type Item = {
   slug: string;
@@ -33,6 +34,7 @@ export default function ServiceCard({
   panelRef,
 }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -77,17 +79,20 @@ export default function ServiceCard({
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.desc}>{item.description}</p>
 
-            <Link
-              href={item.brochure_href}
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
               className={`${styles.btn} ${styles[`btn_${theme}`]}`}
             >
               <span>Download Brochure</span>
               <DescriptionIcon fontSize="small" />
-            </Link>
+            </button>
           </div>
 
           <div className={styles.img_col}>
-            <div className={`${styles.img_wrap} ${styles[`img_wrap_${theme}`]}`}>
+            <div
+              className={`${styles.img_wrap} ${styles[`img_wrap_${theme}`]}`}
+            >
               <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} />
               <motion.div className={styles.scaler} style={{ scale: imgScale }}>
                 <Image
@@ -103,6 +108,11 @@ export default function ServiceCard({
           </div>
         </div>
       </motion.div>
+      <BrochureModal 
+        isOpen={open} 
+        title={item.title}
+        onClose={() => setOpen(false)} 
+      />
     </div>
   );
 }

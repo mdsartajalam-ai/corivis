@@ -32,6 +32,7 @@
   border-radius: 20px;
   overflow: hidden;
   background-color: #0b0f16;
+  cursor: auto;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
   transition:
     box-shadow 0.35s ease,
@@ -39,6 +40,7 @@
 }
 .project_info {
   padding: 16px 8px 0;
+  cursor: auto;
 }
 .project_image {
   object-fit: cover;
@@ -136,6 +138,11 @@
 }
 .pr_head{
   max-width: 300px;
+}
+.process_icon_image {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 @keyframes projects_spin {

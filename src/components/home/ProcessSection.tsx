@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { stepList } from "@/data/iocn";
 import styles from "./process.module.css";
 
@@ -15,7 +16,15 @@ export default function ProcessSection() {
         {stepList.map((item, index) => (
           <div key={index} className={styles.process_step}>
             <div className={styles.process_icon_wrapper}>
-              <span className={styles.process_icon_circle}>{item.icon}</span>
+              <span className={styles.process_icon_circle}>
+                <Image
+                  width={80}
+                  height={80}
+                  src={item.image}
+                  alt={item.title}
+                  className={styles.process_icon_image}
+                />
+              </span>
               <span className={styles.process_step_number}>
                 {item.step_number}
               </span>

@@ -56,23 +56,9 @@
   background-color: #f7f9fc;
   transform: translateY(-2px);
 }
-.about_feature_icon {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1c86db;
-  transition: transform 0.3s ease;
-}
-.about_feature_icon svg {
-  font-size: 30px;
-}
 
-.about_feature_item:hover .about_feature_icon {
-  transform: scale(1.08) rotate(-3deg);
+.about_feature_item:hover .feature_icon_image {
+  transform: scale(1.09) rotate(-4deg);
 }
 .about_feature_text {
   display: flex;
@@ -119,28 +105,13 @@
   color: #6b7280;
   font-weight: 500;
 }
-.icon_1 {
-  background: #e8f2fd;
-}
-.icon_2 {
-  background: #fdefe3;
-}
-.icon_3 {
-  background: #e7f6ec;
-}
-.icon_4 {
-  background: #efe9fd;
-}
-.icon_5 {
-  background: #fdf1e1;
-}
-.icon_6 {
-  background: #e5f6f8;
-}
 
-/* ==========================================================================
-   Breakpoints
-   ========================================================================== */
+.feature_icon_image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
 
 @media screen and (min-width: 768px) {
   .about_container {
@@ -187,13 +158,6 @@
   .about_heading {
     font-size: 40px;
   }
-
-  .about_feature_icon {
-    /* width: 44px;
-    height: 44px; */
-    border-radius: 13px;
-  }
-
   .about_stat_value {
     font-size: 40px;
   }

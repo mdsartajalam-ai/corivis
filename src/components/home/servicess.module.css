@@ -5,7 +5,6 @@
   margin: 0 auto;
   padding: 40px 20px;
 }
-
 .sticky_area {
   position: sticky;
   top: 82px;
@@ -13,18 +12,15 @@
   padding-top: 12px;
   background: #ffffff;
 }
-
 .header {
   position: relative;
   margin-bottom: 16px;
 }
-
 .tabs_sticky {
   position: relative;
   padding: 10px 0 0;
   margin-bottom: 18px;
 }
-
 .tabs_row {
   display: flex;
   align-items: center;
@@ -186,6 +182,8 @@
   font-weight: 700;
   font-size: 13px;
   text-decoration: none;
+  border: none;
+  outline: none;
   transition:
     background-color 0.3s ease,
     color 0.3s ease,

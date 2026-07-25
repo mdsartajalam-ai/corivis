@@ -1,21 +1,13 @@
 import XIcon from "@mui/icons-material/X";
 import AppleIcon from "@mui/icons-material/Apple";
-import SpeedIcon from "@mui/icons-material/Speed";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ShieldIcon from "@mui/icons-material/Shield";
 import RedditIcon from "@mui/icons-material/Reddit";
-import GroupsIcon from "@mui/icons-material/Groups";
 import Grid3x3Icon from "@mui/icons-material/Grid3x3";
 import DevicesIcon from "@mui/icons-material/Devices";
-import AutoModeIcon from "@mui/icons-material/AutoMode";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ApartmentIcon from "@mui/icons-material/Apartment";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import ConstructionIcon from "@mui/icons-material/Construction";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
 import ser1 from "@/assets/home/ser1.jpg";
 import ser2 from "@/assets/home/ser2.jpg";
@@ -23,6 +15,18 @@ import ser3 from "@/assets/home/ser3.jpg";
 import ser4 from "@/assets/home/ser4.jpg";
 import ser5 from "@/assets/home/ser5.jpg";
 import ser6 from "@/assets/home/ser6.jpg";
+
+import securityIcon from "@/assets/icon/Security First.png";
+import supportIcon from "@/assets/icon/Reliable Support.png";
+import agileIcon from "@/assets/icon/Agile & Transparent.png";
+import automationIcon from "@/assets/icon/Automation Driven.png";
+import microsoftIcon from "@/assets/icon/Microsoft Expertise.png";
+import enterpriseIcon from "@/assets/icon/Enterprise Focused.png";
+
+import buildIcon from "@/assets/icon/Build.png";
+import assessIcon from "@/assets/icon/Assess.png";
+import designIcon from "@/assets/icon/Design.png";
+import optimizeIcon from "@/assets/icon/Optimize.png";
 
 
 export const socialLink = [
@@ -58,66 +62,64 @@ export const socialLink = [
   },
 ];
 
-
-
 export const featureList = [
   {
-    icon: <CloudQueueIcon fontSize="small" />,
+    image: microsoftIcon,
     title: "Microsoft Expertise",
     description: "Deep capabilities across the Microsoft ecosystem.",
   },
   {
-    icon: <ApartmentIcon fontSize="small" />,
+    image: enterpriseIcon,
     title: "Enterprise Focused",
     description: "Proven experience delivering solutions for enterprises.",
   },
   {
-    icon: <ShieldIcon fontSize="small" />,
+    image: securityIcon,
     title: "Security First",
     description: "Built with security, compliance, and governance at the core.",
   },
   {
-    icon: <AutoModeIcon fontSize="small" />,
+    image: automationIcon,
     title: "Automation Driven",
     description: "Optimizing processes through intelligent automation.",
   },
   {
-    icon: <GroupsIcon fontSize="small" />,
+    image: agileIcon,
     title: "Agile & Transparent",
     description: "Collaborative engagement with clear communication.",
   },
   {
-    icon: <SupportAgentIcon fontSize="small" />,
+    image: supportIcon,
     title: "Reliable Support",
     description: "24×7 support and managed services you can trust.",
   },
 ];
 
-export const stepList= [
+export const stepList = [
   {
     step_number: "01",
-    icon: <ManageSearchIcon fontSize="small" />,
+    image: assessIcon,
     title: "Assess",
     description:
       "We understand your business, challenges, and objectives.",
   },
   {
     step_number: "02",
-    icon: <DesignServicesIcon fontSize="small" />,
+    image: designIcon,
     title: "Design",
     description:
       "We architect secure, scalable, and future-ready solutions.",
   },
   {
     step_number: "03",
-    icon: <ConstructionIcon fontSize="small" />,
+    image: buildIcon,
     title: "Build",
     description:
       "We implement with best practices, automation, and quality.",
   },
   {
     step_number: "04",
-    icon: <SpeedIcon fontSize="small" />,
+    image: optimizeIcon,
     title: "Optimize",
     description:
       "We continuously improve and support to maximize value.",

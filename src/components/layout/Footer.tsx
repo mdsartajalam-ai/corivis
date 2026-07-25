@@ -41,7 +41,7 @@ export default function Footer() {
       <div className={styles.footer_container}>
         <div className={styles.footer_brand}>
           <Link 
-            href="/" 
+            href="" 
             className={styles.logo_wrapper}
           >
             <Image
@@ -69,7 +69,7 @@ export default function Footer() {
                 >
                   <Link 
                     href="/services" 
-                    className={styles.footer_link}
+                    className={`${styles.footer_link} ${styles.poit_default}`}
                   >
                     {service_item}
                   </Link>
