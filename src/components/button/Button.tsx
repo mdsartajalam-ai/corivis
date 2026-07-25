@@ -27,7 +27,7 @@ const Button = ({
       type={type}
       onClick={action}
       disabled={disabled}
-      className={`app-button ${className || ""}`}
+      className={`app-button ${className || ""} ${disabled && 'btn-disabled'}`}
     >
       {!isLoading ? (
         <div className="btn-content">

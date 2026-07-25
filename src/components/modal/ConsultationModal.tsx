@@ -1,17 +1,18 @@
 import Button from "../button/Button";
+import { toast } from "react-toastify";
+import { FormType } from "@/types/form";
 import SocialIcon from "../home/SocialIcon";
 import InputField from "../input/InputField";
-import { ContactFormType } from "@/types/form";
-import ChipSelector from "../chip/ChipSelector";
 import styles from "./consultation.module.css";
+import { cleanedData } from "@/utils/cleanData";
+import ChipSelector from "../chip/ChipSelector";
 import CloseIcon from "@mui/icons-material/Close";
 import TextAreaField from "../input/TextAreaField";
-import { contactFormInitialData } from "@/data/form";
+import { consultationFormInitialData } from "@/data/form";
 import { serviceOptions, budgetOptions } from "@/data/home";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useEffect, useState, ChangeEvent, type FormEvent } from "react";
-
-
+import { consultationValidator } from "@/validators/consultationValidator";
 
 type ModalProps = {
   isOpen: boolean;
@@ -22,8 +23,8 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
 
   const [is_submitting, setIsSubmitting] = useState(false);
   const [selected_budget, setSelectedBudget] = useState<string>("$1k - $5k");
-  const [formData, setFormData] = useState<ContactFormType>(
-    contactFormInitialData,
+  const [formData, setFormData] = useState<FormType>(
+    consultationFormInitialData,
   );
 
   const [selected_services, setSelectedServices] = useState<string[]>([
@@ -60,14 +61,41 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
     };
   }, [isOpen]);
 
-  const handle_submit = (event: FormEvent<HTMLFormElement>) => {
+  const handle_submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
 
-    window.setTimeout(() => {
+    try {
+      console.log("hello===",selected_services, selected_budget)
+      const newFormData = {
+        ...formData,
+        budget: selected_budget,
+        services: selected_services
+      }
+      const status = consultationValidator(newFormData);
+      if (!status.isValid) return toast.error(status.message);
+      const cleanedNewData = cleanedData(newFormData);
+      console.log("hello=new===", cleanedNewData)
+
+      setIsSubmitting(true);
+      const response = await fetch("/api/consultation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cleanedNewData),
+      });
+
+      const data = await response.json();
       setIsSubmitting(false);
+
+      if (!response.ok) return toast.error(data.message);
+
       onClose();
-    }, 900);
+      toast.success(data.message);
+      setFormData(consultationFormInitialData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (!isOpen) return null;
@@ -86,7 +114,7 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
           aria-label="Close dialog"
           className={styles.modal_close_btn}
         >
-          <CloseIcon fontSize="small"/>
+          <CloseIcon fontSize="small" />
         </button>
 
         <form onSubmit={handle_submit} className={styles.modal_form}>
@@ -181,7 +209,7 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
             <Button
               text="Submit"
               type="submit"
-              action={() => {}}
+              action={() => { }}
               disabled={is_submitting}
               isLoading={is_submitting}
               endIcon={<ArrowForwardIcon fontSize="small" />}

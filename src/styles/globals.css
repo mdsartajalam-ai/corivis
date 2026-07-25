@@ -71,6 +71,7 @@ html {
   display: flex;
   font-size: 14px;
   cursor: pointer;
+  min-width: 124px;
   font-weight: 600;
   padding: 12px 24px;
   border-radius: 50px;
@@ -116,6 +117,9 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.btn-disabled{
+  background: rgba(0, 0, 0, 0.2) !important;
 }
 .social-row {
   display: flex;
@@ -224,6 +228,15 @@ html {
   animation: btn-shadow-orbit 1.4s linear infinite;
 }
 
+.button-lader{
+  width: 24px;
+  height: 24px;
+}
+
+.button-lader img{
+  width: 100%;
+  height: auto;
+}
 @keyframes btn-shake-bottle {
   0%, 78%, 100% {
     transform: translateX(0) rotate(0deg);

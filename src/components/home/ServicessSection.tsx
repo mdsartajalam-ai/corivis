@@ -99,9 +99,9 @@ export default function ServicessSection() {
       >
         {serviceList.map((item, index) => (
           <ServiceCard
-            item={item}
             index={index}
             key={item.slug}
+            item={item as any}
             total={serviceList.length}
             progress={scrollYProgress}
             range={[index / serviceList.length, 1]}

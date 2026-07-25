@@ -1,17 +1,40 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./project.module.css";
 import { projectList } from "@/data/home";
+import { useState, useEffect } from "react";
 import SubHeading from "../heading/SubHeading";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
 export default function ProjectSection() {
+  const [limit, setLimit] = useState(5);
+  const [services, setServices] = useState([]);
+  const [totalCount, setTotalCount] = useState(-1);
   const [is_loading, setIsLoading] = useState(false);
 
   const handle_load_more = () => {
-    setIsLoading(true);
-    window.setTimeout(() => setIsLoading(false), 900);
+    setLimit(limit + 5);
+    // setIsLoading(true);
+  };
+
+  useEffect(() => {
+    getServices(limit);
+  }, [limit]);
+
+  const getServices = async (dataLimit: number) => {
+    try {
+      const response = await fetch("/api/service" + "?limit=" + dataLimit);
+
+      const res = await response.json();
+
+      if (!response.ok) return toast.error(res.message);
+
+      setServices(res.data);
+      setTotalCount(res.totalCount);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -24,9 +47,8 @@ export default function ProjectSection() {
           <Link
             key={project_item.slug}
             href={`/projects/${project_item.slug}`}
-            className={`${styles.project_card} ${
-              project_item.span_size === "wide" ? styles.project_card_wide : ""
-            }`}
+            className={`${styles.project_card} ${project_item.span_size === "wide" ? styles.project_card_wide : ""
+              }`}
           >
             <div className={styles.project_image_wrapper}>
               <Image
@@ -50,20 +72,21 @@ export default function ProjectSection() {
       </div>
 
       <div className={styles.projects_load_more_row}>
-        <button
-          type="button"
-          disabled={is_loading}
-          onClick={handle_load_more}
-          className={styles.projects_load_more_btn}
-        >
-          <span>{is_loading ? "Loading..." : "Load More"}</span>
-          <RefreshIcon
-            className={`${styles.projects_load_more_icon} ${
-              is_loading ? styles.projects_load_more_icon_spinning : ""
-            }`}
-            fontSize="small"
-          />
-        </button>
+        {totalCount >= limit &&
+          <button
+            type="button"
+            disabled={is_loading}
+            onClick={handle_load_more}
+            className={styles.projects_load_more_btn}
+          >
+            <span>{is_loading ? "Loading..." : "Load More"}</span>
+            <RefreshIcon
+              className={`${styles.projects_load_more_icon} ${is_loading ? styles.projects_load_more_icon_spinning : ""
+                }`}
+              fontSize="small"
+            />
+          </button>
+        }
       </div>
     </div>
   );

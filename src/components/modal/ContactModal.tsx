@@ -1,12 +1,15 @@
 import Button from "../button/Button";
+import { toast } from "react-toastify";
+import { FormType } from "@/types/form";
 import SocialIcon from "../home/SocialIcon";
 import InputField from "../input/InputField";
-import { ContactFormType } from "@/types/form";
 import styles from "./consultation.module.css";
+import { cleanedData } from "@/utils/cleanData";
 import CloseIcon from "@mui/icons-material/Close";
 import TextAreaField from "../input/TextAreaField";
 import { contactFormInitialData } from "@/data/form";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { contactValidator } from "@/validators/contactValidator";
 import { useEffect, useState, ChangeEvent, type FormEvent } from "react";
 
 type ConnectModalProps = {
@@ -16,8 +19,8 @@ type ConnectModalProps = {
 
 export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
   const [is_submitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState<ContactFormType>(
-    contactFormInitialData,
+  const [formData, setFormData] = useState<FormType>(
+    contactFormInitialData
   );
 
   const onInputChange = (
@@ -42,14 +45,34 @@ export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
     };
   }, [isOpen]);
 
-  const handle_submit = (event: FormEvent<HTMLFormElement>) => {
+  const handle_submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
+    try {
 
-    window.setTimeout(() => {
+      const status = contactValidator(formData);
+      if(!status.isValid) return toast.error(status.message);
+      const newFormData = cleanedData(formData);
+
+      setIsSubmitting(true);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newFormData),
+      });
+
+      const data = await response.json();
       setIsSubmitting(false);
+
+      if (!response.ok) return toast.error(data.message);
+
       onClose();
-    }, 900);
+      toast.success(data.message);
+      setFormData(contactFormInitialData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (!isOpen) return null;
@@ -74,8 +97,8 @@ export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
         <form onSubmit={handle_submit} className={styles.modal_form}>
           <div className={styles.modal_header}>
             <div className={styles.modal_header_text}>
-              <h2 
-                id="lets_connect_heading" 
+              <h2
+                id="lets_connect_heading"
                 className={styles.modal_heading}
               >
                 Let&apos;s Connect
@@ -118,7 +141,7 @@ export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
               placeholder="Your company or website?"
             />
             <InputField
-              type="tel"
+              type="number"
               name="contact_no"
               label="Contact No."
               onChange={onInputChange}
@@ -139,7 +162,7 @@ export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
             <Button
               text="Submit"
               type="submit"
-              action={() => {}}
+              action={() => { }}
               disabled={is_submitting}
               isLoading={is_submitting}
               endIcon={<ArrowForwardIcon fontSize="small" />}

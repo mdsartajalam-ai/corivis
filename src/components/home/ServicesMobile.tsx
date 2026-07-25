@@ -16,9 +16,9 @@ export default function ServicessMobile() {
       <div className={styles.list}>
         {serviceList.map((item, index) => (
           <ServiceCardMobile
-            item={item}
             index={index}
             key={item.slug}
+            item={item as any}
             isActive={active === index}
             onToggle={() => setActive(active === index ? -1 : index)}
           />

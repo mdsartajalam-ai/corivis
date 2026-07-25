@@ -1,8 +1,9 @@
-export interface ContactFormType {
-  name: string;
-  email: string;
-  message: string;
-  contact_no: string;
-  company_name: string;
-
+export interface FormType {
+  name?: string;
+  email?: string;
+  budget?: string;
+  message?: string;
+  services?: string[];
+  contact_no?: string;
+  company_name?: string;
 }
