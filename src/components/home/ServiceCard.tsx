@@ -1,10 +1,9 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import styles from "./servicess.module.css";
+import BrochureModal from "../modal/BrochureModal";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import BrochureModal from "../modal/BrochureModal";
 
 type Item = {
   slug: string;
@@ -108,10 +107,11 @@ export default function ServiceCard({
           </div>
         </div>
       </motion.div>
-      <BrochureModal 
-        isOpen={open} 
+      <BrochureModal
+        isOpen={open}
         title={item.title}
-        onClose={() => setOpen(false)} 
+        brochure={item.brochure_href}
+        onClose={() => setOpen(false)}
       />
     </div>
   );

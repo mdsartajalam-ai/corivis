@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { toast } from "react-toastify";
 import styles from "./partner.module.css";
+import { useEffect, useState } from "react";
 import SubHeading from "../heading/SubHeading";
+import { TestimonialType } from "@/types/testimonial";
 import { clientLogos, testimonialList } from "@/data/home";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
@@ -12,6 +15,24 @@ const marqueeLestimonials = [
 ];
 
 export default function PartnerSection() {
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => { getTestimonials() }, []);
+
+  const getTestimonials = async () => {
+    try {
+      const response = await fetch("/api/testimonial");
+
+      const res = await response.json();
+
+      if (!response.ok) return toast.error(res.message);
+
+      setTestimonials(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={styles.partners_root}>
       <div className={styles.partners_container}>
@@ -58,48 +79,50 @@ export default function PartnerSection() {
       <div className={styles.testimonial_marquee_section}>
         <div className={styles.testimonial_marquee}>
           <div className={styles.testimonial_marquee_track}>
-            {marqueeLestimonials.map((item, index) => (
-              <div
-                key={`${item.name}-${index}`}
-                className={styles.testimonial_card}
-              >
-                <FormatQuoteIcon className={styles.testimonial_quote_icon} />
+            {(testimonials && testimonials?.length > 0) &&
+              testimonials.map((item: TestimonialType, index) => (
+                <div
+                  key={`${item.name}-${index}`}
+                  className={styles.testimonial_card}
+                >
+                  <FormatQuoteIcon className={styles.testimonial_quote_icon} />
 
-                <p className={styles.testimonial_quote}>{item.quote}</p>
+                  <p className={styles.testimonial_quote}>{item?.quote}</p>
 
-                <div className={styles.testimonial_footer}>
-                  <div className={styles.testimonial_person}>
-                    <div
-                      className={`${styles.testimonial_avatar} ${
-                        styles[
+                  <div className={styles.testimonial_footer}>
+                    <div className={styles.testimonial_person}>
+                      <div
+                        className={`${styles.testimonial_avatar} ${styles[
                           `test_avatar${(index % testimonialList.length) + 1}`
                         ]
-                      }`}
-                    >
-                      <Image
-                        fill
-                        sizes="100px"
-                        src={item.avatar}
-                        alt={item.name}
-                        className={styles.avatar_image}
-                      />
+                          }`}
+                      >
+                        {item?.image &&
+                          <Image
+                            fill
+                            sizes="100px"
+                            src={item?.image}
+                            alt={item.name || "Image"}
+                            className={styles.avatar_image}
+                          />
+                        }
+                      </div>
+                      <div className={styles.testimonial_person_text}>
+                        <span className={styles.testimonial_name}>
+                          {item?.name}
+                        </span>
+                        <span className={styles.testimonial_role}>
+                          {item?.role}
+                        </span>
+                      </div>
                     </div>
-                    <div className={styles.testimonial_person_text}>
-                      <span className={styles.testimonial_name}>
-                        {item.name}
-                      </span>
-                      <span className={styles.testimonial_role}>
-                        {item.role}
-                      </span>
-                    </div>
-                  </div>
 
-                  <span className={styles.testimonial_company_logo}>
-                    {item.company}
-                  </span>
+                    <span className={styles.testimonial_company_logo}>
+                      {item?.company}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <div className={styles.testimonial_fade_left} />
           <div className={styles.testimonial_fade_right} />

@@ -6,4 +6,5 @@ export interface FormType {
   services?: string[];
   contact_no?: string;
   company_name?: string;
+  brochure_name?: string;
 }

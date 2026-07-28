@@ -32,12 +32,12 @@ import optimizeIcon from "@/assets/icon/Optimize.png";
 export const socialLink = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/corivis/",
     icon: <LinkedInIcon/>,
   },
   {
     label: "Dribbble",
-    href: "https://dribbble.com",
+    href: "https://dribbble.com/dodo369",
     icon: "dribbble",
   },
   {
@@ -52,12 +52,12 @@ export const socialLink = [
   },
   {
     label: "X",
-    href: "https://x.com",
+    href: "https://x.com/CorivisLLP",
     icon: <XIcon/>,
   },
   {
     label: "Reddit",
-    href: "https://reddit.com",
+    href: "https://www.reddit.com/user/Corivis-Engineering/",
     icon: <RedditIcon/>,
   },
 ];

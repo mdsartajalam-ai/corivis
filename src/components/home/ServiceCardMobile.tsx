@@ -1,11 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "./servicemobile.module.css";
+import BrochureModal from "../modal/BrochureModal";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DescriptionIcon from "@mui/icons-material/Description";
-import BrochureModal from "../modal/BrochureModal";
-import { useState } from "react";
 
 type Item = {
   slug: string;
@@ -100,6 +99,7 @@ export default function ServiceCardMobile({
       <BrochureModal
         isOpen={open}
         title={item.title}
+        brochure={item.brochure_href}
         onClose={() => setOpen(false)}
       />
     </div>

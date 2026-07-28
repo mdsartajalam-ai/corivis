@@ -4,33 +4,31 @@ import { toast } from "react-toastify";
 import styles from "./project.module.css";
 import { projectList } from "@/data/home";
 import { useState, useEffect } from "react";
+import { ProjectType } from "@/types/project";
 import SubHeading from "../heading/SubHeading";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
 export default function ProjectSection() {
   const [limit, setLimit] = useState(5);
-  const [services, setServices] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [totalCount, setTotalCount] = useState(-1);
   const [is_loading, setIsLoading] = useState(false);
 
-  const handle_load_more = () => {
-    setLimit(limit + 5);
-    // setIsLoading(true);
-  };
+  const handle_load_more = () => setLimit(limit + 5);
 
-  useEffect(() => {
-    getServices(limit);
-  }, [limit]);
+  useEffect(() => { getProjects(limit) }, [limit]);
 
-  const getServices = async (dataLimit: number) => {
+  const getProjects = async (dataLimit: number) => {
     try {
-      const response = await fetch("/api/service" + "?limit=" + dataLimit);
+      setIsLoading(true);
+      const response = await fetch("/api/project" + "?limit=" + dataLimit);
 
       const res = await response.json();
-
+      
+      setIsLoading(false);
       if (!response.ok) return toast.error(res.message);
 
-      setServices(res.data);
+      setProjects(res.data);
       setTotalCount(res.totalCount);
     } catch (error) {
       console.error(error);
@@ -43,32 +41,36 @@ export default function ProjectSection() {
         <SubHeading text="Our Works &amp; Projects" />
       </div>
       <div className={styles.projects_grid}>
-        {projectList.map((project_item) => (
-          <Link
-            key={project_item.slug}
-            href={`/projects/${project_item.slug}`}
-            className={`${styles.project_card} ${project_item.span_size === "wide" ? styles.project_card_wide : ""
-              }`}
-          >
-            <div className={styles.project_image_wrapper}>
-              <Image
-                fill
-                alt={project_item.title}
-                src={project_item.image_src}
-                className={styles.project_image}
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority={project_item.slug === projectList[0].slug}
-              />
+        {(projects && projects?.length > 0) &&
+          projects.map((project_item: ProjectType, index) => (
+            <Link
+              href="#"
+              key={index}
+              // href={`/projects/${project_item.slug}`}
+              onClick={(e) => e.preventDefault()}
+              className={`${styles.project_card} ${project_item.spanSize === "wide" ? styles.project_card_wide : ""
+                }`}
+            >
+              <div className={styles.project_image_wrapper}>
+                {project_item?.image &&
+                  <Image
+                    fill
+                    src={project_item?.image}
+                    className={styles.project_image}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    alt={project_item?.title || "Project Image"}
+                  // priority={project_item.slug === projectList[0].slug}
+                  />
+                }
+                <div className={styles.project_image_overlay} />
+              </div>
 
-              <div className={styles.project_image_overlay} />
-            </div>
-
-            <div className={styles.project_info}>
-              <h3 className={styles.project_title}>{project_item.title}</h3>
-              <p className={styles.project_subtitle}>{project_item.subtitle}</p>
-            </div>
-          </Link>
-        ))}
+              <div className={styles.project_info}>
+                <h3 className={styles.project_title}>{project_item?.title}</h3>
+                <p className={styles.project_subtitle}>{project_item?.subTitle}</p>
+              </div>
+            </Link>
+          ))}
       </div>
 
       <div className={styles.projects_load_more_row}>

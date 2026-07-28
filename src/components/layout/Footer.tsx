@@ -67,8 +67,9 @@ export default function Footer() {
                   key={service_item} 
                   className={styles.footer_list_item}
                 >
-                  <Link 
-                    href="/services" 
+                  <Link
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
                     className={`${styles.footer_link} ${styles.poit_default}`}
                   >
                     {service_item}

@@ -8,19 +8,21 @@ import { cleanedData } from "@/utils/cleanData";
 import CloseIcon from "@mui/icons-material/Close";
 import { brochureFormInitialData } from "@/data/form";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { contactValidator } from "@/validators/contactValidator";
+import { downloadValidator } from "@/validators/downloadValidator";
 import { useEffect, useState, ChangeEvent, type FormEvent } from "react";
 
 type ConnectModalProps = {
-  isOpen: boolean;
   title: string;
+  isOpen: boolean;
+  brochure: string;
   onClose: () => void;
 };
 
 export default function BrochureModal({
   isOpen,
-  onClose,
   title,
+  onClose,
+  brochure
 }: ConnectModalProps) {
   const [is_submitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormType>(brochureFormInitialData);
@@ -50,12 +52,12 @@ export default function BrochureModal({
   const handle_submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const status = contactValidator(formData);
+      formData.brochure_name = title;
+      const status = downloadValidator(formData);
       if (!status.isValid) return toast.error(status.message);
       const newFormData = cleanedData(formData);
-
       setIsSubmitting(true);
-      const response = await fetch("/api/brochure", {
+      const response = await fetch("/api/download", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,6 +71,8 @@ export default function BrochureModal({
       if (!response.ok) return toast.error(data.message);
 
       onClose();
+
+      window.open(brochure, "_blank");
       toast.success(data.message);
       setFormData(brochureFormInitialData);
     } catch (error) {
@@ -78,7 +82,7 @@ export default function BrochureModal({
 
   if (!isOpen) return null;
 
-  return createPortal (
+  return createPortal(
     <div className={styles.modal_backdrop} role="presentation">
       <div
         role="dialog"
@@ -106,8 +110,8 @@ export default function BrochureModal({
               type="text"
               name="name"
               label="Name"
-              placeholder="Enter Name"
               value={formData.name}
+              placeholder="Enter Name"
               onChange={onInputChange}
             />
             <InputField
@@ -123,9 +127,9 @@ export default function BrochureModal({
 
           <div className={styles.modal_footer}>
             <Button
-              text="Submit"
               type="submit"
-              action={() => {}}
+              text="Download"
+              action={() => { }}
               disabled={is_submitting}
               isLoading={is_submitting}
               endIcon={<ArrowForwardIcon fontSize="small" />}

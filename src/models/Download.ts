@@ -1,16 +1,18 @@
 import mongoose, { Schema, models } from "mongoose";
 
-const ServiceSchema = new Schema(
+const DownloadSchema = new Schema(
     {
+        brochure_name: {
+            type: String,
+            required: true,
+        },
+
         name: {
             type: String,
             required: true,
         },
-        description: {
-            type: String,
-            required: true,
-        },
-        image: {
+
+        email: {
             type: String,
             required: true,
         },
@@ -20,6 +22,6 @@ const ServiceSchema = new Schema(
     }
 );
 
-const Service = models.Service || mongoose.model("Service", ServiceSchema);
+const Download = models.Download || mongoose.model("Download", DownloadSchema);
 
-export default Service;
+export default Download;

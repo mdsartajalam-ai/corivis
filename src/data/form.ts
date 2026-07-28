@@ -10,6 +10,7 @@ export const contactFormInitialData: FormType = {
 export const brochureFormInitialData: FormType = {
   name: "",
   email: "",
+  brochure_name: ""
 };
 
 export const consultationFormInitialData: FormType = {

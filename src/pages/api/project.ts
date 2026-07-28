@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import Project from "@/models/Project";
 import { connectDB } from "@/lib/mongodb";
-import Service from "@/models/Service";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
     req: NextApiRequest,
@@ -18,16 +18,16 @@ export default async function handler(
 
         const limit = req.query.limit ? Number(req.query.limit) : 10;
 
-        const services = await Service.find({
+        const project = await Project.find({
             isActive: true,
         }).sort({ createdAt: -1 }).limit(limit).lean();
 
-        const totalCount = await Service.countDocuments({ isActive: true });
+        const totalCount = await Project.countDocuments({ isActive: true });
 
         return res.status(200).json({
             success: true,
-            message: "Services fetched successfully",
-            data: services,
+            message: "Project fetched successfully",
+            data: project,
             limit,
             totalCount
         });
@@ -40,3 +40,5 @@ export default async function handler(
         });
     }
 }
+
+// wW40oEImyVpYeTzR
