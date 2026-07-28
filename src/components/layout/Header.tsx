@@ -16,7 +16,10 @@ import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openContact, setOpenContact] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -25,8 +28,17 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  const [open, setOpen] = useState(false);
-  const [openContact, setOpenContact] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -71,7 +83,7 @@ export default function Header() {
         />
       </div>
 
-      <div className={styles.mobile_bar}>
+      <div className={`${styles.mobile_bar} ${scrolled ? styles.scrolled : ""}`}>
         <Link href="/" className={styles.logo_wrapper}>
           <Image
             fill
@@ -150,10 +162,7 @@ export default function Header() {
         isOpen={openContact}
         onClose={() => setOpenContact(false)}
       />
-      <ConsultationModal 
-        isOpen={open} 
-        onClose={() => setOpen(false)} 
-      />
+      <ConsultationModal isOpen={open} onClose={() => setOpen(false)} />
     </header>
   );
 }

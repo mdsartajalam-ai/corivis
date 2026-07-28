@@ -5,7 +5,15 @@ import styles from "./servicemobile.module.css";
 import ServiceCardMobile from "./ServiceCardMobile";
 
 export default function ServicessMobile() {
-  const [active, setActive] = useState(0);
+  const [openCards, setOpenCards] = useState<boolean[]>(
+    serviceList.map((_, index) => index === 0)
+  );
+
+  const handleToggle = (index: number) => {
+    setOpenCards((prev) =>
+      prev.map((isOpen, i) => (i === index ? !isOpen : isOpen))
+    );
+  };
 
   return (
     <section className={styles.container}>
@@ -16,11 +24,11 @@ export default function ServicessMobile() {
       <div className={styles.list}>
         {serviceList.map((item, index) => (
           <ServiceCardMobile
-            index={index}
             key={item.slug}
-            item={item as any}
-            isActive={active === index}
-            onToggle={() => setActive(active === index ? -1 : index)}
+            item={item}
+            index={index}
+            isActive={openCards[index]}
+            onToggle={() => handleToggle(index)}
           />
         ))}
       </div>

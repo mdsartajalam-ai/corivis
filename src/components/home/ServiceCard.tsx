@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import styles from "./servicess.module.css";
 import BrochureModal from "../modal/BrochureModal";
+import { useMotionValueEvent } from "framer-motion";
 import DescriptionIcon from "@mui/icons-material/Description";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
@@ -21,6 +22,7 @@ type Props = {
   total: number;
   range: [number, number];
   progress: MotionValue<number>;
+  onActive: (index: number) => void;
   panelRef: (el: HTMLDivElement | null) => void;
 };
 
@@ -29,6 +31,7 @@ export default function ServiceCard({
   index,
   total,
   range,
+  onActive,
   progress,
   panelRef,
 }: Props) {
@@ -45,6 +48,12 @@ export default function ServiceCard({
   const scale = useTransform(progress, range, [1, targetScale]);
 
   const theme = (index % 6) + 1;
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > 0.55) {
+      onActive(index);
+    }
+  });
 
   return (
     <div
@@ -103,7 +112,7 @@ export default function ServiceCard({
                 />
               </motion.div>
             </div>
-            <p className={styles.caption}>{item.image_caption}</p>
+            {/* <p className={styles.caption}>{item.image_caption}</p> */}
           </div>
         </div>
       </motion.div>

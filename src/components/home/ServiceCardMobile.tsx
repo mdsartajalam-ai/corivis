@@ -83,7 +83,7 @@ export default function ServiceCardMobile({
                 className={styles.img}
               />
             </div>
-            <p className={styles.caption}>{item.image_caption}</p>
+            {/* <p className={styles.caption}>{item.image_caption}</p> */}
 
             <button
               type="button"
