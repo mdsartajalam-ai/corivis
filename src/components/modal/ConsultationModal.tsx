@@ -45,7 +45,7 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
     setSelectedServices((current_list) =>
       current_list.includes(service_label)
         ? current_list.filter((item_label) => item_label !== service_label)
-        : [...current_list, service_label],
+        : [...current_list, service_label]
     );
   };
 
