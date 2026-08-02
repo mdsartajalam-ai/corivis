@@ -47,8 +47,8 @@ export default function ServiceCard({
   });
   const imgScale = useTransform(scrollYProgress, [0, 1], [1.3, 1]);
 
-  const targetScale = 1 - (total - index) * 0.05;
-  const scale = useTransform(progress, range, [1, targetScale]);
+  // const targetScale = 1 - (total - index) * 0.05;
+  // const scale = useTransform(progress, range, [1, targetScale]);
 
   const theme = (index % 6) + 1;
 
@@ -68,7 +68,7 @@ export default function ServiceCard({
       className={styles.panel}
       style={{ zIndex: index + 1 }}
     >
-      <motion.div className={styles.shell} style={{ scale, y: index * 16 }}>
+      <motion.div className={styles.shell}>
         <div 
           // className={`${styles.card} ${styles[`card_${theme}`]}`}
           className={`${styles.card}`}

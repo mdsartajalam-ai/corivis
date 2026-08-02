@@ -103,10 +103,10 @@
   transform-origin: top center;
   will-change: transform;
   border-radius: 26px;
-  box-shadow:
+  /* box-shadow:
     0 4px 12px rgba(15, 23, 42, 0.05),
     0 12px 30px rgba(15, 23, 42, 0.08),
-    0 24px 50px rgba(15, 23, 42, 0.08);
+    0 24px 50px rgba(15, 23, 42, 0.08); */
 }
 
 .card {
@@ -360,7 +360,7 @@
   .tabs_sticky { padding: 20px 0 0; }
   .tab { padding: 11px 20px; font-size: 13.5px; }
   .shell { border-radius: 30px; }
-  .panel { min-height: 45vh; }
+  .panel { min-height: 36vh; }
   .card {
     border-radius: 24px;
     padding: 40px;
@@ -376,7 +376,7 @@
   .caption { font-size: 22px; }
 }
 @media screen and (min-width: 820px) {
-  .panel { min-height: 39vh; }
+  .panel { min-height: 30vh; }
 }
 
 @media screen and (min-width: 1024px) {
@@ -390,15 +390,15 @@
   .img_wrap { width: 280px; height: 240px; border-radius: 28px; }
   .ring { border-radius: 32px; }
   .caption { font-size: 26px; }
-  .panel { min-height: 34vh; }
+  .panel { min-height: 26vh; }
 }
 
 @media screen and (min-width: 1280px) {
-  .panel { min-height: 58vh; }
+  .panel { min-height: 46vh; }
 }
 @media screen and (min-width: 1420px) {
   .container { padding: 50px 0; }
-  .panel { min-height: 70vh; }
+  .panel { min-height: 62vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {

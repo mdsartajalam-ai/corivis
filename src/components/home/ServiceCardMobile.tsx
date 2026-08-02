@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "./servicemobile.module.css";
 import BrochureModal from "../modal/BrochureModal";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { useEffect, useRef, useState } from "react";
 import DescriptionIcon from "@mui/icons-material/Description";
+
 
 type Item = {
   slug: string;
@@ -32,17 +33,37 @@ export default function ServiceCardMobile({
   onToggle,
 }: Props) {
   const theme = (index % 6) + 1;
+  const firstRender = useRef(true);
   const [open, setOpen] = useState(false);
+  const itemRef = useRef<HTMLDivElement>(null);
   const [downloadUrl, setDownloadUrl] = useState("");
 
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+
+    if (!isActive || !itemRef.current) return;
+
+    const timer = setTimeout(() => {
+      itemRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, [isActive]);
+
   return (
-    <div className={styles.item}>
+    <div ref={itemRef} className={styles.item}>
       <button
         type="button"
         onClick={onToggle}
         className={`${styles.item_head} `}
         style={{
-          borderColor: isActive ? 'rgb(255, 255, 255)' : `auto`,
+          borderColor: isActive ? 'rgb(255, 255, 255)' :  `#e2e6ec`,
           color: isActive ? 'rgb(255, 255, 255)' : `#3d4552`,
           background: (item?.btn_color && isActive) ?
             item?.btn_color : 'rgb(255, 255, 255)',

@@ -9,17 +9,23 @@ import ServiceCardMobile from "./ServiceCardMobile";
 export default function ServicessMobile() {
   const [services, setServices] = useState([]);
   const [totalCount, setTotalCount] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  useEffect(() => { getServices() }, []);
+  useEffect(() => {
+    getServices();
+  }, []);
 
-  const [openCards, setOpenCards] = useState<boolean[]>(
-    serviceList.map((_, index) => index === 0)
-  );
+  // const [openCards, setOpenCards] = useState<boolean[]>(
+  //   serviceList.map((_, index) => index === 0)
+  // );
 
+  // const handleToggle = (index: number) => {
+  //   setOpenCards((prev) =>
+  //     prev.map((isOpen, i) => (i === index ? !isOpen : isOpen))
+  //   );
+  // };
   const handleToggle = (index: number) => {
-    setOpenCards((prev) =>
-      prev.map((isOpen, i) => (i === index ? !isOpen : isOpen))
-    );
+    setActiveIndex((prev) => (prev === index ? null : index));
   };
 
   const getServices = async () => {
@@ -45,13 +51,16 @@ export default function ServicessMobile() {
       </div>
 
       <div className={styles.list}>
-        {(services && services?.length > 0) &&
+        {services &&
+          services?.length > 0 &&
           services.map((item: ServiceType, index) => (
             <ServiceCardMobile
               index={index}
               key={item.slug}
               item={item as any}
-              isActive={openCards[index]}
+              // isActive={openCards[index]}
+              // onToggle={() => handleToggle(index)}
+              isActive={activeIndex === index}
               onToggle={() => handleToggle(index)}
             />
           ))}
