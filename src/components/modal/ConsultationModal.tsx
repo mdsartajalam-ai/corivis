@@ -1,6 +1,7 @@
 import Button from "../button/Button";
 import { toast } from "react-toastify";
 import { FormType } from "@/types/form";
+import { budgetOptions } from "@/data/home";
 import SocialIcon from "../home/SocialIcon";
 import InputField from "../input/InputField";
 import styles from "./consultation.module.css";
@@ -9,7 +10,6 @@ import ChipSelector from "../chip/ChipSelector";
 import CloseIcon from "@mui/icons-material/Close";
 import TextAreaField from "../input/TextAreaField";
 import { consultationFormInitialData } from "@/data/form";
-import { serviceOptions, budgetOptions } from "@/data/home";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useEffect, useState, ChangeEvent, type FormEvent } from "react";
 import { consultationValidator } from "@/validators/consultationValidator";
@@ -21,15 +21,14 @@ type ModalProps = {
 
 export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
 
+  const [services, setServices] = useState([]);
   const [is_submitting, setIsSubmitting] = useState(false);
   const [selected_budget, setSelectedBudget] = useState<string>("$1k - $5k");
   const [formData, setFormData] = useState<FormType>(
     consultationFormInitialData,
   );
 
-  const [selected_services, setSelectedServices] = useState<string[]>([
-    "Apple Device Management",
-  ]);
+  const [selected_services, setSelectedServices] = useState<string[]>([]);
 
   const onInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -61,11 +60,12 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
     };
   }, [isOpen]);
 
+  useEffect(() => { getServices() }, []);
+
   const handle_submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      console.log("hello===",selected_services, selected_budget)
       const newFormData = {
         ...formData,
         budget: selected_budget,
@@ -74,7 +74,6 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
       const status = consultationValidator(newFormData);
       if (!status.isValid) return toast.error(status.message);
       const cleanedNewData = cleanedData(newFormData);
-      console.log("hello=new===", cleanedNewData)
 
       setIsSubmitting(true);
       const response = await fetch("/api/consultation", {
@@ -93,6 +92,23 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
       onClose();
       toast.success(data.message);
       setFormData(consultationFormInitialData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getServices = async () => {
+    try {
+      // setIsLoading(true);
+      const response = await fetch("/api/service");
+
+      const res = await response.json();
+      // setIsLoading(false);
+      if (!response.ok) return toast.error(res.message);
+      const serviceNames = res.data.map((service: any) => service.tab_label);
+      console.log("hello======",serviceNames[0])
+      setServices(serviceNames);
+      setSelectedServices([serviceNames[0]])
     } catch (error) {
       console.error(error);
     }
@@ -164,7 +180,7 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
               placeholder="Your company or website?"
             />
             <InputField
-              type="tel"
+              type="number"
               name="contact_no"
               label="Contact No."
               onChange={onInputChange}
@@ -179,7 +195,7 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
             </p>
             <ChipSelector
               multiple
-              options={serviceOptions}
+              options={services}
               onSelect={toggle_service}
               selected={selected_services}
             />

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import styles from "./project.module.css";
-import { projectList } from "@/data/home";
 import { useState, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import SubHeading from "../heading/SubHeading";
@@ -10,9 +9,9 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 
 export default function ProjectSection() {
   const [limit, setLimit] = useState(5);
-  const [projects, setProjects] = useState([]);
   const [totalCount, setTotalCount] = useState(-1);
   const [is_loading, setIsLoading] = useState(false);
+  const [projects, setProjects] = useState([] as any);
 
   const handle_load_more = () => setLimit(limit + 5);
 
@@ -42,7 +41,7 @@ export default function ProjectSection() {
       </div>
       <div className={styles.projects_grid}>
         {(projects && projects?.length > 0) &&
-          projects.map((project_item: ProjectType, index) => (
+          projects.map((project_item: ProjectType, index: number) => (
             <Link
               href="#"
               key={index}
@@ -59,7 +58,7 @@ export default function ProjectSection() {
                     className={styles.project_image}
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     alt={project_item?.title || "Project Image"}
-                  // priority={project_item.slug === projectList[0].slug}
+                    priority={project_item.slug === projects[0].slug}
                   />
                 }
                 <div className={styles.project_image_overlay} />

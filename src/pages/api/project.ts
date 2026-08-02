@@ -40,5 +40,3 @@ export default async function handler(
         });
     }
 }
-
-// wW40oEImyVpYeTzR

@@ -125,7 +125,7 @@
   margin-top: 20px;
 }
 .btn:hover {
-  background: var(--accent);
+  background: var(--btn-color);
   color: #fff;
 }
 

@@ -77,8 +77,8 @@ export default function Hero() {
               </span>
             ))}
           </div>
-          <div className={styles.hero_marquee_fade_left} />
-          <div className={styles.hero_marquee_fade_right} />
+          {/* <div className={styles.hero_marquee_fade_left} />
+          <div className={styles.hero_marquee_fade_right} /> */}
         </div>
       </div>
       <ConsultationModal isOpen={open} onClose={() => setOpen(false)} />

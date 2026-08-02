@@ -11,9 +11,11 @@ type Item = {
   title: string;
   badges: string[];
   image_src: string;
+  btn_color?: string;
   description: string;
   image_caption: string;
   brochure_href: string;
+  card_bg_color?: string;
 };
 
 type Props = {
@@ -37,6 +39,7 @@ export default function ServiceCard({
 }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState("");
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -66,7 +69,13 @@ export default function ServiceCard({
       style={{ zIndex: index + 1 }}
     >
       <motion.div className={styles.shell} style={{ scale, y: index * 16 }}>
-        <div className={`${styles.card} ${styles[`card_${theme}`]}`}>
+        <div 
+          // className={`${styles.card} ${styles[`card_${theme}`]}`}
+          className={`${styles.card}`}
+          style={{
+            background: item?.card_bg_color ? item?.card_bg_color : 'rgb(0, 0, 0)'
+          }}
+        >
           <span className={`${styles.glow} ${styles[`glow_${theme}`]}`} />
 
           <div className={styles.text}>
@@ -89,8 +98,14 @@ export default function ServiceCard({
 
             <button
               type="button"
-              onClick={() => setOpen(true)}
-              className={`${styles.btn} ${styles[`btn_${theme}`]}`}
+              onClick={() => {
+                setOpen(true)
+                setDownloadUrl(item.brochure_href)
+              }}
+              className={`${styles.btn}`}
+              style={{
+                "--btn-color": item.btn_color || "#1976d2",
+              } as React.CSSProperties}
             >
               <span>Download Brochure</span>
               <DescriptionIcon fontSize="small" />
@@ -99,17 +114,24 @@ export default function ServiceCard({
 
           <div className={styles.img_col}>
             <div
-              className={`${styles.img_wrap} ${styles[`img_wrap_${theme}`]}`}
+              className={`${styles.img_wrap}`}
+              style={{
+                boxShadow:
+                item.btn_color ?
+                `0 20px 44px -12px ${item.btn_color}66` : 'none'
+              }}
             >
-              <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} />
+              {/* <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} /> */}
               <motion.div className={styles.scaler} style={{ scale: imgScale }}>
-                <Image
-                  fill
-                  src={item.image_src}
-                  className={styles.img}
-                  alt={item.image_caption}
-                  sizes="(min-width: 1024px) 260px, 200px"
-                />
+                {item.image_src &&
+                  <Image
+                    fill
+                    alt={"card_image"}
+                    src={item.image_src}
+                    className={styles.img}
+                    sizes="(min-width: 1024px) 260px, 200px"
+                  />
+                }
               </motion.div>
             </div>
             {/* <p className={styles.caption}>{item.image_caption}</p> */}
@@ -119,7 +141,7 @@ export default function ServiceCard({
       <BrochureModal
         isOpen={open}
         title={item.title}
-        brochure={item.brochure_href}
+        brochure={downloadUrl}
         onClose={() => setOpen(false)}
       />
     </div>

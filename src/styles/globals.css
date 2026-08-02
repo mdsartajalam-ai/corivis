@@ -237,6 +237,13 @@ html {
   width: 100%;
   height: auto;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @keyframes btn-shake-bottle {
   0%, 78%, 100% {
     transform: translateX(0) rotate(0deg);

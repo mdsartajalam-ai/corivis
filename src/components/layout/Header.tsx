@@ -55,16 +55,7 @@ export default function Header() {
 
         <nav className={styles.desktop_nav} aria-label="Primary">
           {navLink.map((link) =>
-            link.href === "#contact" ? (
-              <button
-                key={link.href}
-                type="button"
-                className={`${styles.nav_link} ${styles.nav_link_button}`}
-                onClick={() => setOpenContact(true)}
-              >
-                {link.label}
-              </button>
-            ) : (
+            (
               <Link
                 key={link.href}
                 href={link.href}
@@ -72,7 +63,25 @@ export default function Header() {
               >
                 {link.label}
               </Link>
-            ),
+            )
+            // link.href === "#contact" ? (
+            //   <button
+            //     key={link.href}
+            //     type="button"
+            //     className={`${styles.nav_link} ${styles.nav_link_button}`}
+            //     onClick={() => setOpenContact(true)}
+            //   >
+            //     {link.label}
+            //   </button>
+            // ) : (
+            //   <Link
+            //     key={link.href}
+            //     href={link.href}
+            //     className={styles.nav_link}
+            //   >
+            //     {link.label}
+            //   </Link>
+            // ),
           )}
         </nav>
 

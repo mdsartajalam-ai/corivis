@@ -1,18 +1,13 @@
 import Image from "next/image";
 import { toast } from "react-toastify";
 import styles from "./partner.module.css";
+import { clientLogos } from "@/data/home";
 import { useEffect, useState } from "react";
 import SubHeading from "../heading/SubHeading";
 import { TestimonialType } from "@/types/testimonial";
-import { clientLogos, testimonialList } from "@/data/home";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
-const marqueeLestimonials = [
-  ...testimonialList,
-  ...testimonialList,
-  ...testimonialList,
-];
 
 export default function PartnerSection() {
   const [testimonials, setTestimonials] = useState([]);
@@ -93,7 +88,7 @@ export default function PartnerSection() {
                     <div className={styles.testimonial_person}>
                       <div
                         className={`${styles.testimonial_avatar} ${styles[
-                          `test_avatar${(index % testimonialList.length) + 1}`
+                          `test_avatar${(index % testimonials.length) + 1}`
                         ]
                           }`}
                       >

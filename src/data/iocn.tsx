@@ -41,16 +41,6 @@ export const socialLink = [
     icon: "dribbble",
   },
   {
-    label: "Behance",
-    href: "https://behance.net",
-    icon: "behance",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com",
-    icon: <GitHubIcon/>,
-  },
-  {
     label: "X",
     href: "https://x.com/CorivisLLP",
     icon: <XIcon/>,
@@ -60,6 +50,11 @@ export const socialLink = [
     href: "https://www.reddit.com/user/Corivis-Engineering/",
     icon: <RedditIcon/>,
   },
+  {
+    label: "Medium",
+    href: "https://medium.com/@corivis",
+    icon: "medium",
+  }
 ];
 
 export const featureList = [
