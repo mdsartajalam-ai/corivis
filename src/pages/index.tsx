@@ -10,22 +10,11 @@ import ProjectSection from "@/components/home/ProjectSection";
 import ServicesMobile from "@/components/home/ServicesMobile";
 import ServicesSection from "@/components/home/ServicessSection";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export default function Home() {
   useEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
-
     window.scrollTo(0, 0);
   }, []);
 
@@ -38,12 +27,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.home_page}>
+        {/* Top section of the page */}
         <section id="home" className={styles.hero_section}>
           <HeroSection />
         </section>
+        {/* About corivis section */}
         <section id="about" className={styles.about_section}>
           <AboutSection />
         </section>
+        {/* Service Sections */}
         <section id="services" className={styles.services_section}>
           <div className={styles.desktop}>
             <ServicesSection />
@@ -52,15 +44,19 @@ export default function Home() {
             <ServicesMobile />
           </div>
         </section>
+        {/* Project section of page */}
         <section id="projects" className={styles.project_section}>
           <ProjectSection />
         </section>
+        {/* Delivery Approch Section */}
         <section className={styles.process_section}>
           <ProcessSection />
         </section>
+        {/* Partnership section and testimonial or review section */}
         <section className={styles.partner_section}>
           <PartnerSection />
         </section>
+        {/* Build something amazing section */}
         <section className={styles.cta_section}>
           <CtaSection />
         </section>

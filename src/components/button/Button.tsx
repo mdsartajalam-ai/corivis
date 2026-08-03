@@ -36,7 +36,7 @@ const Button = ({
           {endIcon}
         </div>
       ) : (
-        <ButtonLoader/>
+        <ButtonLoader />
       )}
     </button>
   );

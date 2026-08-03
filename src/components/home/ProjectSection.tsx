@@ -23,7 +23,7 @@ export default function ProjectSection() {
       const response = await fetch("/api/project" + "?limit=" + dataLimit);
 
       const res = await response.json();
-      
+
       setIsLoading(false);
       if (!response.ok) return toast.error(res.message);
 

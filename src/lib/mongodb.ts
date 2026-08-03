@@ -1,16 +1,15 @@
 import mongoose from "mongoose";
 
 interface MongooseCache {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
 }
 
 declare global {
-  var mongoose: MongooseCache | undefined;
+    var mongoose: MongooseCache | undefined;
 }
 
 const MONGODB_URI = process.env.MONGO_URL;
-console.log("===>>>",MONGODB_URI)
 if (!MONGODB_URI) {
     throw new Error("Please define MONGODB_URI in .env.local");
 }

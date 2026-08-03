@@ -106,7 +106,6 @@ export default function ConsultationModal({ isOpen, onClose }: ModalProps) {
       // setIsLoading(false);
       if (!response.ok) return toast.error(res.message);
       const serviceNames = res.data.map((service: any) => service.tab_label);
-      console.log("hello======",serviceNames[0])
       setServices(serviceNames);
       setSelectedServices([serviceNames[0]])
     } catch (error) {

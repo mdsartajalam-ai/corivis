@@ -69,7 +69,7 @@ export default function ServiceCard({
       style={{ zIndex: index + 1 }}
     >
       <motion.div className={styles.shell}>
-        <div 
+        <div
           // className={`${styles.card} ${styles[`card_${theme}`]}`}
           className={`${styles.card}`}
           style={{
@@ -117,8 +117,8 @@ export default function ServiceCard({
               className={`${styles.img_wrap}`}
               style={{
                 boxShadow:
-                item.btn_color ?
-                `0 20px 44px -12px ${item.btn_color}66` : 'none'
+                  item.btn_color ?
+                    `0 20px 44px -12px ${item.btn_color}66` : 'none'
               }}
             >
               {/* <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} /> */}

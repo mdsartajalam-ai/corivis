@@ -66,7 +66,7 @@ export const consultationValidator = (data: FormType) => {
         status.message = "Atleast one service required";
         return status;
     }
-    
+
     if (data.services.length === 0) {
         status.isValid = false;
         status.message = "Choose atleast one service";

@@ -55,15 +55,15 @@ export default function Header() {
 
         <nav className={styles.desktop_nav} aria-label="Primary">
           {navLink.map((link) =>
-            (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={styles.nav_link}
-              >
-                {link.label}
-              </Link>
-            )
+          (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={styles.nav_link}
+            >
+              {link.label}
+            </Link>
+          )
             // link.href === "#contact" ? (
             //   <button
             //     key={link.href}

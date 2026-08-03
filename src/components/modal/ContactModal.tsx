@@ -50,7 +50,7 @@ export default function ContactModal({ isOpen, onClose }: ConnectModalProps) {
     try {
 
       const status = contactValidator(formData);
-      if(!status.isValid) return toast.error(status.message);
+      if (!status.isValid) return toast.error(status.message);
       const newFormData = cleanedData(formData);
 
       setIsSubmitting(true);

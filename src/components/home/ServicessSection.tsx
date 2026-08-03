@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
 import ServiceCard from "./ServiceCard";
 import { useScroll } from "framer-motion";
-import { serviceList } from "@/data/iocn";
 import styles from "./servicess.module.css";
 import { ServiceType } from "@/types/service";
+import BodyLoader from "../loader/BodyLoader";
 import SubHeading from "../heading/SubHeading";
 import * as MuiIcons from "@mui/icons-material";
 import { useEffect, useRef, useState } from "react";
@@ -24,6 +24,7 @@ export default function ServicessSection() {
 
   const [services, setServices] = useState([]);
   const [totalCount, setTotalCount] = useState(-1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: stackRef,
@@ -62,11 +63,11 @@ export default function ServicessSection() {
 
   const getServices = async () => {
     try {
-      // setIsLoading(true);
+      setIsLoading(true);
       const response = await fetch("/api/service");
 
       const res = await response.json();
-      // setIsLoading(false);
+      setIsLoading(false);
       if (!response.ok) return toast.error(res.message);
 
       setServices(res.data);
@@ -83,6 +84,7 @@ export default function ServicessSection() {
 
   return (
     <section className={styles.container}>
+      {isLoading && <BodyLoader />}
       <div ref={headerRef} className={styles.sticky_area}>
         <div className={styles.header}>
           <SubHeading text="Our Services" />
@@ -105,7 +107,7 @@ export default function ServicessSection() {
                     style={{
                       borderColor: isActive ? 'rgb(255, 255, 255)' : `#e2e6ec`,
                       color: isActive ? 'rgb(255, 255, 255)' : `#3d4552`,
-                      background: (item?.btn_color && isActive) ? 
+                      background: (item?.btn_color && isActive) ?
                         item?.btn_color : 'rgb(255, 255, 255)',
                     }}
                     className={`${styles.tab}`}

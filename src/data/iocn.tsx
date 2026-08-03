@@ -1,6 +1,5 @@
 import XIcon from "@mui/icons-material/X";
 import AppleIcon from "@mui/icons-material/Apple";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import RedditIcon from "@mui/icons-material/Reddit";
 import Grid3x3Icon from "@mui/icons-material/Grid3x3";
 import DevicesIcon from "@mui/icons-material/Devices";
@@ -33,7 +32,7 @@ export const socialLink = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/corivis/",
-    icon: <LinkedInIcon/>,
+    icon: <LinkedInIcon />,
   },
   {
     label: "Dribbble",
@@ -43,12 +42,12 @@ export const socialLink = [
   {
     label: "X",
     href: "https://x.com/CorivisLLP",
-    icon: <XIcon/>,
+    icon: <XIcon />,
   },
   {
     label: "Reddit",
     href: "https://www.reddit.com/user/Corivis-Engineering/",
-    icon: <RedditIcon/>,
+    icon: <RedditIcon />,
   },
   {
     label: "Medium",

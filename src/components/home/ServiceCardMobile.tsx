@@ -63,7 +63,7 @@ export default function ServiceCardMobile({
         onClick={onToggle}
         className={`${styles.item_head} `}
         style={{
-          borderColor: isActive ? 'rgb(255, 255, 255)' :  `#e2e6ec`,
+          borderColor: isActive ? 'rgb(255, 255, 255)' : `#e2e6ec`,
           color: isActive ? 'rgb(255, 255, 255)' : `#3d4552`,
           background: (item?.btn_color && isActive) ?
             item?.btn_color : 'rgb(255, 255, 255)',
@@ -105,8 +105,8 @@ export default function ServiceCardMobile({
               className={`${styles.img_wrap}`}
               style={{
                 boxShadow:
-                item.btn_color ?
-                `0 20px 44px -12px ${item.btn_color}66` : 'none'
+                  item.btn_color ?
+                    `0 20px 44px -12px ${item.btn_color}66` : 'none'
               }}
             >
               {/* <span className={`${styles.ring} ${styles[`ring_${theme}`]}`} /> */}
@@ -132,7 +132,7 @@ export default function ServiceCardMobile({
               style={{
                 "--btn-color": item.btn_color || "#1976d2",
               } as React.CSSProperties}
-              
+
             >
               <span>Download Brochure</span>
               <DescriptionIcon fontSize="small" />

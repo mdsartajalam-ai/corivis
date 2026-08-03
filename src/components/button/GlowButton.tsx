@@ -36,7 +36,7 @@ const GlowButton = ({
           {endIcon}
         </div>
       ) : (
-        <ButtonLoader/>
+        <ButtonLoader />
       )}
     </button>
   );

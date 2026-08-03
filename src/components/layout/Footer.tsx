@@ -8,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import { servicesList, quickLinks } from "@/data/header";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 
-
 export default function Footer() {
   const [show_scroll_top, setShowScrollTop] = useState(false);
 
@@ -31,17 +30,16 @@ export default function Footer() {
       <IconButton
         aria-label="Scroll to top"
         onClick={scroll_to_top}
-        className={`${styles.scroll_top_btn} ${
-          show_scroll_top ? styles.scroll_top_btn_visible : ""
-        }`}
+        className={`${styles.scroll_top_btn} ${show_scroll_top ? styles.scroll_top_btn_visible : ""
+          }`}
       >
         <KeyboardDoubleArrowUpIcon />
       </IconButton>
 
       <div className={styles.footer_container}>
         <div className={styles.footer_brand}>
-          <Link 
-            href="" 
+          <Link
+            href=""
             className={styles.logo_wrapper}
           >
             <Image
@@ -63,8 +61,8 @@ export default function Footer() {
             <h3 className={styles.footer_heading}>Services</h3>
             <ul className={styles.footer_list}>
               {servicesList.map((service_item) => (
-                <li 
-                  key={service_item} 
+                <li
+                  key={service_item}
                   className={styles.footer_list_item}
                 >
                   <Link
@@ -87,8 +85,8 @@ export default function Footer() {
                   key={quick_item.label}
                   className={styles.footer_list_item}
                 >
-                  <Link 
-                    href={quick_item.href} 
+                  <Link
+                    href={quick_item.href}
                     className={styles.footer_link}
                   >
                     {quick_item.label}
@@ -118,7 +116,7 @@ export default function Footer() {
 
           <div className={styles.footer_column}>
             <h3 className={styles.footer_heading}>Follow Us</h3>
-            <SocialIcon/>
+            <SocialIcon />
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Loader from "@/assets/preloader.gif";
 
-const ButtonLoader = () => {
+const BodyLoader = () => {
   return (
-    <div className="button-lader">
+    <div className="body-lader">
       <Image
         width={100}
         height={100}
@@ -14,4 +14,4 @@ const ButtonLoader = () => {
   )
 }
 
-export default ButtonLoader;
+export default BodyLoader;

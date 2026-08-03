@@ -25,7 +25,7 @@ const ChipSelector = ({
             key={label}
             type="button"
             onClick={() => onSelect(label)}
-            className={`${styles.modal_chip} ${isSelected ? styles.modal_chip_active : ""}`}aria-pressed={isSelected}
+            className={`${styles.modal_chip} ${isSelected ? styles.modal_chip_active : ""}`} aria-pressed={isSelected}
           >
             {label}
           </button>
