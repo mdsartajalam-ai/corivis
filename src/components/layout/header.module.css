@@ -1,8 +1,8 @@
 .header {
-  top: 0;
+  /* top: 0; */
   width: 100%;
   z-index: 300;
-  position: fixed;
+  /* position: fixed; */
   box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
 }
 .desktop_bar {
@@ -18,7 +18,7 @@
   position: relative;
   font-size: 16px;
   font-weight: 600;
-  color: var(--black-90);
+  color: black;
   text-decoration: none;
   padding: 6px 0;
   letter-spacing: 0.1px;
@@ -107,6 +107,15 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .mobile_bar.scrolled .icon_toggle {
+  color: var(--sky-90) !important;
+  border: 1.5px solid var(--sky-90) !important;
+}
+.desktop_bar.scrolled {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--zinc-40);
+}
+.desktop_bar.scrolled .icon_toggle {
   color: var(--sky-90) !important;
   border: 1.5px solid var(--sky-90) !important;
 }
@@ -238,7 +247,7 @@
     display: none;
   }
   .desktop_bar {
-    position: static;
+    position: fixed;
     top: 0;
     display: flex;
     align-items: center;
@@ -246,7 +255,10 @@
     gap: 24px;
     padding: 15px 32px;
     background: var(--white);
-    border-bottom: 1px solid var(--zinc-40);
+    background-color: transparent;
+    
+    width: 100%;
+    z-index: 300;
   }
   .desktop_nav {
     gap: 24px;

@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.desktop_bar}>
+      <div className={`${styles.desktop_bar} ${scrolled ? styles.scrolled : ""}`}>
         <Link href="/" className={styles.logo_wrapper}>
           <Image
             fill
